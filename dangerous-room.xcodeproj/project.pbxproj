@@ -16,6 +16,9 @@
 		045A40611EFE45E400C34141 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045A405F1EFE45E400C34141 /* LaunchScreen.storyboard */; };
 		045A406C1EFE45E500C34141 /* Dangerous_RoomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A406B1EFE45E500C34141 /* Dangerous_RoomTests.swift */; };
 		045A40771EFE45E500C34141 /* Dangerous_RoomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A40761EFE45E500C34141 /* Dangerous_RoomUITests.swift */; };
+		7988C18336AB22E47296E67E /* Pods_dangerous_roomTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13C96E9D61FEBBA606B5CF2 /* Pods_dangerous_roomTests.framework */; };
+		87864603377026796B71AE09 /* Pods_dangerous_room.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01EBBB39A794A706028E8D83 /* Pods_dangerous_room.framework */; };
+		DEE26D90A6F44BA51E3BABAE /* Pods_dangerous_roomUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD12C56236E658E604946F1 /* Pods_dangerous_roomUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01EBBB39A794A706028E8D83 /* Pods_dangerous_room.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dangerous_room.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		040F71F51EFED1010082963D /* TasksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
 		040F71F71EFED2870082963D /* TaskEditTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskEditTableViewController.swift; sourceTree = "<group>"; };
 		040F71F91EFEDC0B0082963D /* TaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +55,14 @@
 		045A40721EFE45E500C34141 /* dangerous-roomUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dangerous-roomUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		045A40761EFE45E500C34141 /* Dangerous_RoomUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dangerous_RoomUITests.swift; sourceTree = "<group>"; };
 		045A40781EFE45E500C34141 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CD12C56236E658E604946F1 /* Pods_dangerous_roomUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dangerous_roomUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EEC0A4D59785ED60BFC3301 /* Pods-dangerous-roomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-roomTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-roomTests/Pods-dangerous-roomTests.release.xcconfig"; sourceTree = "<group>"; };
+		6A3A65E8096110CD996DF87E /* Pods-dangerous-roomUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-roomUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-roomUITests/Pods-dangerous-roomUITests.release.xcconfig"; sourceTree = "<group>"; };
+		967B27EE3F05504291098304 /* Pods-dangerous-room.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-room.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-room/Pods-dangerous-room.debug.xcconfig"; sourceTree = "<group>"; };
+		C13C96E9D61FEBBA606B5CF2 /* Pods_dangerous_roomTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dangerous_roomTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2BE9ADA5F67DFA15734C496 /* Pods-dangerous-room.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-room.release.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-room/Pods-dangerous-room.release.xcconfig"; sourceTree = "<group>"; };
+		CD90A695983E6624FDC9418C /* Pods-dangerous-roomUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-roomUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-roomUITests/Pods-dangerous-roomUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E4A45439B00C95A5769CE570 /* Pods-dangerous-roomTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-roomTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-roomTests/Pods-dangerous-roomTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87864603377026796B71AE09 /* Pods_dangerous_room.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7988C18336AB22E47296E67E /* Pods_dangerous_roomTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEE26D90A6F44BA51E3BABAE /* Pods_dangerous_roomUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +100,8 @@
 				045A406A1EFE45E500C34141 /* dangerous-roomTests */,
 				045A40751EFE45E500C34141 /* dangerous-roomUITests */,
 				045A40521EFE45E400C34141 /* Products */,
+				48B1ADBC207F813F6F914DB5 /* Pods */,
+				64ACD5DF0C06132CEF3627AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +148,29 @@
 			path = "dangerous-roomUITests";
 			sourceTree = "<group>";
 		};
+		48B1ADBC207F813F6F914DB5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				967B27EE3F05504291098304 /* Pods-dangerous-room.debug.xcconfig */,
+				C2BE9ADA5F67DFA15734C496 /* Pods-dangerous-room.release.xcconfig */,
+				E4A45439B00C95A5769CE570 /* Pods-dangerous-roomTests.debug.xcconfig */,
+				4EEC0A4D59785ED60BFC3301 /* Pods-dangerous-roomTests.release.xcconfig */,
+				CD90A695983E6624FDC9418C /* Pods-dangerous-roomUITests.debug.xcconfig */,
+				6A3A65E8096110CD996DF87E /* Pods-dangerous-roomUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		64ACD5DF0C06132CEF3627AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				01EBBB39A794A706028E8D83 /* Pods_dangerous_room.framework */,
+				C13C96E9D61FEBBA606B5CF2 /* Pods_dangerous_roomTests.framework */,
+				0CD12C56236E658E604946F1 /* Pods_dangerous_roomUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 045A407B1EFE45E500C34141 /* Build configuration list for PBXNativeTarget "dangerous-room" */;
 			buildPhases = (
+				B7B28CB41F3C028700C89000 /* [CP] Check Pods Manifest.lock */,
 				045A404D1EFE45E400C34141 /* Sources */,
 				045A404E1EFE45E400C34141 /* Frameworks */,
 				045A404F1EFE45E400C34141 /* Resources */,
+				37C84E0031956DE922917096 /* [CP] Embed Pods Frameworks */,
+				23FF7DF24C2E3C25C40A08EF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -155,9 +198,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 045A407E1EFE45E500C34141 /* Build configuration list for PBXNativeTarget "dangerous-roomTests" */;
 			buildPhases = (
+				4E1EA9542C1213687D6A7FB4 /* [CP] Check Pods Manifest.lock */,
 				045A40631EFE45E500C34141 /* Sources */,
 				045A40641EFE45E500C34141 /* Frameworks */,
 				045A40651EFE45E500C34141 /* Resources */,
+				837CF4868FD4635789A9A940 /* [CP] Embed Pods Frameworks */,
+				4F6BD67959C8B314685C508C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -173,9 +219,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 045A40811EFE45E500C34141 /* Build configuration list for PBXNativeTarget "dangerous-roomUITests" */;
 			buildPhases = (
+				48A098952E39E47C62DCBDA6 /* [CP] Check Pods Manifest.lock */,
 				045A406E1EFE45E500C34141 /* Sources */,
 				045A406F1EFE45E500C34141 /* Frameworks */,
 				045A40701EFE45E500C34141 /* Resources */,
+				2BAF0836E6A95A87BE7528BD /* [CP] Embed Pods Frameworks */,
+				31E1DA495781920477C09616 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -260,6 +309,158 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23FF7DF24C2E3C25C40A08EF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-room/Pods-dangerous-room-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2BAF0836E6A95A87BE7528BD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-roomUITests/Pods-dangerous-roomUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		31E1DA495781920477C09616 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-roomUITests/Pods-dangerous-roomUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		37C84E0031956DE922917096 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-room/Pods-dangerous-room-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/LatoFont/LatoFont.framework",
+				"${BUILT_PRODUCTS_DIR}/MGSwipeTableCell/MGSwipeTableCell.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LatoFont.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSwipeTableCell.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-room/Pods-dangerous-room-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		48A098952E39E47C62DCBDA6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dangerous-roomUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E1EA9542C1213687D6A7FB4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dangerous-roomTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F6BD67959C8B314685C508C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-roomTests/Pods-dangerous-roomTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		837CF4868FD4635789A9A940 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-roomTests/Pods-dangerous-roomTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7B28CB41F3C028700C89000 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dangerous-room-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		045A404D1EFE45E400C34141 /* Sources */ = {
@@ -421,6 +622,7 @@
 		};
 		045A407C1EFE45E500C34141 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 967B27EE3F05504291098304 /* Pods-dangerous-room.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4JGC49HX97;
@@ -429,11 +631,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "st.porter.dangerous-room";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		045A407D1EFE45E500C34141 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2BE9ADA5F67DFA15734C496 /* Pods-dangerous-room.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4JGC49HX97;
@@ -442,11 +646,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "st.porter.dangerous-room";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		045A407F1EFE45E500C34141 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4A45439B00C95A5769CE570 /* Pods-dangerous-roomTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -461,6 +667,7 @@
 		};
 		045A40801EFE45E500C34141 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EEC0A4D59785ED60BFC3301 /* Pods-dangerous-roomTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -475,6 +682,7 @@
 		};
 		045A40821EFE45E500C34141 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD90A695983E6624FDC9418C /* Pods-dangerous-roomUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = "Dangerous RoomUITests/Info.plist";
@@ -488,6 +696,7 @@
 		};
 		045A40831EFE45E500C34141 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A3A65E8096110CD996DF87E /* Pods-dangerous-roomUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = "Dangerous RoomUITests/Info.plist";
