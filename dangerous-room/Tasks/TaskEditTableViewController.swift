@@ -13,13 +13,14 @@ class TaskEditTableViewController: UITableViewController {
     @IBOutlet var dateField: UITextField!
     @IBOutlet var startTimeField: UITextField!
     @IBOutlet var endTimeField: UITextField!
-
+    @IBOutlet weak var taskDescriptionField: UITextField!
+    
     var datePicker = UIDatePicker(),
         startTimePicker = UIDatePicker(),
         endTimePicker = UIDatePicker()
     
     var taskToEdit: Task?
-    var tasksDatastor: TasksDatastore?
+    var tasksDatastore: TasksDatastore?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,25 @@ class TaskEditTableViewController: UITableViewController {
         endTimePicker.datePickerMode = .time
         endTimePicker.addTarget(self, action: #selector(changeFieldValue), for: .valueChanged)
         endTimeField.inputView = endTimePicker
-        
+
+        if let task = taskToEdit {
+//            let dateFormatter:DateFormatter = DateFormatter()
+//            dateFormatter.dateFormat = "MM/dd/YY" // "HH:mm"
+//
+//            let timeFormatter = DateFormatter()
+//            timeFormatter.timeStyle = DateFormatter.Style.short
+            
+//            let formattedDate = dateFormatter.string(from: task.date as Date)
+//
+//            let startDate = dateFormatter.string(from: task.date as Date)
+//            let startTime = timeFormatter.string(from: task.date as Date)
+//            let endTime = timeFormatter.string(from: task.date.addingTimeInterval(TimeInterval(task.duration)) as Date)
+            
+            datePicker.setDate(task.date as Date, animated: false)
+            taskDescriptionField.text = task.description
+//            taskTimeLabel.text = "\(startTime) - \(endTime)"
+        }
+
         dateField.becomeFirstResponder()
     }
 

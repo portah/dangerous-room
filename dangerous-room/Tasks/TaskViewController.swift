@@ -12,8 +12,7 @@ class TaskViewController: UIViewController {
     var started = false
     
     @IBOutlet var playButton: UIButton!
-
- 
+    
     @IBOutlet weak var taskDescriptionLabel: UILabel!
     @IBOutlet weak var taskDateLabel: UILabel!
     @IBOutlet weak var taskTimeLabel: UILabel!
@@ -23,27 +22,32 @@ class TaskViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         playButton.layer.cornerRadius = playButton.frame.size.width / 2
         playButton.layer.masksToBounds = true
         playButton.layer.borderWidth = 1.0
         playButton.layer.borderColor = playButton.tintColor.cgColor
         
         if let task = taskToEdit {
-            print("Task: \(taskToEdit)")
-            taskDescriptionLabel.text = task.description
-
             let dateFormatter:DateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM/dd/YY" // "HH:mm"
-
+            
+            let timeFormatter = DateFormatter()
+            timeFormatter.timeStyle = DateFormatter.Style.short
+            
             let formattedDate = dateFormatter.string(from: task.date as Date)
-                taskDateLabel.text = "\(formattedDate)"
+            taskDateLabel.text = "\(formattedDate)"
+            
+            let startDate = dateFormatter.string(from: task.date as Date)
+            let startTime = timeFormatter.string(from: task.date as Date)
+            let endTime = timeFormatter.string(from: task.date.addingTimeInterval(TimeInterval(task.duration)) as Date)
+            
+            taskDateLabel.text = startDate
+            taskDescriptionLabel.text = task.description
+            taskTimeLabel.text = "\(startTime) - \(endTime)"
         }
-
-        // playButton.tintColor = UIColor.white
-        // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -55,16 +59,26 @@ class TaskViewController: UIViewController {
         playButton.setImage(UIImage(named: started ? "Stop" : "Play"), for: UIControlState.normal)
     }
     
+    @IBAction func editTaskButtonPressed(_ sender: Any) {
+    }
     
-
-    /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        guard let identifier = segue.identifier,
+            let destinationController = segue.destination as? UINavigationController,
+            let destinationEditController = destinationController.viewControllers.first as? TaskEditTableViewController
+            else {
+                return
+        }
+        
+        destinationEditController.title = "Edit Task"
+        destinationEditController.tasksDatastore = tasksDatastore
+        destinationEditController.taskToEdit = taskToEdit
     }
-    */
-
+    
 }

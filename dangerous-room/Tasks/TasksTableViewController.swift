@@ -81,67 +81,18 @@ class TasksTableViewController: UITableViewController {
         return cell
     }
     
-//    // method to run when table view cell is tapped
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if let _task = tasks?[indexPath.row] {
-//            selectedTask = _task
-//            print("Tapped")
-//        }
-//
-//        // Segue to the second view controller
-//        //        self.performSegue(withIdentifier: "yourSegue", sender: self)
-//    }
-//
-    private func setupButtonsForCell(cell: MGSwipeTableCell, task: Task) {
-        cell.rightButtons = [
-//            MGSwipeButton(title: "Edit",
-//                          backgroundColor: UIColor.blue,
-//                          padding: 30) {
-//                            [weak self] sender in self?.editButtonPressed(task: task)
-//                            return true
-//            },
-            MGSwipeButton(title: "Delete",
-                          backgroundColor: UIColor.red,
-                          padding: 30) {
-                            [weak self] sender in self?.deleteButtonPressed(task: task)
-                            return true
-            }
-        ]
-        
-        cell.rightExpansion.buttonIndex = 0
-        cell.leftButtons = [
-            MGSwipeButton(title: "Done",
-                          backgroundColor: UIColor.green,
-                          padding: 30) {
-                            [weak self] sender in self?.doneButtonPressed(task: task)
-                            return true
-            } ]
-        cell.leftExpansion.buttonIndex = 0
-    }
-    
-    fileprivate func renderCell(_ cell:UITableViewCell, task: Task){
-        
-        let dateFormatter:DateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/YY" // "HH:mm"
-        
-        let timeFormatter = DateFormatter()
-        timeFormatter.timeStyle = DateFormatter.Style.short
-        
-        //startTimeField.text = timeFormatter.string(from: sender.date)
-        
-        let startDate = dateFormatter.string(from: task.date as Date)
-        let startTime = timeFormatter.string(from: task.date as Date)
-        let endTime = timeFormatter.string(from: task.date.addingTimeInterval(TimeInterval(task.duration)) as Date)
-        
-        cell.detailTextLabel?.text = "\(startDate) \(startTime) - \(endTime)"
-        cell.textLabel?.text = task.description
-        
-        //            cell.textLabel?.text = _task.description
-        //            cell.detailTextLabel?.text = "\(startTime) — \(endTime)"
-        
-        //        cell.accessoryType = .checkmark
-        cell.accessoryType = task.completed ? .checkmark : .none
-    }
+    /*
+     // method to run when table view cell is tapped
+     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     if let _task = tasks?[indexPath.row] {
+     selectedTask = _task
+     print("Tapped")
+     }
+     
+     // Segue to the second view controller
+     //        self.performSegue(withIdentifier: "yourSegue", sender: self)
+     }
+     */
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -177,6 +128,56 @@ class TasksTableViewController: UITableViewController {
      }
      */
     
+    
+    private func setupButtonsForCell(cell: MGSwipeTableCell, task: Task) {
+        cell.rightButtons = [
+            //            MGSwipeButton(title: "Edit",
+            //                          backgroundColor: UIColor.blue,
+            //                          padding: 30) {
+            //                            [weak self] sender in self?.editButtonPressed(task: task)
+            //                            return true
+            //            },
+            MGSwipeButton(title: "Delete",
+                          backgroundColor: UIColor.red,
+                          padding: 30) {
+                            [weak self] sender in self?.deleteButtonPressed(task: task)
+                            return true
+            }
+        ]
+        
+        cell.rightExpansion.buttonIndex = 0
+        cell.leftButtons = [
+            MGSwipeButton(title: "Done",
+                          backgroundColor: UIColor.green,
+                          padding: 30) {
+                            [weak self] sender in self?.doneButtonPressed(task: task)
+                            return true
+            } ]
+        cell.leftExpansion.buttonIndex = 0
+    }
+    
+    fileprivate func renderCell(_ cell:UITableViewCell, task: Task){
+        
+        let dateFormatter:DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/YY" // "HH:mm"
+        
+        let timeFormatter = DateFormatter()
+        timeFormatter.timeStyle = DateFormatter.Style.short
+        
+        let startDate = dateFormatter.string(from: task.date as Date)
+        let startTime = timeFormatter.string(from: task.date as Date)
+        let endTime = timeFormatter.string(from: task.date.addingTimeInterval(TimeInterval(task.duration)) as Date)
+        
+        cell.detailTextLabel?.text = "\(startDate) \(startTime) - \(endTime)"
+        cell.textLabel?.text = task.description
+        
+        //            cell.textLabel?.text = _task.description
+        //            cell.detailTextLabel?.text = "\(startTime) — \(endTime)"
+        
+        //        cell.accessoryType = .checkmark
+        cell.accessoryType = task.completed ? .checkmark : .none
+    }
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -190,22 +191,14 @@ class TasksTableViewController: UITableViewController {
         }
         
         destinationViewController.tasksDatastore = tasksDatastore
-        destinationViewController.taskToEdit = selectedTask
         
-        if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
+        if let cell = sender as? UITableViewCell,
+            let indexPath = tableView.indexPath(for: cell) {
             if let _task = tasks?[indexPath.row] {
-                selectedTask = _task
                 destinationViewController.taskToEdit = _task
-                print("Tapped")
             }
-
         }
-        
-        
-        print("\(selectedTask)")
         selectedTask = nil
-        print("\(identifier)") //editTask
-        
         //        switch identifier {
         //        case "addTodo":
         //            destinationViewController.title = "New Todo"
