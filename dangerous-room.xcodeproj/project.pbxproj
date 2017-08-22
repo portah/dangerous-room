@@ -16,6 +16,8 @@
 		045A40611EFE45E400C34141 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045A405F1EFE45E400C34141 /* LaunchScreen.storyboard */; };
 		045A406C1EFE45E500C34141 /* Dangerous_RoomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A406B1EFE45E500C34141 /* Dangerous_RoomTests.swift */; };
 		045A40771EFE45E500C34141 /* Dangerous_RoomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A40761EFE45E500C34141 /* Dangerous_RoomUITests.swift */; };
+		61AC0BC41F44EF4900AE0924 /* TasksEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AC0BC31F44EF4900AE0924 /* TasksEntity.swift */; };
+		61AC0BC71F44F2DE00AE0924 /* TasksDatastore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AC0BC61F44F2DE00AE0924 /* TasksDatastore.swift */; };
 		7988C18336AB22E47296E67E /* Pods_dangerous_roomTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13C96E9D61FEBBA606B5CF2 /* Pods_dangerous_roomTests.framework */; };
 		87864603377026796B71AE09 /* Pods_dangerous_room.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01EBBB39A794A706028E8D83 /* Pods_dangerous_room.framework */; };
 		DEE26D90A6F44BA51E3BABAE /* Pods_dangerous_roomUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD12C56236E658E604946F1 /* Pods_dangerous_roomUITests.framework */; };
@@ -57,6 +59,8 @@
 		045A40781EFE45E500C34141 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CD12C56236E658E604946F1 /* Pods_dangerous_roomUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dangerous_roomUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EEC0A4D59785ED60BFC3301 /* Pods-dangerous-roomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-roomTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-roomTests/Pods-dangerous-roomTests.release.xcconfig"; sourceTree = "<group>"; };
+		61AC0BC31F44EF4900AE0924 /* TasksEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksEntity.swift; sourceTree = "<group>"; };
+		61AC0BC61F44F2DE00AE0924 /* TasksDatastore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksDatastore.swift; sourceTree = "<group>"; };
 		6A3A65E8096110CD996DF87E /* Pods-dangerous-roomUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-roomUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-roomUITests/Pods-dangerous-roomUITests.release.xcconfig"; sourceTree = "<group>"; };
 		967B27EE3F05504291098304 /* Pods-dangerous-room.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-room.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-room/Pods-dangerous-room.debug.xcconfig"; sourceTree = "<group>"; };
 		C13C96E9D61FEBBA606B5CF2 /* Pods_dangerous_roomTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dangerous_roomTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,11 +122,9 @@
 		045A40531EFE45E400C34141 /* dangerous-room */ = {
 			isa = PBXGroup;
 			children = (
+				61AC0BC51F44F29500AE0924 /* Tasks */,
 				045A40541EFE45E400C34141 /* AppDelegate.swift */,
 				045A405A1EFE45E400C34141 /* Main.storyboard */,
-				040F71F91EFEDC0B0082963D /* TaskViewController.swift */,
-				040F71F71EFED2870082963D /* TaskEditTableViewController.swift */,
-				040F71F51EFED1010082963D /* TasksTableViewController.swift */,
 				045A405D1EFE45E400C34141 /* Assets.xcassets */,
 				045A405F1EFE45E400C34141 /* LaunchScreen.storyboard */,
 				045A40621EFE45E400C34141 /* Info.plist */,
@@ -159,6 +161,18 @@
 				6A3A65E8096110CD996DF87E /* Pods-dangerous-roomUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		61AC0BC51F44F29500AE0924 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				040F71F91EFEDC0B0082963D /* TaskViewController.swift */,
+				040F71F71EFED2870082963D /* TaskEditTableViewController.swift */,
+				040F71F51EFED1010082963D /* TasksTableViewController.swift */,
+				61AC0BC31F44EF4900AE0924 /* TasksEntity.swift */,
+				61AC0BC61F44F2DE00AE0924 /* TasksDatastore.swift */,
+			);
+			path = Tasks;
 			sourceTree = "<group>";
 		};
 		64ACD5DF0C06132CEF3627AF /* Frameworks */ = {
@@ -467,7 +481,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61AC0BC41F44EF4900AE0924 /* TasksEntity.swift in Sources */,
 				040F71F61EFED1010082963D /* TasksTableViewController.swift in Sources */,
+				61AC0BC71F44F2DE00AE0924 /* TasksDatastore.swift in Sources */,
 				040F71FA1EFEDC0B0082963D /* TaskViewController.swift in Sources */,
 				045A40551EFE45E400C34141 /* AppDelegate.swift in Sources */,
 				040F71F81EFED2870082963D /* TaskEditTableViewController.swift in Sources */,

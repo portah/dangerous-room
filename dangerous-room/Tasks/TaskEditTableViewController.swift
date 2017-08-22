@@ -18,6 +18,8 @@ class TaskEditTableViewController: UITableViewController {
         startTimePicker = UIDatePicker(),
         endTimePicker = UIDatePicker()
     
+    var taskToEdit: Task?
+    var tasksDatastor: TasksDatastore?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +33,7 @@ class TaskEditTableViewController: UITableViewController {
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(changeFieldValue), for: .valueChanged)
         dateField.inputView = datePicker
-        
-        
+                
         startTimePicker.datePickerMode = .time
         startTimePicker.addTarget(self, action: #selector(changeFieldValue), for: .valueChanged)
         startTimeField.inputView = startTimePicker

@@ -13,6 +13,14 @@ class TaskViewController: UIViewController {
     
     @IBOutlet var playButton: UIButton!
 
+ 
+    @IBOutlet weak var taskDescriptionLabel: UILabel!
+    @IBOutlet weak var taskDateLabel: UILabel!
+    @IBOutlet weak var taskTimeLabel: UILabel!
+    
+    var taskToEdit: Task?
+    var tasksDatastore: TasksDatastore?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +28,19 @@ class TaskViewController: UIViewController {
         playButton.layer.masksToBounds = true
         playButton.layer.borderWidth = 1.0
         playButton.layer.borderColor = playButton.tintColor.cgColor
-//        playButton.tintColor = UIColor.white
+        
+        if let task = taskToEdit {
+            print("Task: \(taskToEdit)")
+            taskDescriptionLabel.text = task.description
+
+            let dateFormatter:DateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/YY" // "HH:mm"
+
+            let formattedDate = dateFormatter.string(from: task.date as Date)
+                taskDateLabel.text = "\(formattedDate)"
+        }
+
+        // playButton.tintColor = UIColor.white
         // Do any additional setup after loading the view.
     }
 
