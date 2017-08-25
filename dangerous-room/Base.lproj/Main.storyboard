@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
+        <deployment version="4352" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -38,7 +38,7 @@
         <scene sceneID="Yip-WB-PKL">
             <objects>
                 <tableViewController id="Y76-wd-08C" userLabel="Task Edit Table View Controller" customClass="TaskEditTableViewController" customModule="dangerous_room" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Yja-aD-E3y">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Yja-aD-E3y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -49,12 +49,12 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cSu-cQ-HLd">
                                         <rect key="frame" x="0.0" y="35" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cSu-cQ-HLd" id="0YQ-bm-bRx">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="cSu-cQ-HLd" id="0YQ-bm-bRx">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ODO-Ag-nbp">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <rect key="frame" x="8" y="0.0" width="359" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="28" id="Ja9-2J-fcK"/>
                                                     </constraints>
@@ -63,6 +63,12 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="ODO-Ag-nbp" secondAttribute="bottom" constant="8" id="3XC-cr-fxB"/>
+                                                <constraint firstItem="ODO-Ag-nbp" firstAttribute="top" secondItem="0YQ-bm-bRx" secondAttribute="top" constant="5" id="FkY-xK-mTa"/>
+                                                <constraint firstAttribute="trailing" secondItem="ODO-Ag-nbp" secondAttribute="trailing" constant="8" id="GXT-ns-Vhu"/>
+                                                <constraint firstItem="ODO-Ag-nbp" firstAttribute="leading" secondItem="0YQ-bm-bRx" secondAttribute="leading" constant="8" id="noI-qL-iUB"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cHW-ay-eky">
@@ -203,10 +209,14 @@
                     <navigationItem key="navigationItem" title="New Task" id="MsG-Zu-rdQ">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Irq-D3-IO3">
                             <connections>
-                                <action selector="cancelAction:" destination="Y76-wd-08C" id="ZqC-94-qHd"/>
+                                <action selector="cancelAction:" destination="Y76-wd-08C" id="Rt6-SU-lop"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="BfO-zp-Nma"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="LMd-hi-kRA">
+                            <connections>
+                                <action selector="saveAction:" destination="Y76-wd-08C" id="nHZ-V6-MHf"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dateField" destination="xIi-ie-UDN" id="sPT-dj-7Tm"/>
@@ -280,7 +290,6 @@
                     <navigationItem key="navigationItem" title="Tasks" id="JQp-bn-wgq">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="kAh-qJ-PUU">
                             <connections>
-                                <action selector="addTaskButtonPressed:" destination="LCl-zb-loV" id="eng-8N-NPf"/>
                                 <segue destination="SIS-bM-7dk" kind="presentation" identifier="addTask" id="LxD-hX-ilA"/>
                             </connections>
                         </barButtonItem>
@@ -389,7 +398,6 @@
                     <navigationItem key="navigationItem" title="Task" id="jNa-J9-W1l">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="UQF-QU-939">
                             <connections>
-                                <action selector="editTaskButtonPressed:" destination="vAq-Og-fPS" id="rAY-Zx-14n"/>
                                 <segue destination="SIS-bM-7dk" kind="presentation" identifier="editTask" animates="NO" id="nof-YL-P4m"/>
                             </connections>
                         </barButtonItem>
@@ -566,6 +574,6 @@
         <image name="Time" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nof-YL-P4m"/>
+        <segue reference="LxD-hX-ilA"/>
     </inferredMetricsTieBreakers>
 </document>

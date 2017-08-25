@@ -9,11 +9,10 @@
 import UIKit
 import MGSwipeTableCell
 
-//@objc(TasksTableViewController)
 class TasksTableViewController: UITableViewController {
     
     fileprivate var tasksDatastore: TasksDatastore?
-    fileprivate var tasks: [Task]?
+    fileprivate var tasks: [Task] = []
     fileprivate var selectedTask: Task?
     
     override func viewDidLoad() {
@@ -30,6 +29,10 @@ class TasksTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         refresh()
+        print("viewWillAppear")
+        for i in tasks {
+            print("\(i.id)")
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,11 +44,13 @@ class TasksTableViewController: UITableViewController {
         super.init(coder: aDecoder)
     }
     
+    
     // MARK: - Configure
     
     func configure(tasksDatastore: TasksDatastore) {
         self.tasksDatastore = tasksDatastore
     }
+    
     
     // MARK: - Internal Functions
     fileprivate func refresh() {
@@ -67,16 +72,16 @@ class TasksTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return tasks?.count ?? 0 //dummyItems.count
+        return tasks.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TasksCell", for: indexPath) as! MGSwipeTableCell
         
-        if let _task = tasks?[indexPath.row] {
-            renderCell(cell, task: _task)
-            setupButtonsForCell(cell: cell, task: _task)
-        }
+        let _task = tasks[indexPath.row]
+        renderCell(cell, task: _task)
+        setupButtonsForCell(cell: cell, task: _task)
+        
         
         return cell
     }
@@ -131,12 +136,12 @@ class TasksTableViewController: UITableViewController {
     
     private func setupButtonsForCell(cell: MGSwipeTableCell, task: Task) {
         cell.rightButtons = [
-            //            MGSwipeButton(title: "Edit",
-            //                          backgroundColor: UIColor.blue,
-            //                          padding: 30) {
-            //                            [weak self] sender in self?.editButtonPressed(task: task)
-            //                            return true
-            //            },
+            MGSwipeButton(title: "Edit",
+                          backgroundColor: UIColor.blue,
+                          padding: 30) {
+                            [weak self] sender in self?.editButtonPressed(task: task)
+                            return true
+            },
             MGSwipeButton(title: "Delete",
                           backgroundColor: UIColor.red,
                           padding: 30) {
@@ -171,10 +176,6 @@ class TasksTableViewController: UITableViewController {
         cell.detailTextLabel?.text = "\(startDate) \(startTime) - \(endTime)"
         cell.textLabel?.text = task.description
         
-        //            cell.textLabel?.text = _task.description
-        //            cell.detailTextLabel?.text = "\(startTime) — \(endTime)"
-        
-        //        cell.accessoryType = .checkmark
         cell.accessoryType = task.completed ? .checkmark : .none
     }
     
@@ -184,42 +185,44 @@ class TasksTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        guard let identifier = segue.identifier,
-            let destinationViewController = segue.destination as? TaskViewController
-            else {
-                return
-        }
         
-        destinationViewController.tasksDatastore = tasksDatastore
-        
-        if let cell = sender as? UITableViewCell,
-            let indexPath = tableView.indexPath(for: cell) {
-            if let _task = tasks?[indexPath.row] {
-                destinationViewController.taskToEdit = _task
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "addTask":
+                if let destinationController = segue.destination as? UINavigationController,
+                    let destinationEditController = destinationController.viewControllers.first as? TaskEditTableViewController {
+                    if let _task = selectedTask {
+                        destinationEditController.title = "Edit Task"
+                        destinationEditController.taskToEdit = _task
+                        destinationEditController.tasksDatastore = tasksDatastore
+                    } else {
+                        destinationEditController.title = "New Task"
+                        destinationEditController.tasksDatastore = tasksDatastore
+                    }
+                }
+            case "viewTask":
+                if let destinationViewController = segue.destination as? TaskViewController {
+                    if let cell = sender as? UITableViewCell,
+                        let indexPath = tableView.indexPath(for: cell) {
+                        let _task = tasks[indexPath.row]
+                        destinationViewController.taskToEdit = _task
+                    }
+                    destinationViewController.tasksDatastore = tasksDatastore
+                }
+            default: break
             }
         }
         selectedTask = nil
-        //        switch identifier {
-        //        case "addTodo":
-        //            destinationViewController.title = "New Todo"
-        //        case "editTodo":
-        //            destinationViewController.title = "Edit Todo"
-        //        default:
-        //            break
-        //        }
     }
     
 }
 
 // MARK: Actions
 extension TasksTableViewController {
-    @IBAction func addTaskButtonPressed(_ sender: Any) {
-        print("addTaskButtonPressed")
-    }
     
     func editButtonPressed(task: Task) {
         selectedTask = task
-        performSegue(withIdentifier: "editTask", sender: self)
+        performSegue(withIdentifier: "addTask", sender: self)
         print("editButtonPressed")
     }
     

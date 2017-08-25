@@ -59,9 +59,6 @@ class TaskViewController: UIViewController {
         playButton.setImage(UIImage(named: started ? "Stop" : "Play"), for: UIControlState.normal)
     }
     
-    @IBAction func editTaskButtonPressed(_ sender: Any) {
-    }
-    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -69,8 +66,8 @@ class TaskViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        guard let identifier = segue.identifier,
-            let destinationController = segue.destination as? UINavigationController,
+//        guard let identifier = segue.identifier,
+        guard let destinationController = segue.destination as? UINavigationController,
             let destinationEditController = destinationController.viewControllers.first as? TaskEditTableViewController
             else {
                 return

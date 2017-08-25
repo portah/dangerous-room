@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let tabBarController = window?.rootViewController as? UITabBarController,
             let navigationController = tabBarController.viewControllers?.first as? UINavigationController,
             let tasksController = navigationController.viewControllers.first as? TasksTableViewController {
-            print(tasksController)
             tasksController.configure(tasksDatastore: TasksDatastore())
         }
         return true

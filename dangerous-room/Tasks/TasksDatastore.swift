@@ -12,20 +12,18 @@ class TasksDatastore {
     fileprivate var savedTasks = [Task]()
     
     init() {
-        savedTasks = [
-            Task( description: "going to vivarium Room 6.149",
+        updateTask(task: Task( id: UUID().uuidString,
+                  description: "going to vivarium Room 6.149",
                   date: NSDate(),
-                  startTime: NSDate(),
                   duration: 3600,
                   completed: false
-            ),
-            Task( description: "going to imaging Core Room",
+            ))
+        updateTask(task: Task( id: UUID().uuidString,
+                  description: "going to imaging Core Room",
                   date: NSDate(),
-                  startTime: NSDate(),
                   duration: 3600,
                   completed: true
-            )
-        ]
+            ))
     }
     
     func tasks() -> [Task] {
@@ -43,15 +41,25 @@ extension TasksDatastore {
         if let task = task {
             savedTasks = savedTasks.filter({$0 != task})
         }
-        
+    }
+    
+    func updateTask(task: Task) {
+        if let index = savedTasks.index(of: task) {
+            savedTasks[index] = task
+        } else {
+            addTask(task: task)
+        }
+        print("updateTask")
+        for i in savedTasks {
+            print("\(i.id)")
+        }
     }
     
     func doneTask(task: Task) {
-        deleteTask(task: task)
-        addTask(task: Task( description: task.description,
-                            date: task.date,
-                            startTime: task.startTime,
-                            duration: task.duration,
-                            completed: true))
+        updateTask(task: Task( id: task.id,
+                               description: task.description,
+                               date: task.date,
+                               duration: task.duration,
+                               completed: true))
     }
 }
