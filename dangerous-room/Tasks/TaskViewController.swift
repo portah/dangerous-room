@@ -31,6 +31,9 @@ class TaskViewController: UIViewController {
         playButton.layer.borderWidth = 1.0
         playButton.layer.borderColor = playButton.tintColor.cgColor
         
+//        let title1Font = UIFont.preferredFont(forTextStyle: .title1)
+        taskTimerLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 28, weight: UIFontWeightLight)
+        
         if let task = taskToEdit {
             let dateFormatter:DateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM/dd/YY" // "HH:mm"
