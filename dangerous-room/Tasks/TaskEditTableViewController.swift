@@ -12,19 +12,19 @@ class TaskEditTableViewController: UITableViewController {
     
     @IBOutlet var dateField: UITextField!
     @IBOutlet var startTimeField: UITextField!
-    @IBOutlet var endTimeField: UITextField!
+    @IBOutlet var durationField: UITextField!
     @IBOutlet weak var taskDescriptionField: UITextField!
     
     var datePicker = UIDatePicker(),
     startTimePicker = UIDatePicker(),
-    endTimePicker = UIDatePicker()
+    durationPicker = UIDatePicker()
     
     var taskToEdit: Task?
     var tasksDatastore: TasksDatastore?
     
     fileprivate var newTask:Task = Task( id: UUID().uuidString,
                                          description: "",
-                                         date: NSDate(),
+                                         date: Date(),
                                          duration: 3600,
                                          completed: false
     )
@@ -46,20 +46,21 @@ class TaskEditTableViewController: UITableViewController {
         startTimePicker.addTarget(self, action: #selector(changeFieldValue), for: .valueChanged)
         startTimeField.inputView = startTimePicker
         
-        endTimePicker.datePickerMode = .time
-        endTimePicker.addTarget(self, action: #selector(changeFieldValue), for: .valueChanged)
-        endTimeField.inputView = endTimePicker
+        durationPicker.datePickerMode = .countDownTimer
+        durationPicker.addTarget(self, action: #selector(changeFieldValue), for: .valueChanged)
+        durationField.inputView = durationPicker
         
         if let task = taskToEdit {
             
-            self.datePicker.setDate(task.date as Date, animated: false)
+            self.datePicker.setDate(task.date, animated: false)
             self.changeFieldValue(self.datePicker)
             
-            self.startTimePicker.setDate(task.date as Date, animated: false)
+            self.startTimePicker.setDate(task.date, animated: false)
             self.changeFieldValue(self.startTimePicker)
             
-            self.endTimePicker.setDate((task.date.addingTimeInterval(TimeInterval(task.duration))) as Date, animated: false)
-            self.changeFieldValue(self.endTimePicker)
+//            self.endTimePicker.setDate((task.date.addingTimeInterval(TimeInterval(task.duration))) as Date, animated: false)
+            self.durationPicker.countDownDuration =  task.duration
+            self.changeFieldValue(self.durationPicker)
 
             self.taskDescriptionField.text = task.description
             
@@ -69,7 +70,18 @@ class TaskEditTableViewController: UITableViewController {
             self.newTask.duration = task.duration
             self.newTask.completed = task.completed
         }
-        dateField.becomeFirstResponder()
+        else {
+            self.datePicker.setDate(self.newTask.date, animated: false)
+            self.changeFieldValue(self.datePicker)
+            
+            self.startTimePicker.setDate(self.newTask.date, animated: false)
+            self.changeFieldValue(self.startTimePicker)
+
+            self.durationPicker.countDownDuration =  self.newTask.duration
+            self.changeFieldValue(self.durationPicker)
+        }
+        
+        taskDescriptionField.becomeFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {
@@ -98,7 +110,7 @@ class TaskEditTableViewController: UITableViewController {
 
         let gregorian = Calendar(identifier: .gregorian)
         var sender_date = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: sender.date)
-        var task_date = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: newTask.date as Date)
+        var task_date = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: newTask.date)
 
         switch sender {
         case datePicker:
@@ -110,7 +122,7 @@ class TaskEditTableViewController: UITableViewController {
             task_date.month = sender_date.month
             task_date.day = sender_date.day
 
-            newTask.date = gregorian.date(from: task_date)! as NSDate
+            newTask.date = gregorian.date(from: task_date)!
             
         case startTimePicker:
             let timeFormatter = DateFormatter()
@@ -121,14 +133,17 @@ class TaskEditTableViewController: UITableViewController {
             task_date.minute = sender_date.minute
             task_date.second = sender_date.second
 
-            newTask.date = gregorian.date(from: task_date)! as NSDate
+            newTask.date = gregorian.date(from: task_date)!
 
             
-        case endTimePicker:
-            let timeFormatter = DateFormatter()
-            timeFormatter.timeStyle = DateFormatter.Style.short
-            endTimeField.text = timeFormatter.string(from: sender.date)
-            newTask.duration = sender.date.timeIntervalSince(newTask.date as Date)
+        case durationPicker:
+            let timeFormatter = DateComponentsFormatter()
+            timeFormatter.unitsStyle = .abbreviated
+            timeFormatter.allowedUnits = [.hour, .minute]
+            durationField.text = timeFormatter.string(from: sender.countDownDuration)
+            
+            //newTask.duration = sender.date.timeIntervalSince(newTask.date as Date)
+            newTask.duration = sender.countDownDuration
             
         default:
             break
