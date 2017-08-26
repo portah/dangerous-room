@@ -128,7 +128,7 @@ class TaskEditTableViewController: UITableViewController {
             let timeFormatter = DateFormatter()
             timeFormatter.timeStyle = DateFormatter.Style.short
             endTimeField.text = timeFormatter.string(from: sender.date)
-            newTask.duration = sender.date.timeIntervalSince(newTask.date as Date) as NSNumber
+            newTask.duration = sender.date.timeIntervalSince(newTask.date as Date)
             
         default:
             break

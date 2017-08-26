@@ -12,8 +12,7 @@ struct Task: Equatable {
     var id:String = UUID().uuidString
     var description: String = ""
     var date: NSDate
-//    var startTime: NSDate
-    var duration: NSNumber = 60
+    var duration: TimeInterval = 60
     var completed: Bool = false
 }
 
