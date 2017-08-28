@@ -343,19 +343,19 @@
                                         <rect key="frame" x="43" y="161.66666666666669" width="288" height="72.000000000000028"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Time" translatesAutoresizingMaskIntoConstraints="NO" id="sz1-GD-9eu">
-                                                <rect key="frame" x="0.0" y="40.000000000000028" width="32" height="32"/>
+                                                <rect key="frame" x="0.0" y="40" width="32" height="32"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00 AM — 14:30 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgJ-P2-vxa">
-                                                <rect key="frame" x="40" y="45.333333333333343" width="171.66666666666669" height="21"/>
+                                                <rect key="frame" x="40" y="45.333333333333314" width="171.66666666666669" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Date" translatesAutoresizingMaskIntoConstraints="NO" id="6U2-XQ-eEq">
-                                                <rect key="frame" x="0.0" y="0.0" width="32" height="32.000000000000028"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="06/24/17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pr1-KC-aKn">
-                                                <rect key="frame" x="40" y="5.3333333333333428" width="69" height="21"/>
+                                                <rect key="frame" x="40" y="5.3333333333333428" width="69" height="20.999999999999972"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
