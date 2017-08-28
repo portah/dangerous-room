@@ -55,7 +55,7 @@ class TasksTableViewController: UITableViewController {
     // MARK: - Internal Functions
     fileprivate func refresh() {
         if let tasksDatastore = tasksDatastore {
-            tasks = tasksDatastore.tasks().sorted{ $0.date.compare($1.date as Date) ==
+            tasks = tasksDatastore.tasks().sorted{ $0.date.compare($1.date) ==
                 ComparisonResult.orderedAscending
             }
             tableView.reloadData()
@@ -169,9 +169,9 @@ class TasksTableViewController: UITableViewController {
         let timeFormatter = DateFormatter()
         timeFormatter.timeStyle = DateFormatter.Style.short
         
-        let startDate = dateFormatter.string(from: task.date as Date)
-        let startTime = timeFormatter.string(from: task.date as Date)
-        let endTime = timeFormatter.string(from: task.date.addingTimeInterval(TimeInterval(task.duration)) as Date)
+        let startDate = dateFormatter.string(from: task.date)
+        let startTime = timeFormatter.string(from: task.date)
+        let endTime = timeFormatter.string(from: task.date.addingTimeInterval(TimeInterval(task.duration)))
         
         cell.detailTextLabel?.text = "\(startDate) \(startTime) - \(endTime)"
         cell.textLabel?.text = task.description

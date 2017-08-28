@@ -14,13 +14,13 @@ class TasksDatastore {
     init() {
         updateTask(task: Task( id: UUID().uuidString,
                   description: "going to vivarium Room 6.149",
-                  date: NSDate(),
+                  date: Date(),
                   duration: 3600,
                   completed: false
             ))
         updateTask(task: Task( id: UUID().uuidString,
                   description: "going to imaging Core Room",
-                  date: NSDate(),
+                  date: Date(),
                   duration: 3600,
                   completed: true
             ))

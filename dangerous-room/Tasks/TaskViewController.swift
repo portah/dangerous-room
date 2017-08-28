@@ -41,12 +41,12 @@ class TaskViewController: UIViewController {
             let timeFormatter = DateFormatter()
             timeFormatter.timeStyle = DateFormatter.Style.short
             
-            let formattedDate = dateFormatter.string(from: task.date as Date)
+            let formattedDate = dateFormatter.string(from: task.date)
             taskDateLabel.text = "\(formattedDate)"
             
-            let startDate = dateFormatter.string(from: task.date as Date)
-            let startTime = timeFormatter.string(from: task.date as Date)
-            let endTime = timeFormatter.string(from: task.date.addingTimeInterval(TimeInterval(task.duration)) as Date)
+            let startDate = dateFormatter.string(from: task.date)
+            let startTime = timeFormatter.string(from: task.date)
+            let endTime = timeFormatter.string(from: task.date.addingTimeInterval(TimeInterval(task.duration)))
             
             taskDateLabel.text = startDate
             taskDescriptionLabel.text = task.description

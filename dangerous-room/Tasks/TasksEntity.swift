@@ -11,7 +11,7 @@ import Foundation
 struct Task: Equatable {
     var id:String = UUID().uuidString
     var description: String = ""
-    var date: NSDate
+    var date: Date
     var duration: TimeInterval = 60
     var completed: Bool = false
 }
