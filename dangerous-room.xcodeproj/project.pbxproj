@@ -10,6 +10,8 @@
 		040F71F61EFED1010082963D /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F71F51EFED1010082963D /* TasksTableViewController.swift */; };
 		040F71F81EFED2870082963D /* TaskEditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F71F71EFED2870082963D /* TaskEditTableViewController.swift */; };
 		040F71FA1EFEDC0B0082963D /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F71F91EFEDC0B0082963D /* TaskViewController.swift */; };
+		041C306A1F7A9448005B817F /* TaskTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C30691F7A9448005B817F /* TaskTimerViewController.swift */; };
+		041C306C1F7A9844005B817F /* TaskViewControllerTransitionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C306B1F7A9844005B817F /* TaskViewControllerTransitionExtension.swift */; };
 		045A40551EFE45E400C34141 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A40541EFE45E400C34141 /* AppDelegate.swift */; };
 		045A405C1EFE45E400C34141 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045A405A1EFE45E400C34141 /* Main.storyboard */; };
 		045A405E1EFE45E400C34141 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 045A405D1EFE45E400C34141 /* Assets.xcassets */; };
@@ -46,6 +48,8 @@
 		040F71F51EFED1010082963D /* TasksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
 		040F71F71EFED2870082963D /* TaskEditTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskEditTableViewController.swift; sourceTree = "<group>"; };
 		040F71F91EFEDC0B0082963D /* TaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
+		041C30691F7A9448005B817F /* TaskTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTimerViewController.swift; sourceTree = "<group>"; };
+		041C306B1F7A9844005B817F /* TaskViewControllerTransitionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewControllerTransitionExtension.swift; sourceTree = "<group>"; };
 		045A40511EFE45E400C34141 /* dangerous-room.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dangerous-room.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		045A40541EFE45E400C34141 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		045A405B1EFE45E400C34141 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -170,10 +174,12 @@
 			isa = PBXGroup;
 			children = (
 				040F71F91EFEDC0B0082963D /* TaskViewController.swift */,
+				041C306B1F7A9844005B817F /* TaskViewControllerTransitionExtension.swift */,
 				040F71F71EFED2870082963D /* TaskEditTableViewController.swift */,
 				040F71F51EFED1010082963D /* TasksTableViewController.swift */,
 				61AC0BC31F44EF4900AE0924 /* TasksEntity.swift */,
 				61AC0BC61F44F2DE00AE0924 /* TasksDatastore.swift */,
+				041C30691F7A9448005B817F /* TaskTimerViewController.swift */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -487,9 +493,11 @@
 				61AC0BC41F44EF4900AE0924 /* TasksEntity.swift in Sources */,
 				040F71F61EFED1010082963D /* TasksTableViewController.swift in Sources */,
 				615AF4FA1F50E4B800CABA46 /* Timer.swift in Sources */,
+				041C306A1F7A9448005B817F /* TaskTimerViewController.swift in Sources */,
 				61AC0BC71F44F2DE00AE0924 /* TasksDatastore.swift in Sources */,
 				040F71FA1EFEDC0B0082963D /* TaskViewController.swift in Sources */,
 				045A40551EFE45E400C34141 /* AppDelegate.swift in Sources */,
+				041C306C1F7A9844005B817F /* TaskViewControllerTransitionExtension.swift in Sources */,
 				040F71F81EFED2870082963D /* TaskEditTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
