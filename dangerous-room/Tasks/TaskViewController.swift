@@ -16,7 +16,7 @@ class TaskViewController: UIViewController {
     @IBOutlet weak var taskDescriptionLabel: UILabel!
     @IBOutlet weak var taskDateLabel: UILabel!
     @IBOutlet weak var taskTimeLabel: UILabel!
-    @IBOutlet weak var taskTimerLabel: UILabel!
+//    @IBOutlet weak var taskTimerLabel: UILabel!
     
     var taskToEdit: Task?
     var tasksDatastore: TasksDatastore?
@@ -32,7 +32,7 @@ class TaskViewController: UIViewController {
         playButton.layer.borderColor = playButton.tintColor.cgColor
         
 //        let title1Font = UIFont.preferredFont(forTextStyle: .title1)
-        taskTimerLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 28, weight: UIFontWeightLight)
+//        taskTimerLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 28, weight: UIFontWeightLight)
         
         if let task = taskToEdit {
             let dateFormatter:DateFormatter = DateFormatter()
@@ -51,7 +51,7 @@ class TaskViewController: UIViewController {
             taskDateLabel.text = startDate
             taskDescriptionLabel.text = task.description
             taskTimeLabel.text = "\(startTime) - \(endTime)"
-            self.timer = DangerousTimer(duration: TimeInterval(task.duration), onTick: self.tick)
+//            self.timer = DangerousTimer(duration: TimeInterval(task.duration), onTick: self.tick)
         }
     }
     
@@ -61,11 +61,11 @@ class TaskViewController: UIViewController {
         started = false
     }
     
-    func tick() {
-        if let _timer = self.timer {
-            taskTimerLabel.text = String(format: "%02d:%02d", Int(_timer.getRest()/60), Int(_timer.getRest())%60)
-        }
-    }
+//    func tick() {
+//        if let _timer = self.timer {
+//            taskTimerLabel.text = String(format: "%02d:%02d", Int(_timer.getRest()/60), Int(_timer.getRest())%60)
+//        }
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -75,12 +75,12 @@ class TaskViewController: UIViewController {
     // MARK: - Actions
     @IBAction func playStopAction(_ sender: Any) {
         started = !started
-        playButton.setImage(UIImage(named: started ? "Stop" : "Play"), for: UIControlState.normal)
-        if(started) {
-            self.timer?.start()
-        } else {
-            self.timer?.stop()
-        }
+//        playButton.setImage(UIImage(named: started ? "Stop" : "Play"), for: UIControlState.normal)
+//        if(started) {
+//            self.timer?.start()
+//        } else {
+//            self.timer?.stop()
+//        }
     }
     
     
@@ -93,15 +93,34 @@ class TaskViewController: UIViewController {
         // Pass the selected object to the new view controller.
         
         //        guard let identifier = segue.identifier,
-        guard let destinationController = segue.destination as? UINavigationController,
-            let destinationEditController = destinationController.viewControllers.first as? TaskEditTableViewController
-            else {
+//        guard let destinationController = segue.destination as? UINavigationController,
+//            let destinationEditController = destinationController.viewControllers.first as? TaskEditTableViewController
+//            else {
+//                return
+//        }
+        
+        guard let segueIdentifier = segue.identifier else { return }
+        
+        switch segueIdentifier {
+            case "editTask":
+                if let destinationController = segue.destination as? UINavigationController,
+                    let destinationEditController = destinationController.viewControllers.first as? TaskEditTableViewController {
+                    destinationEditController.title = "Edit Task"
+                    destinationEditController.tasksDatastore = tasksDatastore
+                    destinationEditController.taskToEdit = taskToEdit
+                }
+            case "countdown":
+                segue.destination.modalPresentationStyle = .custom
+                segue.destination.transitioningDelegate = self
+                
+                if let taskTimerController = segue.destination as? TaskTimerViewController {
+                    taskTimerController.task = taskToEdit
+                    taskTimerController.aliveTimeinterval = 2 * 60
+                    taskTimerController.betweenAliveTimeinterval = 10
+                }
+            default:
                 return
         }
-        
-        destinationEditController.title = "Edit Task"
-        destinationEditController.tasksDatastore = tasksDatastore
-        destinationEditController.taskToEdit = taskToEdit
     }
     
 }
