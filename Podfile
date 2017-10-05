@@ -8,6 +8,7 @@ target 'dangerous-room' do
   # Pods for dangerous-room
   pod 'LatoFont', :git => "https://github.com/gscalzo/LatoFont.git"
   pod 'MGSwipeTableCell', '~> 1.5.1'
+  pod "SwiftDDP", :git => "https://github.com/smyrgl/SwiftDDP.git"
 
   target 'dangerous-roomTests' do
     inherit! :search_paths
