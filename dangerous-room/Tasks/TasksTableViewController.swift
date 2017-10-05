@@ -8,31 +8,24 @@
 
 import UIKit
 import MGSwipeTableCell
+import Meteor
+import CoreData
 
-class TasksTableViewController: UITableViewController {
+class TasksTableViewController: FetchedResultsTableViewController {
     
     fileprivate var tasksDatastore: TasksDatastore?
     fileprivate var tasks: [Task] = []
     fileprivate var selectedTask: Task?
     
+    private var listObserver: ManagedObjectObserver?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()        
         self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        refresh()
-        print("viewWillAppear")
-        for i in tasks {
-            print("\(i.id)")
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,6 +44,39 @@ class TasksTableViewController: UITableViewController {
         self.tasksDatastore = tasksDatastore
     }
     
+    // MARK: - Content Loading
+    
+    override func configureSubscriptionLoader(subscriptionLoader: SubscriptionLoader) {
+        print ("DR: configureSubscriptionLoader")
+        subscriptionLoader.addSubscriptionWithName(name: "dangerous-room/events")
+    }
+    
+    override func createFetchedResultsController() -> NSFetchedResultsController<NSFetchRequestResult>? {
+        print ("DR: createFetchedResultsController")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Events")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+        return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+    }
+
+    // MARK: - FetchedResultsTableViewDataSourceDelegate
+    
+    func dataSource(dataSource: FetchedResultsTableViewDataSource, configureCell cell: UITableViewCell, forObject object: NSManagedObject, atIndexPath indexPath: NSIndexPath) {
+        print ("DR: dataSource")
+        if let tasks = object as? Events {
+            print ("DR: dataSource Events")
+            print(tasks);
+//            renderCellforEvent(cell, event: tasks)
+        }
+    }
+    
+    func dataSource(dataSource: FetchedResultsTableViewDataSource, deleteObject object: NSManagedObject, atIndexPath indexPath: NSIndexPath) {
+        if let tasks = object as? Events {
+            print(tasks)
+//            managedObjectContext.deleteObject(list)
+//            saveManagedObjectContext()
+        }
+    }
+
     
     // MARK: - Internal Functions
     fileprivate func refresh() {
@@ -63,75 +89,6 @@ class TasksTableViewController: UITableViewController {
     }
     
     
-    // MARK: - Table view data source
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return tasks.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TasksCell", for: indexPath) as! MGSwipeTableCell
-        
-        let _task = tasks[indexPath.row]
-        renderCell(cell, task: _task)
-        setupButtonsForCell(cell: cell, task: _task)
-        
-        
-        return cell
-    }
-    
-    /*
-     // method to run when table view cell is tapped
-     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-     if let _task = tasks?[indexPath.row] {
-     selectedTask = _task
-     print("Tapped")
-     }
-     
-     // Segue to the second view controller
-     //        self.performSegue(withIdentifier: "yourSegue", sender: self)
-     }
-     */
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
     
     
     private func setupButtonsForCell(cell: MGSwipeTableCell, task: Task) {
@@ -160,7 +117,25 @@ class TasksTableViewController: UITableViewController {
             } ]
         cell.leftExpansion.buttonIndex = 0
     }
-    
+
+    fileprivate func renderCellforEvent(_ cell:UITableViewCell, event: Events){
+        
+        let dateFormatter:DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/YY" // "HH:mm"
+        
+        let timeFormatter = DateFormatter()
+        timeFormatter.timeStyle = DateFormatter.Style.short
+        
+        let startDate = dateFormatter.string(from: event.date as! Date)
+        let startTime = timeFormatter.string(from: event.date as! Date)
+        let endTime = timeFormatter.string(from: event.date?.addingTimeInterval(TimeInterval(event.duration)) as! Date)
+        
+        cell.detailTextLabel?.text = "\(startDate) \(startTime) - \(endTime)"
+        cell.textLabel?.text = event.name
+        
+        cell.accessoryType = event.completed ? .checkmark : .none
+    }
+
     fileprivate func renderCell(_ cell:UITableViewCell, task: Task){
         
         let dateFormatter:DateFormatter = DateFormatter()

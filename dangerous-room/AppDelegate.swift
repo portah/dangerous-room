@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Meteor
+
+let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://localhost:3000/websocket")! as URL)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,11 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        Meteor.connect()
+
+        // Override point for customization after application launch. as! ListsViewController
         if let tabBarController = window?.rootViewController as? UITabBarController,
             let navigationController = tabBarController.viewControllers?.first as? UINavigationController,
             let tasksController = navigationController.viewControllers.first as? TasksTableViewController {
-            tasksController.configure(tasksDatastore: TasksDatastore())
+//            tasksController.configure(tasksDatastore: TasksDatastore())
+            tasksController.managedObjectContext = Meteor.mainQueueManagedObjectContext
         }
         return true
     }
