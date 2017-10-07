@@ -49,10 +49,6 @@ extension TasksDatastore {
         } else {
             addTask(task: task)
         }
-        print("updateTask")
-        for i in savedTasks {
-            print("\(i.id)")
-        }
     }
     
     func doneTask(task: Task) {

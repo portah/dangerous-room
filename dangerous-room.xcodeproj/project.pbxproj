@@ -21,6 +21,13 @@
 		615AF4FA1F50E4B800CABA46 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615AF4F91F50E4B800CABA46 /* Timer.swift */; };
 		61AC0BC41F44EF4900AE0924 /* TasksEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AC0BC31F44EF4900AE0924 /* TasksEntity.swift */; };
 		61AC0BC71F44F2DE00AE0924 /* TasksDatastore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AC0BC61F44F2DE00AE0924 /* TasksDatastore.swift */; };
+		61D300451F873F3D00305487 /* MeteorCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61D300431F873F3D00305487 /* MeteorCoreData.xcdatamodeld */; };
+		61D300461F873FDA00305487 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D300411F873D7F00305487 /* CoreDataExtensions.swift */; };
+		61D300471F873FDA00305487 /* MeteorCollectionChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D300401F873D7F00305487 /* MeteorCollectionChange.swift */; };
+		61D300481F873FDA00305487 /* MeteorCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3003F1F873D7F00305487 /* MeteorCoreData.swift */; };
+		61D300491F873FDA00305487 /* MeteorCoreDataCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3003D1F873D7F00305487 /* MeteorCoreDataCollection.swift */; };
+		61D3004A1F873FDA00305487 /* MeteorCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D300421F873D7F00305487 /* MeteorCoreDataStack.swift */; };
+		61D3004B1F873FDA00305487 /* MeteorCoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3003E1F873D7F00305487 /* MeteorCoreDataTableViewController.swift */; };
 		7988C18336AB22E47296E67E /* Pods_dangerous_roomTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13C96E9D61FEBBA606B5CF2 /* Pods_dangerous_roomTests.framework */; };
 		87864603377026796B71AE09 /* Pods_dangerous_room.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01EBBB39A794A706028E8D83 /* Pods_dangerous_room.framework */; };
 		DEE26D90A6F44BA51E3BABAE /* Pods_dangerous_roomUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD12C56236E658E604946F1 /* Pods_dangerous_roomUITests.framework */; };
@@ -67,6 +74,13 @@
 		615AF4F91F50E4B800CABA46 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		61AC0BC31F44EF4900AE0924 /* TasksEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksEntity.swift; sourceTree = "<group>"; };
 		61AC0BC61F44F2DE00AE0924 /* TasksDatastore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksDatastore.swift; sourceTree = "<group>"; };
+		61D3003D1F873D7F00305487 /* MeteorCoreDataCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorCoreDataCollection.swift; sourceTree = "<group>"; };
+		61D3003E1F873D7F00305487 /* MeteorCoreDataTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorCoreDataTableViewController.swift; sourceTree = "<group>"; };
+		61D3003F1F873D7F00305487 /* MeteorCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorCoreData.swift; sourceTree = "<group>"; };
+		61D300401F873D7F00305487 /* MeteorCollectionChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorCollectionChange.swift; sourceTree = "<group>"; };
+		61D300411F873D7F00305487 /* CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtensions.swift; sourceTree = "<group>"; };
+		61D300421F873D7F00305487 /* MeteorCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorCoreDataStack.swift; sourceTree = "<group>"; };
+		61D300441F873F3D00305487 /* DangerousRoomModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DangerousRoomModel.xcdatamodel; sourceTree = "<group>"; };
 		6A3A65E8096110CD996DF87E /* Pods-dangerous-roomUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-roomUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-roomUITests/Pods-dangerous-roomUITests.release.xcconfig"; sourceTree = "<group>"; };
 		967B27EE3F05504291098304 /* Pods-dangerous-room.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-room.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-room/Pods-dangerous-room.debug.xcconfig"; sourceTree = "<group>"; };
 		C13C96E9D61FEBBA606B5CF2 /* Pods_dangerous_roomTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dangerous_roomTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +142,7 @@
 		045A40531EFE45E400C34141 /* dangerous-room */ = {
 			isa = PBXGroup;
 			children = (
+				61D300361F873D2600305487 /* Meteor */,
 				61AC0BC51F44F29500AE0924 /* Tasks */,
 				045A40541EFE45E400C34141 /* AppDelegate.swift */,
 				045A405A1EFE45E400C34141 /* Main.storyboard */,
@@ -135,6 +150,7 @@
 				045A405F1EFE45E400C34141 /* LaunchScreen.storyboard */,
 				045A40621EFE45E400C34141 /* Info.plist */,
 				615AF4F91F50E4B800CABA46 /* Timer.swift */,
+				61D300431F873F3D00305487 /* MeteorCoreData.xcdatamodeld */,
 			);
 			path = "dangerous-room";
 			sourceTree = "<group>";
@@ -182,6 +198,19 @@
 				041C30691F7A9448005B817F /* TaskTimerViewController.swift */,
 			);
 			path = Tasks;
+			sourceTree = "<group>";
+		};
+		61D300361F873D2600305487 /* Meteor */ = {
+			isa = PBXGroup;
+			children = (
+				61D300411F873D7F00305487 /* CoreDataExtensions.swift */,
+				61D300401F873D7F00305487 /* MeteorCollectionChange.swift */,
+				61D3003F1F873D7F00305487 /* MeteorCoreData.swift */,
+				61D3003D1F873D7F00305487 /* MeteorCoreDataCollection.swift */,
+				61D300421F873D7F00305487 /* MeteorCoreDataStack.swift */,
+				61D3003E1F873D7F00305487 /* MeteorCoreDataTableViewController.swift */,
+			);
+			path = Meteor;
 			sourceTree = "<group>";
 		};
 		64ACD5DF0C06132CEF3627AF /* Frameworks */ = {
@@ -272,15 +301,18 @@
 					045A40501EFE45E400C34141 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 4JGC49HX97;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					045A40661EFE45E500C34141 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 045A40501EFE45E400C34141;
 					};
 					045A40711EFE45E500C34141 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 045A40501EFE45E400C34141;
 					};
@@ -387,7 +419,6 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-room/Pods-dangerous-room-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/LatoFont/LatoFont.framework",
 				"${BUILT_PRODUCTS_DIR}/MGSwipeTableCell/MGSwipeTableCell.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDDP/SwiftDDP.framework",
@@ -396,7 +427,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LatoFont.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSwipeTableCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDDP.framework",
@@ -499,7 +529,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				61AC0BC41F44EF4900AE0924 /* TasksEntity.swift in Sources */,
+				61D3004A1F873FDA00305487 /* MeteorCoreDataStack.swift in Sources */,
+				61D300471F873FDA00305487 /* MeteorCollectionChange.swift in Sources */,
+				61D300461F873FDA00305487 /* CoreDataExtensions.swift in Sources */,
+				61D300451F873F3D00305487 /* MeteorCoreData.xcdatamodeld in Sources */,
 				040F71F61EFED1010082963D /* TasksTableViewController.swift in Sources */,
+				61D300481F873FDA00305487 /* MeteorCoreData.swift in Sources */,
+				61D300491F873FDA00305487 /* MeteorCoreDataCollection.swift in Sources */,
+				61D3004B1F873FDA00305487 /* MeteorCoreDataTableViewController.swift in Sources */,
 				615AF4FA1F50E4B800CABA46 /* Timer.swift in Sources */,
 				041C306A1F7A9448005B817F /* TaskTimerViewController.swift in Sources */,
 				61AC0BC71F44F2DE00AE0924 /* TasksDatastore.swift in Sources */,
@@ -667,7 +704,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "st.porter.dangerous-room";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -683,7 +721,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "st.porter.dangerous-room";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -698,7 +737,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.x34.Dangerous-RoomTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dangerous-room.app/dangerous-room";
 			};
 			name = Debug;
@@ -713,7 +753,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.x34.Dangerous-RoomTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dangerous-room.app/dangerous-room";
 			};
 			name = Release;
@@ -727,7 +768,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.x34.Dangerous-RoomUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = "Dangerous Room";
 			};
 			name = Debug;
@@ -741,7 +783,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.x34.Dangerous-RoomUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = "Dangerous Room";
 			};
 			name = Release;
@@ -786,6 +829,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		61D300431F873F3D00305487 /* MeteorCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				61D300441F873F3D00305487 /* DangerousRoomModel.xcdatamodel */,
+			);
+			currentVersion = 61D300441F873F3D00305487 /* DangerousRoomModel.xcdatamodel */;
+			path = MeteorCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 045A40491EFE45E400C34141 /* Project object */;
 }

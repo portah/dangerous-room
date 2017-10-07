@@ -83,8 +83,8 @@ class TaskTimerViewController: UIViewController {
         aliveTimerView.layer.insertSublayer(aliveCircleLayer, at: 0)
         aliveTimerView.layer.insertSublayer(aliveWhiteDiskLayer, at: 0)
         
-        aliveCountdownLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 69, weight: UIFontWeightThin)
-        mainCountdownLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 49, weight: UIFontWeightLight)
+        aliveCountdownLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 69, weight: UIFont.Weight.thin)
+        mainCountdownLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 49, weight: UIFont.Weight.light)
 
         stopButton.layer.cornerRadius = stopButton.bounds.size.width / 2.0
         stopButton.layer.borderColor = UIColor.white.cgColor

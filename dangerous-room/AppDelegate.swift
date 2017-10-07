@@ -7,20 +7,43 @@
 //
 
 import UIKit
+import SwiftDDP
+import CoreData
+import SwiftyBeaver
+
+let log = SwiftyBeaver.self
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
+
+    let events = MeteorCoreDataCollection(collectionName: "Events", entityName: "Events")
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        if let tabBarController = window?.rootViewController as? UITabBarController,
-            let navigationController = tabBarController.viewControllers?.first as? UINavigationController,
-            let tasksController = navigationController.viewControllers.first as? TasksTableViewController {
-            tasksController.configure(tasksDatastore: TasksDatastore())
+//        if let tabBarController = window?.rootViewController as? UITabBarController,
+//            let navigationController = tabBarController.viewControllers?.first as? UINavigationController,
+//            let tasksController = navigationController.viewControllers.first as? TasksTableViewController {
+////            tasksController.configure(tasksDatastore: TasksDatastore())
+//        }
+        
+        let console = ConsoleDestination()  // log to Xcode Console
+        
+        // use custom format and set console output to short time, log level & message
+        console.format = "$DHH:mm:ss$d $L $M"
+        // or use this for JSON output: console.format = "$J"
+        
+        // add the destinations to SwiftyBeaver
+        log.addDestination(console)
+
+        let url = "ws://localhost:3000/websocket"
+        // let url = "wss://meteor-ios-todos.meteor.com/websocket"
+        
+        Meteor.connect(url) {
+            Meteor.subscribe("dangerous-room/events")
         }
+        
         return true
     }
     
@@ -44,8 +67,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        // Saves changes in the application's managed object context before the application terminates.
+//        self.saveContext()
     }
     
+    // MARK: - Core Data Saving support
     
+//    func saveContext () {
+//        let container = NSPersistentContainer(name: "HitList")
+//        let context = persistentContainer.viewContext
+//        if context.hasChanges {
+//            do {
+//                try context.save()
+//            } catch {
+//                // Replace this implementation with code to handle the error appropriately.
+//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//                let nserror = error as NSError
+//                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+//            }
+//        }
+//    }
+
 }
 

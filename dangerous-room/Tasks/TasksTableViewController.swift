@@ -4,61 +4,57 @@
 //
 //  Created by Konstantin on 24/06/2017.
 //  Copyright © 2017 kst404. All rights reserved.
-//
 
 import UIKit
 import MGSwipeTableCell
+import CoreData
+import SwiftDDP
 
-class TasksTableViewController: UITableViewController {
+// Allows us to attach the list _id to the cell
+public class EventCell:UITableViewCell {
+    var _id:String?
+}
+
+
+class TasksTableViewController: MeteorCoreDataTableViewController, MeteorCoreDataCollectionDelegate {
     
-    fileprivate var tasksDatastore: TasksDatastore?
-    fileprivate var tasks: [Task] = []
-    fileprivate var selectedTask: Task?
+    var collection:MeteorCoreDataCollection = (UIApplication.shared.delegate as! AppDelegate).events
+    
+    //    fileprivate var tasksDatastore: TasksDatastore?
+    //    fileprivate var tasks: [Task] = []
+    //    fileprivate var selectedTask: Task?
+    
+    lazy var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Events")
+        let primarySortDescriptor = NSSortDescriptor(key: "id", ascending: true)
+        let secondarySortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+        fetchRequest.sortDescriptors = [secondarySortDescriptor, primarySortDescriptor]
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.collection.managedObjectContext,
+                                             sectionNameKeyPath: nil, cacheName: nil)
+        frc.delegate = self
+        return frc
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()        
         self.navigationItem.leftBarButtonItem = self.editButtonItem
+        
+        collection.delegate = self
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch let error as NSError {
+            print(error)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        refresh()
-        print("viewWillAppear")
-        for i in tasks {
-            print("\(i.id)")
-        }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    
-    // MARK: - Configure
-    
-    func configure(tasksDatastore: TasksDatastore) {
-        self.tasksDatastore = tasksDatastore
-    }
-    
-    
-    // MARK: - Internal Functions
-    fileprivate func refresh() {
-        if let tasksDatastore = tasksDatastore {
-            tasks = tasksDatastore.tasks().sorted{ $0.date.compare($1.date) ==
-                ComparisonResult.orderedAscending
-            }
-            tableView.reloadData()
+        do {
+            try fetchedResultsController.performFetch()
+        } catch let error as NSError {
+            print(error)
         }
     }
     
@@ -67,85 +63,66 @@ class TasksTableViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        if let sections = fetchedResultsController.sections {
+            log.debug("sections: \(sections.count)")
+            return sections.count
+        }
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return tasks.count
+        if let sections = fetchedResultsController.sections {
+            let currentSection = sections[section]
+            log.debug("numberOfRowsInSection: \(currentSection.numberOfObjects)")
+            return currentSection.numberOfObjects
+        }
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TasksCell", for: indexPath) as! MGSwipeTableCell
+        let eventItem = fetchedResultsController.object(at: indexPath) as! Events
         
-        let _task = tasks[indexPath.row]
-        renderCell(cell, task: _task)
-        setupButtonsForCell(cell: cell, task: _task)
-        
+        renderCell(cell, event: eventItem)
+        setupButtonsForCell(cell: cell, event: eventItem)
+        //                log.debug("Event: -> \(String(describing: eventItem.date))")
         
         return cell
     }
     
-    /*
-     // method to run when table view cell is tapped
-     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-     if let _task = tasks?[indexPath.row] {
-     selectedTask = _task
-     print("Tapped")
-     }
-     
-     // Segue to the second view controller
-     //        self.performSegue(withIdentifier: "yourSegue", sender: self)
-     }
-     */
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
+    fileprivate func renderCell(_ cell:UITableViewCell, event: Events) {
+        
+        let dateFormatter:DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/YY" // "HH:mm"
+        
+        let timeFormatter = DateFormatter()
+        timeFormatter.timeStyle = DateFormatter.Style.short
+        
+        let startDate = dateFormatter.string(from: event.date!)
+        let startTime = timeFormatter.string(from: event.date!)
+        let endTime = timeFormatter.string(from: event.date!.addingTimeInterval(TimeInterval(event.duration)))
+        
+        cell.detailTextLabel?.text = "\(startDate) \(startTime) - \(endTime)"
+        cell.textLabel?.text = event.event_description
+        
+        cell.accessoryType = event.completed ? .checkmark : .none
+    }
     
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
+    // MARK: - MGSwipeTableCell
     
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    
-    private func setupButtonsForCell(cell: MGSwipeTableCell, task: Task) {
+    private func setupButtonsForCell(cell: MGSwipeTableCell, event: Events) {
         cell.rightButtons = [
             MGSwipeButton(title: "Edit",
                           backgroundColor: UIColor.blue,
                           padding: 30) {
-                            [weak self] sender in self?.editButtonPressed(task: task)
+                            [weak self] sender in self?.editButtonPressed(event: event)
                             return true
             },
             MGSwipeButton(title: "Delete",
                           backgroundColor: UIColor.red,
                           padding: 30) {
-                            [weak self] sender in self?.deleteButtonPressed(task: task)
+                            [weak self] sender in self?.deleteButtonPressed(event: event)
                             return true
             }
         ]
@@ -155,29 +132,12 @@ class TasksTableViewController: UITableViewController {
             MGSwipeButton(title: "Done",
                           backgroundColor: UIColor.green,
                           padding: 30) {
-                            [weak self] sender in self?.doneButtonPressed(task: task)
+                            [weak self] sender in self?.doneButtonPressed(event: event)
                             return true
             } ]
         cell.leftExpansion.buttonIndex = 0
     }
     
-    fileprivate func renderCell(_ cell:UITableViewCell, task: Task){
-        
-        let dateFormatter:DateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/YY" // "HH:mm"
-        
-        let timeFormatter = DateFormatter()
-        timeFormatter.timeStyle = DateFormatter.Style.short
-        
-        let startDate = dateFormatter.string(from: task.date)
-        let startTime = timeFormatter.string(from: task.date)
-        let endTime = timeFormatter.string(from: task.date.addingTimeInterval(TimeInterval(task.duration)))
-        
-        cell.detailTextLabel?.text = "\(startDate) \(startTime) - \(endTime)"
-        cell.textLabel?.text = task.description
-        
-        cell.accessoryType = task.completed ? .checkmark : .none
-    }
     
     // MARK: - Navigation
     
@@ -186,53 +146,106 @@ class TasksTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if let identifier = segue.identifier {
-            switch identifier {
-            case "addTask":
-                if let destinationController = segue.destination as? UINavigationController,
-                    let destinationEditController = destinationController.viewControllers.first as? TaskEditTableViewController {
-                    if let _task = selectedTask {
-                        destinationEditController.title = "Edit Task"
-                        destinationEditController.taskToEdit = _task
-                        destinationEditController.tasksDatastore = tasksDatastore
-                    } else {
-                        destinationEditController.title = "New Task"
-                        destinationEditController.tasksDatastore = tasksDatastore
-                    }
-                }
-            case "viewTask":
-                if let destinationViewController = segue.destination as? TaskViewController {
-                    if let cell = sender as? UITableViewCell,
-                        let indexPath = tableView.indexPath(for: cell) {
-                        let _task = tasks[indexPath.row]
-                        destinationViewController.taskToEdit = _task
-                    }
-                    destinationViewController.tasksDatastore = tasksDatastore
-                }
-            default: break
-            }
-        }
-        selectedTask = nil
+        /*
+         if let identifier = segue.identifier {
+         switch identifier {
+         case "addTask":
+         if let destinationController = segue.destination as? UINavigationController,
+         let destinationEditController = destinationController.viewControllers.first as? TaskEditTableViewController {
+         if let _task = selectedTask {
+         destinationEditController.title = "Edit Task"
+         destinationEditController.taskToEdit = _task
+         destinationEditController.tasksDatastore = tasksDatastore
+         } else {
+         destinationEditController.title = "New Task"
+         destinationEditController.tasksDatastore = tasksDatastore
+         }
+         }
+         case "viewTask":
+         if let destinationViewController = segue.destination as? TaskViewController {
+         if let cell = sender as? UITableViewCell,
+         let indexPath = tableView.indexPath(for: cell) {
+         let _task = tasks[indexPath.row]
+         destinationViewController.taskToEdit = _task
+         }
+         destinationViewController.tasksDatastore = tasksDatastore
+         }
+         default: break
+         }
+         }
+         selectedTask = nil
+         */
     }
     
+    
+    // MARK: - Not used!!!
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+}
+
+// MARK: Documents data
+
+extension TasksTableViewController {
+    
+    func document(willBeCreatedWith fields: NSDictionary?, forObject object: NSManagedObject) -> NSManagedObject {
+        log.debug("MeteorCoreDataCollectionDelegate document willBeCreatedWith")
+        if let data = fields {
+            for (key, value) in data {
+                log.debug("document willBeCreatedWith: \(key) \(value)")
+                setObjValue(value, forKey: key as! String, forObject: object)
+            }
+        }
+        //        self.tableView.reloadData()
+        return object
+    }
+    
+    func document(willBeUpdatedWith fields: NSDictionary?, cleared: [String]?, forObject object: NSManagedObject) -> NSManagedObject {
+        print("MeteorCoreDataCollectionDelegate document willBeUpdatedWith")
+        if let _ = fields {
+            for (key, value ) in fields! {
+                log.debug("document willBeUpdatedWith: \(key) \(value)")
+                setObjValue(value, forKey: key as! String, forObject: object)
+            }
+        }
+        
+        if let _ = cleared {
+            for field in cleared! {
+                object.setNilValueForKey(field)
+            }
+        }
+        return object
+    }
+    
+    func setObjValue(_ value: Any?, forKey key: String, forObject object: NSManagedObject) {
+        if (key as AnyObject).isEqual("date") {
+            object.setValue(EJSON.convertToNSDate(value as! [String : Any]), forKey: key )
+        } else
+            if !(key as AnyObject).isEqual("_id") {
+                object.setValue(value, forKey: key )
+        }
+    }
 }
 
 // MARK: Actions
 extension TasksTableViewController {
     
-    func editButtonPressed(task: Task) {
-        selectedTask = task
+    func editButtonPressed(event: Events) {
         performSegue(withIdentifier: "addTask", sender: self)
         print("editButtonPressed")
     }
     
-    func deleteButtonPressed(task: Task) {
-        tasksDatastore?.deleteTask(task: task)
-        refresh()
+    func deleteButtonPressed(event: Events) {
+        //        tasksDatastore?.deleteTask(task: task)
     }
     
-    func doneButtonPressed(task: Task) {
-        tasksDatastore?.doneTask(task: task)
-        refresh()
+    func doneButtonPressed(event: Events) {
+        //        tasksDatastore?.doneTask(task: task)
     }
 }
