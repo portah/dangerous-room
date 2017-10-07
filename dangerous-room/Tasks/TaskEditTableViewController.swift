@@ -19,8 +19,7 @@ class TaskEditTableViewController: UITableViewController {
     startTimePicker = UIDatePicker(),
     durationPicker = UIDatePicker()
     
-    var taskToEdit: Task?
-    var tasksDatastore: TasksDatastore?
+    var taskToEdit: Events?
     
     fileprivate var newTask:Task = Task( id: UUID().uuidString,
                                          description: "",
@@ -50,25 +49,25 @@ class TaskEditTableViewController: UITableViewController {
         durationPicker.addTarget(self, action: #selector(changeFieldValue), for: .valueChanged)
         durationField.inputView = durationPicker
         
-        if let task = taskToEdit {
+        if let event = taskToEdit {
             
-            self.datePicker.setDate(task.date, animated: false)
+            self.datePicker.setDate(event.date!, animated: false)
             self.changeFieldValue(self.datePicker)
             
-            self.startTimePicker.setDate(task.date, animated: false)
+            self.startTimePicker.setDate(event.date!, animated: false)
             self.changeFieldValue(self.startTimePicker)
             
 //            self.endTimePicker.setDate((task.date.addingTimeInterval(TimeInterval(task.duration))) as Date, animated: false)
-            self.durationPicker.countDownDuration =  task.duration
+            self.durationPicker.countDownDuration =  TimeInterval(event.duration)
             self.changeFieldValue(self.durationPicker)
 
-            self.taskDescriptionField.text = task.description
+            self.taskDescriptionField.text = event.event_description
             
-            self.newTask.id = task.id
-            self.newTask.description = task.description
-            self.newTask.date = task.date
-            self.newTask.duration = task.duration
-            self.newTask.completed = task.completed
+            self.newTask.id = event.id!
+            self.newTask.description = event.event_description!
+            self.newTask.date = event.date!
+            self.newTask.duration = TimeInterval(event.duration)
+            self.newTask.completed = event.completed
         }
         else {
             self.datePicker.setDate(self.newTask.date, animated: false)
@@ -99,7 +98,7 @@ class TaskEditTableViewController: UITableViewController {
         if let descr = taskDescriptionField.text {
             newTask.description = descr
         }
-        self.tasksDatastore?.updateTask(task: newTask)
+//        self.tasksDatastore?.updateTask(task: newTask)
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     

@@ -47,7 +47,7 @@ class TaskTimerViewController: UIViewController {
         return disk
     }()
     
-    var task: Task?
+    var task: Events?
     var aliveTimeinterval: TimeInterval = 0
     var betweenAliveTimeinterval: TimeInterval = 0
     
@@ -91,7 +91,7 @@ class TaskTimerViewController: UIViewController {
         stopButton.layer.borderWidth = 1.0
         
         descriptionLabel.text = task?.description
-        mainTime = task?.duration ?? 0
+        mainTime = TimeInterval(task?.duration ?? 0)
         mainTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(proccessMainTick), userInfo: nil, repeats: true)
         aliveSetupTimer = Timer.scheduledTimer(timeInterval: betweenAliveTimeinterval, target: self, selector: #selector(setupAliveCountdown), userInfo: nil, repeats: false)
     }

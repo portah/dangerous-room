@@ -33,7 +33,7 @@ class MeteorCoreDataStackPersisted:NSObject, MeteorCoreDataStack {
     
     override init() {
         super.init()
-        NotificationCenter.default.addObserver(self, selector: Selector("mergeCoreDataChanges:"),
+        NotificationCenter.default.addObserver(self, selector: #selector(MeteorCoreDataStackPersisted.mergeCoreDataChanges),
                                                name: NSNotification.Name.NSManagedObjectContextDidSave, object: backgroundContext)
     }
     
@@ -85,7 +85,7 @@ class MeteorCoreDataStackPersisted:NSObject, MeteorCoreDataStack {
         return context
         }()
     
-    func mergeCoreDataChanges(notification: NSNotification) {
+    @objc func mergeCoreDataChanges(notification: NSNotification) {
         let context = notification.object as! NSManagedObjectContext
         if context === mainContext {
             log.debug("Merging changes mainQueue > privateQueue")

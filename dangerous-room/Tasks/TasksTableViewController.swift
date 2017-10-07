@@ -81,12 +81,11 @@ class TasksTableViewController: MeteorCoreDataTableViewController, MeteorCoreDat
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TasksCell", for: indexPath) as! MGSwipeTableCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TasksCell", for: indexPath)
         let eventItem = fetchedResultsController.object(at: indexPath) as! Events
         
         renderCell(cell, event: eventItem)
-        setupButtonsForCell(cell: cell, event: eventItem)
-        //                log.debug("Event: -> \(String(describing: eventItem.date))")
+        // log.debug("Event: -> \(String(describing: eventItem.date))")
         
         return cell
     }
@@ -109,33 +108,18 @@ class TasksTableViewController: MeteorCoreDataTableViewController, MeteorCoreDat
         cell.accessoryType = event.completed ? .checkmark : .none
     }
     
-    // MARK: - MGSwipeTableCell
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
-    private func setupButtonsForCell(cell: MGSwipeTableCell, event: Events) {
-        cell.rightButtons = [
-            MGSwipeButton(title: "Edit",
-                          backgroundColor: UIColor.blue,
-                          padding: 30) {
-                            [weak self] sender in self?.editButtonPressed(event: event)
-                            return true
-            },
-            MGSwipeButton(title: "Delete",
-                          backgroundColor: UIColor.red,
-                          padding: 30) {
-                            [weak self] sender in self?.deleteButtonPressed(event: event)
-                            return true
-            }
-        ]
-        
-        cell.rightExpansion.buttonIndex = 0
-        cell.leftButtons = [
-            MGSwipeButton(title: "Done",
-                          backgroundColor: UIColor.green,
-                          padding: 30) {
-                            [weak self] sender in self?.doneButtonPressed(event: event)
-                            return true
-            } ]
-        cell.leftExpansion.buttonIndex = 0
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        // handle delete (by removing the data from your array and updating the tableview)
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            let object = fetchedResultsController.object(at: indexPath) as! NSManagedObject
+            let id = object.value(forKey: "id") as! String
+            log.debug("going to delete id: \(id)")
+            Meteor.call("dangerous-room/events/delete", params: [id], callback: nil)
+        }
     }
     
     
@@ -146,35 +130,37 @@ class TasksTableViewController: MeteorCoreDataTableViewController, MeteorCoreDat
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        /*
-         if let identifier = segue.identifier {
-         switch identifier {
-         case "addTask":
-         if let destinationController = segue.destination as? UINavigationController,
-         let destinationEditController = destinationController.viewControllers.first as? TaskEditTableViewController {
-         if let _task = selectedTask {
-         destinationEditController.title = "Edit Task"
-         destinationEditController.taskToEdit = _task
-         destinationEditController.tasksDatastore = tasksDatastore
-         } else {
-         destinationEditController.title = "New Task"
-         destinationEditController.tasksDatastore = tasksDatastore
-         }
-         }
-         case "viewTask":
-         if let destinationViewController = segue.destination as? TaskViewController {
-         if let cell = sender as? UITableViewCell,
-         let indexPath = tableView.indexPath(for: cell) {
-         let _task = tasks[indexPath.row]
-         destinationViewController.taskToEdit = _task
-         }
-         destinationViewController.tasksDatastore = tasksDatastore
-         }
-         default: break
-         }
-         }
-         selectedTask = nil
-         */
+        if let identifier = segue.identifier {
+            log.debug("UIStoryboardSegue identifier \(identifier)")
+            switch identifier {
+//            case "addTask":
+//                if let destinationController = segue.destination as? UINavigationController,
+//                    let destinationEditController = destinationController.viewControllers.first as? TaskEditTableViewController {
+//                    if let _task = selectedTask {
+//                        destinationEditController.title = "Edit Task"
+//                        destinationEditController.taskToEdit = _task
+//                        destinationEditController.tasksDatastore = tasksDatastore
+//                    } else {
+//                        destinationEditController.title = "New Task"
+//                        destinationEditController.tasksDatastore = tasksDatastore
+//                    }
+//                }
+            case "viewTask":
+                if let destinationViewController = segue.destination as? TaskViewController {
+                    if let cell = sender as? UITableViewCell,
+                        let indexPath = tableView.indexPath(for: cell) {
+                        
+                        let event = fetchedResultsController.object(at: indexPath)  as! Events
+                        let id = event.id
+                        
+                        destinationViewController.taskToEdit = event
+                    }
+                }
+            default: break
+            }
+        }
+//        selectedTask = nil
+        
     }
     
     
@@ -195,22 +181,18 @@ class TasksTableViewController: MeteorCoreDataTableViewController, MeteorCoreDat
 extension TasksTableViewController {
     
     func document(willBeCreatedWith fields: NSDictionary?, forObject object: NSManagedObject) -> NSManagedObject {
-        log.debug("MeteorCoreDataCollectionDelegate document willBeCreatedWith")
         if let data = fields {
             for (key, value) in data {
-                log.debug("document willBeCreatedWith: \(key) \(value)")
                 setObjValue(value, forKey: key as! String, forObject: object)
             }
         }
-        //        self.tableView.reloadData()
         return object
     }
     
+    
     func document(willBeUpdatedWith fields: NSDictionary?, cleared: [String]?, forObject object: NSManagedObject) -> NSManagedObject {
-        print("MeteorCoreDataCollectionDelegate document willBeUpdatedWith")
         if let _ = fields {
             for (key, value ) in fields! {
-                log.debug("document willBeUpdatedWith: \(key) \(value)")
                 setObjValue(value, forKey: key as! String, forObject: object)
             }
         }
@@ -234,6 +216,7 @@ extension TasksTableViewController {
 }
 
 // MARK: Actions
+
 extension TasksTableViewController {
     
     func editButtonPressed(event: Events) {
