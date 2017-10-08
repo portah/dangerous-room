@@ -90,7 +90,7 @@ class TaskTimerViewController: UIViewController {
         stopButton.layer.borderColor = UIColor.white.cgColor
         stopButton.layer.borderWidth = 1.0
         
-        descriptionLabel.text = task?.description
+        descriptionLabel.text = task?.event_description
         mainTime = TimeInterval(task?.duration ?? 0)
         mainTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(proccessMainTick), userInfo: nil, repeats: true)
         aliveSetupTimer = Timer.scheduledTimer(timeInterval: betweenAliveTimeinterval, target: self, selector: #selector(setupAliveCountdown), userInfo: nil, repeats: false)
@@ -101,6 +101,7 @@ class TaskTimerViewController: UIViewController {
         aliveTimer?.invalidate()
         aliveSetupTimer?.invalidate()
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -16,7 +16,6 @@ class TaskViewController: UIViewController {
     @IBOutlet weak var taskDescriptionLabel: UILabel!
     @IBOutlet weak var taskDateLabel: UILabel!
     @IBOutlet weak var taskTimeLabel: UILabel!
-//    @IBOutlet weak var taskTimerLabel: UILabel!
     
     var taskToEdit: Events?
     
@@ -30,7 +29,10 @@ class TaskViewController: UIViewController {
         playButton.layer.borderWidth = 1.0
         playButton.layer.borderColor = playButton.tintColor.cgColor
         
-        
+        self.updateUI()
+    }
+    
+    func updateUI() {
         if let event = taskToEdit {
             let dateFormatter:DateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM/dd/YY" // "HH:mm"
@@ -48,7 +50,6 @@ class TaskViewController: UIViewController {
             taskDateLabel.text = startDate
             taskDescriptionLabel.text = event.event_description
             taskTimeLabel.text = "\(startTime) - \(endTime)"
-//            self.timer = DangerousTimer(duration: TimeInterval(task.duration), onTick: self.tick)
         }
     }
     
@@ -58,28 +59,10 @@ class TaskViewController: UIViewController {
         started = false
     }
     
-//    func tick() {
-//        if let _timer = self.timer {
-//            taskTimerLabel.text = String(format: "%02d:%02d", Int(_timer.getRest()/60), Int(_timer.getRest())%60)
-//        }
-//    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // MARK: - Actions
     @IBAction func playStopAction(_ sender: Any) {
         started = !started
-//        playButton.setImage(UIImage(named: started ? "Stop" : "Play"), for: UIControlState.normal)
-//        if(started) {
-//            self.timer?.start()
-//        } else {
-//            self.timer?.stop()
-//        }
     }
-    
     
     
     // MARK: - Navigation
@@ -88,13 +71,6 @@ class TaskViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
-        //        guard let identifier = segue.identifier,
-//        guard let destinationController = segue.destination as? UINavigationController,
-//            let destinationEditController = destinationController.viewControllers.first as? TaskEditTableViewController
-//            else {
-//                return
-//        }
         
         guard let segueIdentifier = segue.identifier else { return }
         
@@ -119,4 +95,14 @@ class TaskViewController: UIViewController {
         }
     }
     
+    @IBAction func unwindToViewControllerTaskView(segue: UIStoryboardSegue) {
+        print("Unwind View")
+        self.updateUI()
+    }
+
+    // MARK: - Unused
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 }

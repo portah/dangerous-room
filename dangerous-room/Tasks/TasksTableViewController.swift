@@ -141,20 +141,19 @@ class TasksTableViewController: MeteorCoreDataTableViewController, MeteorCoreDat
                 if let destinationViewController = segue.destination as? TaskViewController {
                     if let cell = sender as? UITableViewCell,
                         let indexPath = tableView.indexPath(for: cell) {
-                        
                         let event = fetchedResultsController.object(at: indexPath)  as! Events
-                        _ = event.id
-                        
                         destinationViewController.taskToEdit = event
                     }
                 }
             default: break
             }
         }
-//        selectedTask = nil
-        
     }
     
+    @IBAction func unwindToViewControllerTaskView(segue: UIStoryboardSegue) {
+        print("Unwind Tasks")
+    }
+
     
     // MARK: - Not used!!!
     
@@ -199,7 +198,18 @@ extension TasksTableViewController {
     
     func setObjValue(_ value: Any?, forKey key: String, forObject object: NSManagedObject) {
         if (key as AnyObject).isEqual("date") {
-            object.setValue(EJSON.convertToNSDate(value as! [String : Any]), forKey: key )
+            print("setObjValue:  value: \(String(describing: value))")
+            print("setObjValue:    key: \(key)")
+            print("setObjValue: object: \(object)")
+//            var tvalue = nil
+            if value as? Date != nil {
+//                tvalue = EJSON.convertToEJSONDate(value as! Date)
+                print("setObjValue: object.setValue convertToEJSONDate")
+                object.setValue(EJSON.convertToEJSONDate(value as! Date), forKey: key )
+            } else {
+                print("setObjValue: object.setValue")
+                object.setValue(EJSON.convertToNSDate(value as! [String : Any]), forKey: key )
+            }
         } else
             if !(key as AnyObject).isEqual("_id") {
                 object.setValue(value, forKey: key )

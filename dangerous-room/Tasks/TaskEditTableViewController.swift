@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftDDP
 
 class TaskEditTableViewController: UITableViewController {
     
@@ -30,12 +31,6 @@ class TaskEditTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(changeFieldValue), for: .valueChanged)
@@ -77,19 +72,16 @@ class TaskEditTableViewController: UITableViewController {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func saveAction(_ sender: Any) {
-        let description = taskDescriptionField.text ?? "";
-        // TODO: add update or insert into DATABASE!!!
-        //            todos.insert(["_id":_id, "listId":listId!, "text":task] as NSDictionary)
-        //        let update = ["checked":!checked]
-        //        todos.update(id, fields: update)
+    func saveAction(_ sender: Any) {
+        let description = taskDescriptionField.text ?? ""
         if(self.newTask) {
-            
+            //            todos.insert(["_id":_id, "listId":listId!, "text":task] as NSDictionary)
+
         } else {
-            let update = ["event_description":description, "duration":self.duration ] as [String : Any]
+            let update = ["event_description":description, "duration":Int32(self.duration), "date": EJSON.convertToEJSONDate(self.taskDate) ] as [String : Any]
             self.collection.update(id: (self.taskToEdit?.id)!, fields: update as NSDictionary)
         }
-        self.navigationController?.dismiss(animated: true, completion: nil)
+        //        self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
     
@@ -132,7 +124,6 @@ class TaskEditTableViewController: UITableViewController {
             durationField.text = timeFormatter.string(from: sender.countDownDuration)
             
             self.duration = sender.countDownDuration
-            
         default:
             break
         }
@@ -152,8 +143,18 @@ class TaskEditTableViewController: UITableViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+
+        self.saveAction(sender!)
+        
+        if self.newTask {
+        } else {
+            if let destinationController = segue.destination as? TaskViewController {
+                print("Are we going to? \(String(describing: destinationController))")
+                destinationController.taskToEdit?.event_description = taskDescriptionField.text ?? ""
+                destinationController.taskToEdit?.date = self.taskDate
+                destinationController.taskToEdit?.duration = Int32(self.duration)
+            }
+        }
     }
     
     // MARK: - Unused
