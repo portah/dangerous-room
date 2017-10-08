@@ -6,8 +6,7 @@ target 'dangerous-room' do
   use_frameworks!
 
   # Pods for dangerous-room
-  pod 'MGSwipeTableCell', '~> 1.5.1'
-  pod "SwiftDDP", :git => "https://github.com/smyrgl/SwiftDDP.git"
+  pod "SwiftDDP", :git => "https://github.com/portah/SwiftDDP.git"
   pod "CryptoSwift", :git => "https://github.com/krzyzanowskim/CryptoSwift.git", :branch => 'swift4'
 
   target 'dangerous-roomTests' do

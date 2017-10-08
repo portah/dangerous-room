@@ -6,15 +6,8 @@
 //  Copyright © 2017 kst404. All rights reserved.
 
 import UIKit
-import MGSwipeTableCell
 import CoreData
 import SwiftDDP
-
-// Allows us to attach the list _id to the cell
-public class EventCell:UITableViewCell {
-    var _id:String?
-}
-
 
 class TasksTableViewController: MeteorCoreDataTableViewController, MeteorCoreDataCollectionDelegate {
     
@@ -104,7 +97,6 @@ class TasksTableViewController: MeteorCoreDataTableViewController, MeteorCoreDat
         
         cell.detailTextLabel?.text = "\(startDate) \(startTime) - \(endTime)"
         cell.textLabel?.text = event.event_description
-        
         cell.accessoryType = event.completed ? .checkmark : .none
     }
     
@@ -151,7 +143,7 @@ class TasksTableViewController: MeteorCoreDataTableViewController, MeteorCoreDat
                         let indexPath = tableView.indexPath(for: cell) {
                         
                         let event = fetchedResultsController.object(at: indexPath)  as! Events
-                        let id = event.id
+                        _ = event.id
                         
                         destinationViewController.taskToEdit = event
                     }
