@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftDDP
 
 class TaskTimerViewController: UIViewController {
     @IBOutlet var stopButton: UIButton!
@@ -94,6 +95,8 @@ class TaskTimerViewController: UIViewController {
         mainTime = TimeInterval(task?.duration ?? 0)
         mainTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(proccessMainTick), userInfo: nil, repeats: true)
         aliveSetupTimer = Timer.scheduledTimer(timeInterval: betweenAliveTimeinterval, target: self, selector: #selector(setupAliveCountdown), userInfo: nil, repeats: false)
+        
+        self.notifyServerAboutEvent(status: "start", for: (self.task?.id)!)
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -175,11 +178,13 @@ class TaskTimerViewController: UIViewController {
             if isAliveTimerStarted {
                 aliveTime = aliveTimeinterval
                 aliveTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(proccessAliveTick), userInfo: nil, repeats: true)
+                self.notifyServerAboutEvent(status: "active", for: (self.task?.id)!)
                 showAliveTimer()
             } else {
                 hideAliveTimer()
                 aliveTimer?.invalidate()
                 aliveSetupTimer = Timer.scheduledTimer(timeInterval: betweenAliveTimeinterval, target: self, selector: #selector(setupAliveCountdown), userInfo: nil, repeats: false)
+                self.notifyServerAboutEvent(status: "passive", for: (self.task?.id)!)
             }
         }
     }
@@ -207,15 +212,5 @@ class TaskTimerViewController: UIViewController {
     func setupAliveCountdown() {
         self.isAliveTimerStarted = true
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

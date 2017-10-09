@@ -87,7 +87,7 @@ class TaskViewController: UIViewController {
                 
                 if let taskTimerController = segue.destination as? TaskTimerViewController {
                     taskTimerController.task = taskToEdit
-                    taskTimerController.aliveTimeinterval = 2 * 60
+                    taskTimerController.aliveTimeinterval = 10//2 * 60
                     taskTimerController.betweenAliveTimeinterval = 10
                 }
             default:
