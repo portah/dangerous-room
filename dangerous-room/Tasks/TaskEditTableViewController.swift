@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftDDP
 
 class TaskEditTableViewController: UITableViewController {
     
@@ -19,24 +20,17 @@ class TaskEditTableViewController: UITableViewController {
     startTimePicker = UIDatePicker(),
     durationPicker = UIDatePicker()
     
-    var taskToEdit: Task?
-    var tasksDatastore: TasksDatastore?
+    var taskToEdit: Events?
     
-    fileprivate var newTask:Task = Task( id: UUID().uuidString,
-                                         description: "",
-                                         date: Date(),
-                                         duration: 3600,
-                                         completed: false
-    )
+    var taskDate: Date = Date()
+    var duration: TimeInterval = TimeInterval(3600)
+    
+    var newTask:Bool = true
+    
+    var collection:MeteorCoreDataCollection = (UIApplication.shared.delegate as! AppDelegate).events
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(changeFieldValue), for: .valueChanged)
@@ -50,91 +44,78 @@ class TaskEditTableViewController: UITableViewController {
         durationPicker.addTarget(self, action: #selector(changeFieldValue), for: .valueChanged)
         durationField.inputView = durationPicker
         
-        if let task = taskToEdit {
+        if let event = taskToEdit {
+            self.newTask = false
             
-            self.datePicker.setDate(task.date, animated: false)
-            self.changeFieldValue(self.datePicker)
+            self.taskDate = event.date!
+            self.duration = TimeInterval(event.duration)
             
-            self.startTimePicker.setDate(task.date, animated: false)
-            self.changeFieldValue(self.startTimePicker)
-            
-//            self.endTimePicker.setDate((task.date.addingTimeInterval(TimeInterval(task.duration))) as Date, animated: false)
-            self.durationPicker.countDownDuration =  task.duration
-            self.changeFieldValue(self.durationPicker)
-
-            self.taskDescriptionField.text = task.description
-            
-            self.newTask.id = task.id
-            self.newTask.description = task.description
-            self.newTask.date = task.date
-            self.newTask.duration = task.duration
-            self.newTask.completed = task.completed
+            self.taskDescriptionField.text = event.event_description
+        } else {
+            self.newTask = true
         }
-        else {
-            self.datePicker.setDate(self.newTask.date, animated: false)
-            self.changeFieldValue(self.datePicker)
-            
-            self.startTimePicker.setDate(self.newTask.date, animated: false)
-            self.changeFieldValue(self.startTimePicker)
-
-            self.durationPicker.countDownDuration =  self.newTask.duration
-            self.changeFieldValue(self.durationPicker)
-        }
+        
+        self.datePicker.setDate(self.taskDate, animated: false)
+        self.changeFieldValue(self.datePicker)
+        
+        self.startTimePicker.setDate(self.taskDate, animated: false)
+        self.changeFieldValue(self.startTimePicker)
+        
+        self.durationPicker.countDownDuration =  TimeInterval(self.duration)
+        self.changeFieldValue(self.durationPicker)
         
         taskDescriptionField.becomeFirstResponder()
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     // MARK: - Actions
     @IBAction func cancelAction(_ sender: Any) {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func saveAction(_ sender: Any) {
-        if let descr = taskDescriptionField.text {
-            newTask.description = descr
+    func saveAction(_ sender: Any) {
+        let description = taskDescriptionField.text ?? ""
+        if(self.newTask) {
+            //            todos.insert(["_id":_id, "listId":listId!, "text":task] as NSDictionary)
+
+        } else {
+            let update = ["event_description":description, "duration":Int32(self.duration), "date": EJSON.convertToEJSONDate(self.taskDate) ] as [String : Any]
+            self.collection.update(id: (self.taskToEdit?.id)!, fields: update as NSDictionary)
         }
-        self.tasksDatastore?.updateTask(task: newTask)
-        self.navigationController?.dismiss(animated: true, completion: nil)
+        //        self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
     
     // MARK: - Picker View Methods
     
-    func changeFieldValue(_ sender: UIDatePicker) {
-
+    @objc func changeFieldValue(_ sender: UIDatePicker) {
+        
         let gregorian = Calendar(identifier: .gregorian)
         var sender_date = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: sender.date)
-        var task_date = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: newTask.date)
-
+        var task_date = sender_date
+        
         switch sender {
         case datePicker:
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = DateFormatter.Style.medium
             dateField.text = dateFormatter.string(from: sender.date)
-
+            
             task_date.year = sender_date.year
             task_date.month = sender_date.month
             task_date.day = sender_date.day
-
-            newTask.date = gregorian.date(from: task_date)!
+            
+            self.taskDate = gregorian.date(from: task_date)!
             
         case startTimePicker:
             let timeFormatter = DateFormatter()
             timeFormatter.timeStyle = DateFormatter.Style.short
             startTimeField.text = timeFormatter.string(from: sender.date)
-
+            
             task_date.hour = sender_date.hour
             task_date.minute = sender_date.minute
             task_date.second = sender_date.second
-
-            newTask.date = gregorian.date(from: task_date)!
-
+            
+            self.taskDate = gregorian.date(from: task_date)!
+            
             
         case durationPicker:
             let timeFormatter = DateComponentsFormatter()
@@ -142,9 +123,7 @@ class TaskEditTableViewController: UITableViewController {
             timeFormatter.allowedUnits = [.hour, .minute]
             durationField.text = timeFormatter.string(from: sender.countDownDuration)
             
-            //newTask.duration = sender.date.timeIntervalSince(newTask.date as Date)
-            newTask.duration = sender.countDownDuration
-            
+            self.duration = sender.countDownDuration
         default:
             break
         }
@@ -164,8 +143,23 @@ class TaskEditTableViewController: UITableViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+
+        self.saveAction(sender!)
         
+        if self.newTask {
+        } else {
+            if let destinationController = segue.destination as? TaskViewController {
+                print("Are we going to? \(String(describing: destinationController))")
+                destinationController.taskToEdit?.event_description = taskDescriptionField.text ?? ""
+                destinationController.taskToEdit?.date = self.taskDate
+                destinationController.taskToEdit?.duration = Int32(self.duration)
+            }
+        }
+    }
+    
+    // MARK: - Unused
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 }
