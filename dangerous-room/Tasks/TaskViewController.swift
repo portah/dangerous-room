@@ -17,7 +17,17 @@ class TaskViewController: UIViewController {
     @IBOutlet weak var taskDateLabel: UILabel!
     @IBOutlet weak var taskTimeLabel: UILabel!
     
-    var taskToEdit: Events?
+    var observer: ContextObserver?
+    var taskToEdit: Events? {
+        didSet {
+            if let taskToEditMOC = taskToEdit?.managedObjectContext {
+                observer = ContextObserver(context: taskToEditMOC)
+                observer?.add().filter(taskToEdit).block { [weak self] _,_,_ in
+                    self?.updateUI()
+                }
+            }
+        }
+    }
     
     var timer: DangerousTimer?
     
@@ -97,7 +107,7 @@ class TaskViewController: UIViewController {
     
     @IBAction func unwindToViewControllerTaskView(segue: UIStoryboardSegue) {
         print("Unwind View")
-        self.updateUI()
+//        self.updateUI()
     }
     
     // MARK: - Unused
