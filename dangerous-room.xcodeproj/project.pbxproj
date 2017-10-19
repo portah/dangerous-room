@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,9 @@
 		045A40611EFE45E400C34141 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045A405F1EFE45E400C34141 /* LaunchScreen.storyboard */; };
 		045A406C1EFE45E500C34141 /* Dangerous_RoomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A406B1EFE45E500C34141 /* Dangerous_RoomTests.swift */; };
 		045A40771EFE45E500C34141 /* Dangerous_RoomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A40761EFE45E500C34141 /* Dangerous_RoomUITests.swift */; };
+		04DC4DEB1F8B755E00C5C830 /* ContextObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC4DE81F8B755E00C5C830 /* ContextObserver.swift */; };
+		04DC4DEC1F8B755E00C5C830 /* Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC4DE91F8B755E00C5C830 /* Handler.swift */; };
+		04DC4DED1F8B755E00C5C830 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC4DEA1F8B755E00C5C830 /* Observable.swift */; };
 		615AF4FA1F50E4B800CABA46 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615AF4F91F50E4B800CABA46 /* Timer.swift */; };
 		61D300451F873F3D00305487 /* MeteorCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61D300431F873F3D00305487 /* MeteorCoreData.xcdatamodeld */; };
 		61D300461F873FDA00305487 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D300411F873D7F00305487 /* CoreDataExtensions.swift */; };
@@ -26,6 +29,7 @@
 		61D300491F873FDA00305487 /* MeteorCoreDataCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3003D1F873D7F00305487 /* MeteorCoreDataCollection.swift */; };
 		61D3004A1F873FDA00305487 /* MeteorCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D300421F873D7F00305487 /* MeteorCoreDataStack.swift */; };
 		61D3004B1F873FDA00305487 /* MeteorCoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3003E1F873D7F00305487 /* MeteorCoreDataTableViewController.swift */; };
+		61F89F651F8AE486006193A4 /* TaskTimerViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F89F641F8AE486006193A4 /* TaskTimerViewControllerExtensions.swift */; };
 		7988C18336AB22E47296E67E /* Pods_dangerous_roomTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13C96E9D61FEBBA606B5CF2 /* Pods_dangerous_roomTests.framework */; };
 		87864603377026796B71AE09 /* Pods_dangerous_room.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01EBBB39A794A706028E8D83 /* Pods_dangerous_room.framework */; };
 		DEE26D90A6F44BA51E3BABAE /* Pods_dangerous_roomUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD12C56236E658E604946F1 /* Pods_dangerous_roomUITests.framework */; };
@@ -67,6 +71,9 @@
 		045A40721EFE45E500C34141 /* dangerous-roomUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dangerous-roomUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		045A40761EFE45E500C34141 /* Dangerous_RoomUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dangerous_RoomUITests.swift; sourceTree = "<group>"; };
 		045A40781EFE45E500C34141 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04DC4DE81F8B755E00C5C830 /* ContextObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextObserver.swift; sourceTree = "<group>"; };
+		04DC4DE91F8B755E00C5C830 /* Handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Handler.swift; sourceTree = "<group>"; };
+		04DC4DEA1F8B755E00C5C830 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		0CD12C56236E658E604946F1 /* Pods_dangerous_roomUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dangerous_roomUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EEC0A4D59785ED60BFC3301 /* Pods-dangerous-roomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-roomTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-roomTests/Pods-dangerous-roomTests.release.xcconfig"; sourceTree = "<group>"; };
 		615AF4F91F50E4B800CABA46 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
@@ -77,6 +84,7 @@
 		61D300411F873D7F00305487 /* CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtensions.swift; sourceTree = "<group>"; };
 		61D300421F873D7F00305487 /* MeteorCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorCoreDataStack.swift; sourceTree = "<group>"; };
 		61D300441F873F3D00305487 /* DangerousRoomModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DangerousRoomModel.xcdatamodel; sourceTree = "<group>"; };
+		61F89F641F8AE486006193A4 /* TaskTimerViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTimerViewControllerExtensions.swift; sourceTree = "<group>"; };
 		6A3A65E8096110CD996DF87E /* Pods-dangerous-roomUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-roomUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-roomUITests/Pods-dangerous-roomUITests.release.xcconfig"; sourceTree = "<group>"; };
 		967B27EE3F05504291098304 /* Pods-dangerous-room.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-room.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-room/Pods-dangerous-room.debug.xcconfig"; sourceTree = "<group>"; };
 		C13C96E9D61FEBBA606B5CF2 /* Pods_dangerous_roomTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dangerous_roomTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +146,7 @@
 		045A40531EFE45E400C34141 /* dangerous-room */ = {
 			isa = PBXGroup;
 			children = (
+				04DC4DE71F8B753400C5C830 /* ContextObserver */,
 				61D300361F873D2600305487 /* Meteor */,
 				61AC0BC51F44F29500AE0924 /* Tasks */,
 				045A40541EFE45E400C34141 /* AppDelegate.swift */,
@@ -169,6 +178,16 @@
 			path = "dangerous-roomUITests";
 			sourceTree = "<group>";
 		};
+		04DC4DE71F8B753400C5C830 /* ContextObserver */ = {
+			isa = PBXGroup;
+			children = (
+				04DC4DE81F8B755E00C5C830 /* ContextObserver.swift */,
+				04DC4DE91F8B755E00C5C830 /* Handler.swift */,
+				04DC4DEA1F8B755E00C5C830 /* Observable.swift */,
+			);
+			path = ContextObserver;
+			sourceTree = "<group>";
+		};
 		48B1ADBC207F813F6F914DB5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +209,7 @@
 				040F71F71EFED2870082963D /* TaskEditTableViewController.swift */,
 				040F71F51EFED1010082963D /* TasksTableViewController.swift */,
 				041C30691F7A9448005B817F /* TaskTimerViewController.swift */,
+				61F89F641F8AE486006193A4 /* TaskTimerViewControllerExtensions.swift */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -313,7 +333,7 @@
 				};
 			};
 			buildConfigurationList = 045A404C1EFE45E400C34141 /* Build configuration list for PBXProject "dangerous-room" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -522,16 +542,20 @@
 			files = (
 				61D3004A1F873FDA00305487 /* MeteorCoreDataStack.swift in Sources */,
 				61D300471F873FDA00305487 /* MeteorCollectionChange.swift in Sources */,
+				04DC4DEB1F8B755E00C5C830 /* ContextObserver.swift in Sources */,
 				61D300461F873FDA00305487 /* CoreDataExtensions.swift in Sources */,
 				61D300451F873F3D00305487 /* MeteorCoreData.xcdatamodeld in Sources */,
 				040F71F61EFED1010082963D /* TasksTableViewController.swift in Sources */,
+				04DC4DEC1F8B755E00C5C830 /* Handler.swift in Sources */,
 				61D300481F873FDA00305487 /* MeteorCoreData.swift in Sources */,
 				61D300491F873FDA00305487 /* MeteorCoreDataCollection.swift in Sources */,
 				61D3004B1F873FDA00305487 /* MeteorCoreDataTableViewController.swift in Sources */,
 				615AF4FA1F50E4B800CABA46 /* Timer.swift in Sources */,
 				041C306A1F7A9448005B817F /* TaskTimerViewController.swift in Sources */,
+				04DC4DED1F8B755E00C5C830 /* Observable.swift in Sources */,
 				040F71FA1EFEDC0B0082963D /* TaskViewController.swift in Sources */,
 				045A40551EFE45E400C34141 /* AppDelegate.swift in Sources */,
+				61F89F651F8AE486006193A4 /* TaskTimerViewControllerExtensions.swift in Sources */,
 				041C306C1F7A9844005B817F /* TaskViewControllerTransitionExtension.swift in Sources */,
 				040F71F81EFED2870082963D /* TaskEditTableViewController.swift in Sources */,
 			);

@@ -17,16 +17,17 @@ let log = SwiftyBeaver.self
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-
+    
     let events = MeteorCoreDataCollection(collectionName: "Events", entityName: "Events")
+    let contacts = MeteorCoreDataCollection(collectionName: "Contacts", entityName: "Contacts")
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-//        if let tabBarController = window?.rootViewController as? UITabBarController,
-//            let navigationController = tabBarController.viewControllers?.first as? UINavigationController,
-//            let tasksController = navigationController.viewControllers.first as? TasksTableViewController {
-////            tasksController.configure(tasksDatastore: TasksDatastore())
-//        }
+        //        if let tabBarController = window?.rootViewController as? UITabBarController,
+        //            let navigationController = tabBarController.viewControllers?.first as? UINavigationController,
+        //            let tasksController = navigationController.viewControllers.first as? TasksTableViewController {
+        ////            tasksController.configure(tasksDatastore: TasksDatastore())
+        //        }
         
         let console = ConsoleDestination()  // log to Xcode Console
         
@@ -36,12 +37,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // add the destinations to SwiftyBeaver
         log.addDestination(console)
-
-        let url = "ws://localhost:3000/websocket"
-        // let url = "wss://meteor-ios-todos.meteor.com/websocket"
         
+        let url = "ws://localhost:3000/websocket"
+        // let url = "wss://dangerous-room.porter.st/websocket"
+
         Meteor.connect(url) {
             Meteor.subscribe("dangerous-room/events")
+            Meteor.subscribe("dangerous-room/contacts")
         }
         
         return true
@@ -70,6 +72,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
     }
     
-
+    
 }
 
