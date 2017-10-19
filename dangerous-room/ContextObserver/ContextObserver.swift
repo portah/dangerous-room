@@ -14,8 +14,8 @@ public class ContextObserver: NSObject {
         super.init()
         
         // register for notifications
-        print("register for notifications")
-//        NotificationCenter.default.addObserver(self, selector: #selector(managedObjectDidChange(_:)), name: NSNotification.Name.NSManagedObjectContextObjectsDidChange, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(ContextObserver.managedObjectDidChange(_:)), name: NSNotification.Name.NSManagedObjectContextObjectsDidChange, object: nil)
+        NotificationCenter.default.addObserver(forName: .NSManagedObjectContextObjectsDidChange, object: nil, queue: nil, using: managedObjectDidChange(_:))
     }
         
     public func add() -> Handler {
@@ -29,9 +29,7 @@ public class ContextObserver: NSObject {
     }
     
     // MARK: - Notifications
-    @objc
-    public func managedObjectDidChange(_ notification: Notification) {
-        print("= = = = = = = = = = = ContextObserver.managedObjectDidChange")
+    func managedObjectDidChange(_ notification: Notification) {
         if !active { // observer disabled
             return
         }
