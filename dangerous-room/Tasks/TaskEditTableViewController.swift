@@ -74,12 +74,12 @@ class TaskEditTableViewController: UITableViewController {
     
     func saveAction(_ sender: Any) {
         let description = taskDescriptionField.text ?? ""
+        let update = ["event_description":description, "duration":Int32(self.duration), "date": EJSON.convertToEJSONDate(self.taskDate) ] as NSDictionary
+        print("saveAction",update)
         if(self.newTask) {
-            //            todos.insert(["_id":_id, "listId":listId!, "text":task] as NSDictionary)
-
-        } else {
-            let update = ["event_description":description, "duration":Int32(self.duration), "date": EJSON.convertToEJSONDate(self.taskDate) ] as [String : Any]
-            self.collection.update(id: (self.taskToEdit?.id)!, fields: update as NSDictionary)
+            self.collection.insert(fields: update)
+        } else {        
+            self.collection.update(id: (self.taskToEdit?.id)!, fields: update)
         }
         //        self.navigationController?.dismiss(animated: true, completion: nil)
     }
@@ -90,12 +90,12 @@ class TaskEditTableViewController: UITableViewController {
     @objc func changeFieldValue(_ sender: UIDatePicker) {
         
         let gregorian = Calendar(identifier: .gregorian)
-        var sender_date = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: sender.date)
-        var task_date = sender_date
-        
+        print("changeFieldValue")
         switch sender {
         case datePicker:
             let dateFormatter = DateFormatter()
+            var sender_date = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: sender.date)
+            var task_date = sender_date
             dateFormatter.dateStyle = DateFormatter.Style.medium
             dateField.text = dateFormatter.string(from: sender.date)
             
@@ -107,6 +107,8 @@ class TaskEditTableViewController: UITableViewController {
             
         case startTimePicker:
             let timeFormatter = DateFormatter()
+            var sender_date = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: sender.date)
+            var task_date = sender_date
             timeFormatter.timeStyle = DateFormatter.Style.short
             startTimeField.text = timeFormatter.string(from: sender.date)
             
@@ -122,8 +124,9 @@ class TaskEditTableViewController: UITableViewController {
             timeFormatter.unitsStyle = .abbreviated
             timeFormatter.allowedUnits = [.hour, .minute]
             durationField.text = timeFormatter.string(from: sender.countDownDuration)
-            
+
             self.duration = sender.countDownDuration
+            print("changeFieldValue \(self.duration)")
         default:
             break
         }
