@@ -110,7 +110,8 @@ class TasksTableViewController: MeteorCoreDataTableViewController, MeteorCoreDat
             let object = fetchedResultsController.object(at: indexPath) as! NSManagedObject
             let id = object.value(forKey: "id") as! String
             log.debug("going to delete id: \(id)")
-            Meteor.call("dangerous-room/events/delete", params: [id], callback: nil)
+            self.collection.remove(withId: id)
+//            Meteor.call("dangerous-room/events/delete", params: [id], callback: nil)
         }
     }
     
@@ -217,20 +218,3 @@ extension TasksTableViewController {
     }
 }
 
-// MARK: Actions
-
-extension TasksTableViewController {
-    
-    func editButtonPressed(event: Events) {
-        performSegue(withIdentifier: "addTask", sender: self)
-        print("editButtonPressed")
-    }
-    
-    func deleteButtonPressed(event: Events) {
-        //        tasksDatastore?.deleteTask(task: task)
-    }
-    
-    func doneButtonPressed(event: Events) {
-        //        tasksDatastore?.doneTask(task: task)
-    }
-}

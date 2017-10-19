@@ -39,8 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         log.addDestination(console)
         
         let url = "ws://localhost:3000/websocket"
-        // let url = "wss://meteor-ios-todos.meteor.com/websocket"
-        
+        // let url = "wss://dangerous-room.porter.st/websocket"
+
         Meteor.connect(url) {
             Meteor.subscribe("dangerous-room/events")
             Meteor.subscribe("dangerous-room/contacts")
