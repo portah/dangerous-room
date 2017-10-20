@@ -520,6 +520,7 @@
                     </view>
                     <connections>
                         <outlet property="aliveCountdownLabel" destination="B9x-Ud-K9w" id="ZrH-Or-RDY"/>
+                        <outlet property="aliveInfoLabel" destination="Sa9-s4-Lxw" id="Qcg-0a-hCw"/>
                         <outlet property="aliveTimerView" destination="NNi-PT-kib" id="NTp-Ld-eaM"/>
                         <outlet property="descriptionLabel" destination="s5s-y5-R8V" id="ZP4-gG-SxR"/>
                         <outlet property="infoView" destination="QL4-Ed-JWV" id="yc3-jA-xTi"/>

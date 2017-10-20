@@ -18,10 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+//    var identifierForVendor: UUID?
+    
     let events = MeteorCoreDataCollection(collectionName: "Events", entityName: "Events")
     let contacts = MeteorCoreDataCollection(collectionName: "Contacts", entityName: "Contacts")
+    var uuid:String = "unknown"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        if let _uuid = UIDevice.current.identifierForVendor?.uuidString {
+            self.uuid = _uuid
+            print("device? \(self.uuid)")
+        }
         // Override point for customization after application launch.
         //        if let tabBarController = window?.rootViewController as? UITabBarController,
         //            let navigationController = tabBarController.viewControllers?.first as? UINavigationController,
@@ -42,8 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // let url = "wss://dangerous-room.porter.st/websocket"
 
         Meteor.connect(url) {
-            Meteor.subscribe("dangerous-room/events")
-            Meteor.subscribe("dangerous-room/contacts")
+            Meteor.subscribe("dangerous-room/events", params: [self.uuid])
+            Meteor.subscribe("dangerous-room/contacts", params: [self.uuid])
         }
         
         return true
