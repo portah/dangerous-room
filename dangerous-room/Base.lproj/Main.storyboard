@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13526" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment version="4352" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -54,7 +54,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ODO-Ag-nbp">
-                                                    <rect key="frame" x="16" y="8" width="343" height="28"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="28"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="28" id="Ja9-2J-fcK"/>
                                                     </constraints>
@@ -78,14 +78,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Date" translatesAutoresizingMaskIntoConstraints="NO" id="03a-hc-Ybs">
-                                                    <rect key="frame" x="16" y="5" width="32" height="32"/>
+                                                    <rect key="frame" x="8" y="5" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="ODo-wA-qVg"/>
                                                         <constraint firstAttribute="width" constant="32" id="f5Z-cW-cWK"/>
                                                     </constraints>
                                                 </imageView>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xIi-ie-UDN">
-                                                    <rect key="frame" x="56" y="7" width="303" height="29"/>
+                                                    <rect key="frame" x="48" y="7" width="319" height="29"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="29" id="VXD-Tj-5pO"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="29" id="bZ5-Kq-RUE"/>
@@ -112,14 +112,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Time" translatesAutoresizingMaskIntoConstraints="NO" id="5an-mi-6yx">
-                                                    <rect key="frame" x="16" y="6" width="32" height="32"/>
+                                                    <rect key="frame" x="8" y="6" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="HEW-N1-dxm"/>
                                                         <constraint firstAttribute="height" constant="32" id="UTG-fm-D5K"/>
                                                     </constraints>
                                                 </imageView>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Start Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wys-f9-4M3">
-                                                    <rect key="frame" x="56" y="8" width="303" height="28"/>
+                                                    <rect key="frame" x="48" y="8" width="319" height="28"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="28" id="1Cq-wH-cdn"/>
                                                     </constraints>
@@ -146,14 +146,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Duration" translatesAutoresizingMaskIntoConstraints="NO" id="xdJ-rk-NnT">
-                                                    <rect key="frame" x="16" y="6" width="32" height="32"/>
+                                                    <rect key="frame" x="8" y="6" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="O6C-Te-oZL"/>
                                                         <constraint firstAttribute="width" constant="32" id="vwC-w5-XOe"/>
                                                     </constraints>
                                                 </imageView>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Duration" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CRs-v3-beF">
-                                                    <rect key="frame" x="56" y="8" width="303" height="28"/>
+                                                    <rect key="frame" x="48" y="8" width="319" height="28"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="28" id="jIg-gA-1nu"/>
                                                     </constraints>
@@ -258,7 +258,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="65f-5a-B9e" id="Uw7-EW-Ob5">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="49.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qC1-l3-6dk" userLabel="descr">
@@ -518,6 +518,7 @@
                     </view>
                     <connections>
                         <outlet property="aliveCountdownLabel" destination="B9x-Ud-K9w" id="ZrH-Or-RDY"/>
+                        <outlet property="aliveInfoLabel" destination="Sa9-s4-Lxw" id="Qcg-0a-hCw"/>
                         <outlet property="aliveTimerView" destination="NNi-PT-kib" id="NTp-Ld-eaM"/>
                         <outlet property="descriptionLabel" destination="s5s-y5-R8V" id="ZP4-gG-SxR"/>
                         <outlet property="infoView" destination="QL4-Ed-JWV" id="yc3-jA-xTi"/>
@@ -554,7 +555,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fxO-rY-xB0">
-                                                    <rect key="frame" x="8" y="10" width="359" height="24"/>
+                                                    <rect key="frame" x="8" y="7" width="359" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
@@ -577,7 +578,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Second" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pMt-T7-gdb">
-                                                    <rect key="frame" x="8" y="11" width="359" height="24.5"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
@@ -600,7 +601,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Third" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Hpg-om-fVM">
-                                                    <rect key="frame" x="8" y="11" width="359" height="24.5"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
@@ -623,7 +624,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Fourth" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CQW-KZ-iXK">
-                                                    <rect key="frame" x="8" y="11" width="359" height="24.5"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
