@@ -16,6 +16,7 @@ class TaskTimerViewController: UIViewController {
     @IBOutlet var infoView: UIView!
     @IBOutlet var aliveCountdownLabel: UILabel?
     @IBOutlet var aliveTimerView: UIView!
+    @IBOutlet var aliveInfoLabel: UILabel?
     
     //MARK: Variables
     
@@ -69,12 +70,14 @@ class TaskTimerViewController: UIViewController {
             aliveCountdownLabel?.text = String(format: "%02d:%02d", minutes, seconds)
         }
     }
-
+    
+    var alarmSent:Bool = false
+    
     //MARK: View Controller
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = UIColor.clear
         
         aliveTimerView.backgroundColor = UIColor.clear
@@ -86,7 +89,7 @@ class TaskTimerViewController: UIViewController {
         
         aliveCountdownLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 69, weight: UIFont.Weight.thin)
         mainCountdownLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 49, weight: UIFont.Weight.light)
-
+        
         stopButton.layer.cornerRadius = stopButton.bounds.size.width / 2.0
         stopButton.layer.borderColor = UIColor.white.cgColor
         stopButton.layer.borderWidth = 1.0
@@ -98,7 +101,7 @@ class TaskTimerViewController: UIViewController {
         
         self.notifyServerAboutEvent(status: "start", for: (self.task?.id)!)
     }
-
+    
     override func viewDidDisappear(_ animated: Bool) {
         mainTimer?.invalidate()
         aliveTimer?.invalidate()
@@ -143,7 +146,7 @@ class TaskTimerViewController: UIViewController {
         self.aliveWhiteDiskLayer.removeAnimation(forKey: "pulseAnimation")
         self.aliveCircleLayer.add(pulse, forKey: "pulseAnimation")
         self.aliveWhiteDiskLayer.add(pulse, forKey: "pulseAnimation")
-
+        
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 4.0, options: [], animations: {
             self.aliveTimerView.alpha = 1.0
             self.aliveTimerView.transform = CGAffineTransform.identity
@@ -188,7 +191,7 @@ class TaskTimerViewController: UIViewController {
             }
         }
     }
-
+    
     @objc(proccessMainTick)
     func proccessMainTick() {
         if self.mainTime == 0 {
@@ -201,7 +204,12 @@ class TaskTimerViewController: UIViewController {
     @objc(proccessAliveTick)
     func proccessAliveTick() {
         if self.aliveTime == 0 {
-            print("Alarm! Alarm!")
+            if !alarmSent {
+                aliveInfoLabel?.text = "Game over, notification has been sent"
+                self.notifyServerAboutEvent(status: "alarm", for: (self.task?.id)!)
+                alarmSent = true
+                print("Alarm! Alarm!")
+            }
             return
         }
         
@@ -212,5 +220,5 @@ class TaskTimerViewController: UIViewController {
     func setupAliveCountdown() {
         self.isAliveTimerStarted = true
     }
-
+    
 }
