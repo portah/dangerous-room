@@ -10,6 +10,7 @@ import UIKit
 import SwiftDDP
 import CoreData
 import SwiftyBeaver
+import UserNotifications
 
 let log = SwiftyBeaver.self
 
@@ -17,8 +18,6 @@ let log = SwiftyBeaver.self
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
-//    var identifierForVendor: UUID?
     
     let events = MeteorCoreDataCollection(collectionName: "Events", entityName: "Events")
     let contacts = MeteorCoreDataCollection(collectionName: "Contacts", entityName: "Contacts")
@@ -30,20 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.uuid = _uuid
             print("device? \(self.uuid)")
         }
-        // Override point for customization after application launch.
-        //        if let tabBarController = window?.rootViewController as? UITabBarController,
-        //            let navigationController = tabBarController.viewControllers?.first as? UINavigationController,
-        //            let tasksController = navigationController.viewControllers.first as? TasksTableViewController {
-        ////            tasksController.configure(tasksDatastore: TasksDatastore())
-        //        }
-        
+
         let console = ConsoleDestination()  // log to Xcode Console
-        
-        // use custom format and set console output to short time, log level & message
         console.format = "$DHH:mm:ss$d $L $M"
-        // or use this for JSON output: console.format = "$J"
-        
-        // add the destinations to SwiftyBeaver
         log.addDestination(console)
         
         let url = "ws://localhost:3000/websocket"
@@ -53,6 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Meteor.subscribe("dangerous-room/events", params: [self.uuid])
             Meteor.subscribe("dangerous-room/contacts", params: [self.uuid])
         }
+        
+        UNUserNotificationCenter.current().delegate = self
         
         return true
     }
@@ -79,7 +69,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
     }
-    
-    
 }
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler:
+        @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler(.alert)
+    }
+}
+
 

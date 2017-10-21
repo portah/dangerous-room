@@ -12,15 +12,16 @@ import SwiftDDP
 class TaskTimerViewController: UIViewController {
     @IBOutlet var stopButton: UIButton!
     @IBOutlet var descriptionLabel: UILabel!
-    @IBOutlet var mainCountdownLabel: UILabel?
+    @IBOutlet var mainCountdownLabel: UILabel!
     @IBOutlet var infoView: UIView!
-    @IBOutlet var aliveCountdownLabel: UILabel?
+    @IBOutlet var aliveCountdownLabel: UILabel!
     @IBOutlet var aliveTimerView: UIView!
-    @IBOutlet var aliveInfoLabel: UILabel?
-    
+    @IBOutlet var aliveInfoLabel: UILabel!
+    @IBOutlet var alarmInfoLabel: UILabel!
+
     //MARK: Variables
     
-    lazy var aliveCircleLayer:CAShapeLayer = {
+    lazy var aliveCircleLayer: CAShapeLayer = {
         let circle = CAShapeLayer()
         circle.frame = self.aliveTimerView.bounds
         
@@ -59,7 +60,7 @@ class TaskTimerViewController: UIViewController {
             let seconds = interval % 60
             let minutes = (interval / 60) % 60
             let hours = (interval / 3600)
-            mainCountdownLabel?.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+            mainCountdownLabel.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
         }
     }
     var aliveTime: TimeInterval = 0 {
@@ -67,7 +68,7 @@ class TaskTimerViewController: UIViewController {
             let interval = Int(aliveTime)
             let seconds = interval % 60
             let minutes = (interval / 60) % 60
-            aliveCountdownLabel?.text = String(format: "%02d:%02d", minutes, seconds)
+            aliveCountdownLabel.text = String(format: "%02d:%02d", minutes, seconds)
         }
     }
     
@@ -86,9 +87,11 @@ class TaskTimerViewController: UIViewController {
         
         aliveTimerView.layer.insertSublayer(aliveCircleLayer, at: 0)
         aliveTimerView.layer.insertSublayer(aliveWhiteDiskLayer, at: 0)
-        
-        aliveCountdownLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 69, weight: UIFont.Weight.thin)
-        mainCountdownLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 49, weight: UIFont.Weight.light)
+
+        alarmInfoLabel.alpha = 0.0
+
+        aliveCountdownLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 69, weight: UIFont.Weight.thin)
+        mainCountdownLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 49, weight: UIFont.Weight.light)
         
         stopButton.layer.cornerRadius = stopButton.bounds.size.width / 2.0
         stopButton.layer.borderColor = UIColor.white.cgColor
@@ -115,11 +118,16 @@ class TaskTimerViewController: UIViewController {
     
     //MARK: Actions
     @IBAction func stopButtonTapped(_ sender: Any) {
+        self.notifyServerAboutEvent(status: "stop", for: (self.task?.id)!)
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func aliveTimerTapped(_ sender: Any) {
-        self.isAliveTimerStarted = false
+        if alarmSent {
+            dismiss(animated: true, completion: nil)
+        } else {
+            self.isAliveTimerStarted = false
+        }
     }
     
     //MARK: Alive Timer
@@ -205,7 +213,12 @@ class TaskTimerViewController: UIViewController {
     func proccessAliveTick() {
         if self.aliveTime == 0 {
             if !alarmSent {
-                aliveInfoLabel?.text = "Game over, notification has been sent"
+                aliveInfoLabel.alpha = 0.0
+                aliveCountdownLabel.alpha = 0.0
+                
+                alarmInfoLabel.alpha = 1.0
+                alarmInfoLabel.text = "Game over, notification has been sent"
+                
                 self.notifyServerAboutEvent(status: "alarm", for: (self.task?.id)!)
                 alarmSent = true
                 print("Alarm! Alarm!")
