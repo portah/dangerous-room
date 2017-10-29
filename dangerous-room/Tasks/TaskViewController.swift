@@ -17,7 +17,17 @@ class TaskViewController: UIViewController {
     @IBOutlet weak var taskDateLabel: UILabel!
     @IBOutlet weak var taskTimeLabel: UILabel!
     
-    var taskToEdit: Events?
+    var observer: ContextObserver?
+    var taskToEdit: Events? {
+        didSet {
+            if let taskToEditMOC = taskToEdit?.managedObjectContext {
+                observer = ContextObserver(context: taskToEditMOC)
+                observer?.add().filter(taskToEdit).block { [weak self] _,_,_ in
+                    self?.updateUI()
+                }
+            }
+        }
+    }
     
     var timer: DangerousTimer?
     
@@ -75,34 +85,35 @@ class TaskViewController: UIViewController {
         guard let segueIdentifier = segue.identifier else { return }
         
         switch segueIdentifier {
-            case "editTask":
-                if let destinationController = segue.destination as? UINavigationController,
-                    let destinationEditController = destinationController.viewControllers.first as? TaskEditTableViewController {
-                    destinationEditController.title = "Edit Task"
-                    destinationEditController.taskToEdit = taskToEdit
-                }
-            case "countdown":
-                segue.destination.modalPresentationStyle = .custom
-                segue.destination.transitioningDelegate = self
-                
-                if let taskTimerController = segue.destination as? TaskTimerViewController {
-                    taskTimerController.task = taskToEdit
-                    taskTimerController.aliveTimeinterval = 10//2 * 60
-                    taskTimerController.betweenAliveTimeinterval = 10
-                }
-            default:
-                return
+        case "editTask":
+            if let destinationController = segue.destination as? UINavigationController,
+                let destinationEditController = destinationController.viewControllers.first as? TaskEditTableViewController {
+                destinationEditController.title = "Edit Task"
+                destinationEditController.taskToEdit = taskToEdit
+            }
+        case "countdown":
+            segue.destination.modalPresentationStyle = .custom
+            segue.destination.transitioningDelegate = self
+            
+            if let taskTimerController = segue.destination as? TaskTimerViewController {
+                taskTimerController.task = taskToEdit
+                taskTimerController.aliveTimeinterval = 10//2 * 60
+                taskTimerController.betweenAliveTimeinterval = 10
+            }
+        default:
+            return
         }
     }
     
     @IBAction func unwindToViewControllerTaskView(segue: UIStoryboardSegue) {
         print("Unwind View")
-        self.updateUI()
+//        self.updateUI()
     }
-
+    
     // MARK: - Unused
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 }
+
