@@ -49,10 +49,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let url = "ws://localhost:3000/websocket"
         // let url = "wss://dangerous-room.porter.st/websocket"
 
+        events.delegate = self
+        contacts.delegate = self
+        
         Meteor.connect(url) {
             Meteor.subscribe("dangerous-room/events", params: [self.uuid])
             Meteor.subscribe("dangerous-room/contacts", params: [self.uuid])
         }
+
+        // DEBUG: show url to Documents folder in simulator
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        log.debug(urls[urls.count-1] as URL)
         
         return true
     }
