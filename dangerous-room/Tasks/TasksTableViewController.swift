@@ -8,15 +8,17 @@
 import UIKit
 import CoreData
 import SwiftDDP
+import UserNotifications
+
+protocol ConfigurationViewControllerDelegate {
+    func configurationCompleted(newNotifications new: Bool)
+}
 
 class TasksTableViewController: MeteorCoreDataTableViewController {
     
     var collection:MeteorCoreDataCollection = (UIApplication.shared.delegate as! AppDelegate).events
-    
-    //    fileprivate var tasksDatastore: TasksDatastore?
-    //    fileprivate var tasks: [Task] = []
-    //    fileprivate var selectedTask: Task?
-    
+    var delegate: ConfigurationViewControllerDelegate?
+        
     lazy var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Events")
         let primarySortDescriptor = NSSortDescriptor(key: "id", ascending: true)
@@ -40,6 +42,33 @@ class TasksTableViewController: MeteorCoreDataTableViewController {
         } catch let error as NSError {
             print(error)
         }
+        
+//        UNUserNotificationCenter.current()
+//            .requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+//                if granted {
+//                    let content = UNMutableNotificationContent()
+//                    content.title = "Dangerous Room!"
+//                    content.subtitle = "Event started!"
+//                    content.body = "It's dangerous be carefull!"
+//
+//                    let notiIdentifier = "notiIdentifier1"
+//                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+//                    let request = UNNotificationRequest(identifier: notiIdentifier, content: content, trigger: trigger)
+//
+//                    UNUserNotificationCenter.current()
+//                        .add(request, withCompletionHandler: { (error) in
+//                            if let error = error {
+//                                print(error)
+//                            } else {
+//                                DispatchQueue.main.async(execute: {
+//                                    self.delegate?.configurationCompleted(newNotifications: true)
+//                                })
+//                            }
+//                        })
+//                } else {
+//                    print("UNUserNotificationCenter: \(String(describing: error?.localizedDescription))")
+//                }
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -111,7 +140,7 @@ class TasksTableViewController: MeteorCoreDataTableViewController {
             let id = object.value(forKey: "id") as! String
             log.debug("going to delete id: \(id)")
             self.collection.remove(withId: id)
-//            Meteor.call("dangerous-room/events/delete", params: [id], callback: nil)
+            //            Meteor.call("dangerous-room/events/delete", params: [id], callback: nil)
         }
     }
     
@@ -126,18 +155,6 @@ class TasksTableViewController: MeteorCoreDataTableViewController {
         if let identifier = segue.identifier {
             log.debug("UIStoryboardSegue identifier \(identifier)")
             switch identifier {
-//            case "addTask":
-//                if let destinationController = segue.destination as? UINavigationController,
-//                    let destinationEditController = destinationController.viewControllers.first as? TaskEditTableViewController {
-//                    if let _task = selectedTask {
-//                        destinationEditController.title = "Edit Task"
-//                        destinationEditController.taskToEdit = _task
-//                        destinationEditController.tasksDatastore = tasksDatastore
-//                    } else {
-//                        destinationEditController.title = "New Task"
-//                        destinationEditController.tasksDatastore = tasksDatastore
-//                    }
-//                }
             case "viewTask":
                 if let destinationViewController = segue.destination as? TaskViewController {
                     if let cell = sender as? UITableViewCell,
@@ -154,7 +171,7 @@ class TasksTableViewController: MeteorCoreDataTableViewController {
     @IBAction func unwindToViewControllerTaskView(segue: UIStoryboardSegue) {
         print("Unwind Tasks")
     }
-
+    
     
     // MARK: - Not used!!!
     
@@ -169,6 +186,7 @@ class TasksTableViewController: MeteorCoreDataTableViewController {
 }
 
 // MARK: Documents data
+
 
 //extension TasksTableViewController: MeteorCoreDataCollectionDelegate {
 //
@@ -218,3 +236,4 @@ class TasksTableViewController: MeteorCoreDataTableViewController {
 //    }
 //}
 //
+
