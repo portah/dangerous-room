@@ -1,869 +1,891 @@
 // !$*UTF8*$!
 {
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 47;
-	objects = {
+archiveVersion = 1;
+classes = {
+};
+objectVersion = 47;
+objects = {
 
 /* Begin PBXBuildFile section */
-		040F71F61EFED1010082963D /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F71F51EFED1010082963D /* TasksTableViewController.swift */; };
-		040F71F81EFED2870082963D /* TaskEditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F71F71EFED2870082963D /* TaskEditTableViewController.swift */; };
-		040F71FA1EFEDC0B0082963D /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F71F91EFEDC0B0082963D /* TaskViewController.swift */; };
-		041C306A1F7A9448005B817F /* TaskTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C30691F7A9448005B817F /* TaskTimerViewController.swift */; };
-		041C306C1F7A9844005B817F /* TaskViewController+UIViewControllerTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C306B1F7A9844005B817F /* TaskViewController+UIViewControllerTransitioningDelegate.swift */; };
-		045A40551EFE45E400C34141 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A40541EFE45E400C34141 /* AppDelegate.swift */; };
-		045A405C1EFE45E400C34141 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045A405A1EFE45E400C34141 /* Main.storyboard */; };
-		045A405E1EFE45E400C34141 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 045A405D1EFE45E400C34141 /* Assets.xcassets */; };
-		045A40611EFE45E400C34141 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045A405F1EFE45E400C34141 /* LaunchScreen.storyboard */; };
-		045A406C1EFE45E500C34141 /* Dangerous_RoomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A406B1EFE45E500C34141 /* Dangerous_RoomTests.swift */; };
-		045A40771EFE45E500C34141 /* Dangerous_RoomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A40761EFE45E500C34141 /* Dangerous_RoomUITests.swift */; };
-		049907AC1FA515BE005BA2E9 /* AppDelegate+MeteorCoreDataCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049907AB1FA515BE005BA2E9 /* AppDelegate+MeteorCoreDataCollectionDelegate.swift */; };
-		04ABAA3B1FA0CD0F0011556A /* PhonesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ABAA3A1FA0CD0F0011556A /* PhonesTableViewController.swift */; };
-		615AF4FA1F50E4B800CABA46 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615AF4F91F50E4B800CABA46 /* Timer.swift */; };
-		61D300451F873F3D00305487 /* MeteorCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61D300431F873F3D00305487 /* MeteorCoreData.xcdatamodeld */; };
-		61D300461F873FDA00305487 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D300411F873D7F00305487 /* CoreDataExtensions.swift */; };
-		61D300471F873FDA00305487 /* MeteorCollectionChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D300401F873D7F00305487 /* MeteorCollectionChange.swift */; };
-		61D300481F873FDA00305487 /* MeteorCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3003F1F873D7F00305487 /* MeteorCoreData.swift */; };
-		61D300491F873FDA00305487 /* MeteorCoreDataCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3003D1F873D7F00305487 /* MeteorCoreDataCollection.swift */; };
-		61D3004A1F873FDA00305487 /* MeteorCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D300421F873D7F00305487 /* MeteorCoreDataStack.swift */; };
-		61D3004B1F873FDA00305487 /* MeteorCoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3003E1F873D7F00305487 /* MeteorCoreDataTableViewController.swift */; };
-		61F89F651F8AE486006193A4 /* TaskTimerViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F89F641F8AE486006193A4 /* TaskTimerViewControllerExtensions.swift */; };
-		7988C18336AB22E47296E67E /* Pods_dangerous_roomTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13C96E9D61FEBBA606B5CF2 /* Pods_dangerous_roomTests.framework */; };
-		87864603377026796B71AE09 /* Pods_dangerous_room.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01EBBB39A794A706028E8D83 /* Pods_dangerous_room.framework */; };
-		DEE26D90A6F44BA51E3BABAE /* Pods_dangerous_roomUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD12C56236E658E604946F1 /* Pods_dangerous_roomUITests.framework */; };
+040F71F61EFED1010082963D /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F71F51EFED1010082963D /* TasksTableViewController.swift */; };
+040F71F81EFED2870082963D /* TaskEditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F71F71EFED2870082963D /* TaskEditTableViewController.swift */; };
+040F71FA1EFEDC0B0082963D /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F71F91EFEDC0B0082963D /* TaskViewController.swift */; };
+041C306A1F7A9448005B817F /* TaskTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C30691F7A9448005B817F /* TaskTimerViewController.swift */; };
+041C306C1F7A9844005B817F /* TaskViewController+UIViewControllerTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C306B1F7A9844005B817F /* TaskViewController+UIViewControllerTransitioningDelegate.swift */; };
+045A40551EFE45E400C34141 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A40541EFE45E400C34141 /* AppDelegate.swift */; };
+045A405C1EFE45E400C34141 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045A405A1EFE45E400C34141 /* Main.storyboard */; };
+045A405E1EFE45E400C34141 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 045A405D1EFE45E400C34141 /* Assets.xcassets */; };
+045A40611EFE45E400C34141 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045A405F1EFE45E400C34141 /* LaunchScreen.storyboard */; };
+045A406C1EFE45E500C34141 /* Dangerous_RoomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A406B1EFE45E500C34141 /* Dangerous_RoomTests.swift */; };
+045A40771EFE45E500C34141 /* Dangerous_RoomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A40761EFE45E500C34141 /* Dangerous_RoomUITests.swift */; };
+049D45711F98EDAF009365D4 /* ContextObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D456E1F98EDAA009365D4 /* ContextObserver.swift */; };
+049D45721F98EDB3009365D4 /* Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D456F1F98EDAB009365D4 /* Handler.swift */; };
+049D45731F98EDB6009365D4 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D45701F98EDAB009365D4 /* Observable.swift */; };
+049907AC1FA515BE005BA2E9 /* AppDelegate+MeteorCoreDataCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049907AB1FA515BE005BA2E9 /* AppDelegate+MeteorCoreDataCollectionDelegate.swift */; };
+04ABAA3B1FA0CD0F0011556A /* PhonesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ABAA3A1FA0CD0F0011556A /* PhonesTableViewController.swift */; };
+615AF4FA1F50E4B800CABA46 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615AF4F91F50E4B800CABA46 /* Timer.swift */; };
+61D300451F873F3D00305487 /* MeteorCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61D300431F873F3D00305487 /* MeteorCoreData.xcdatamodeld */; };
+61D300461F873FDA00305487 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D300411F873D7F00305487 /* CoreDataExtensions.swift */; };
+61D300471F873FDA00305487 /* MeteorCollectionChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D300401F873D7F00305487 /* MeteorCollectionChange.swift */; };
+61D300481F873FDA00305487 /* MeteorCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3003F1F873D7F00305487 /* MeteorCoreData.swift */; };
+61D300491F873FDA00305487 /* MeteorCoreDataCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3003D1F873D7F00305487 /* MeteorCoreDataCollection.swift */; };
+61D3004A1F873FDA00305487 /* MeteorCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D300421F873D7F00305487 /* MeteorCoreDataStack.swift */; };
+61D3004B1F873FDA00305487 /* MeteorCoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3003E1F873D7F00305487 /* MeteorCoreDataTableViewController.swift */; };
+61F89F651F8AE486006193A4 /* TaskTimerViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F89F641F8AE486006193A4 /* TaskTimerViewControllerExtensions.swift */; };
+7988C18336AB22E47296E67E /* Pods_dangerous_roomTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13C96E9D61FEBBA606B5CF2 /* Pods_dangerous_roomTests.framework */; };
+87864603377026796B71AE09 /* Pods_dangerous_room.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01EBBB39A794A706028E8D83 /* Pods_dangerous_room.framework */; };
+DEE26D90A6F44BA51E3BABAE /* Pods_dangerous_roomUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD12C56236E658E604946F1 /* Pods_dangerous_roomUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		045A40681EFE45E500C34141 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 045A40491EFE45E400C34141 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 045A40501EFE45E400C34141;
-			remoteInfo = "Dangerous Room";
-		};
-		045A40731EFE45E500C34141 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 045A40491EFE45E400C34141 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 045A40501EFE45E400C34141;
-			remoteInfo = "Dangerous Room";
-		};
+045A40681EFE45E500C34141 /* PBXContainerItemProxy */ = {
+isa = PBXContainerItemProxy;
+containerPortal = 045A40491EFE45E400C34141 /* Project object */;
+proxyType = 1;
+remoteGlobalIDString = 045A40501EFE45E400C34141;
+remoteInfo = "Dangerous Room";
+};
+045A40731EFE45E500C34141 /* PBXContainerItemProxy */ = {
+isa = PBXContainerItemProxy;
+containerPortal = 045A40491EFE45E400C34141 /* Project object */;
+proxyType = 1;
+remoteGlobalIDString = 045A40501EFE45E400C34141;
+remoteInfo = "Dangerous Room";
+};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01EBBB39A794A706028E8D83 /* Pods_dangerous_room.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dangerous_room.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		040F71F51EFED1010082963D /* TasksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
-		040F71F71EFED2870082963D /* TaskEditTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskEditTableViewController.swift; sourceTree = "<group>"; };
-		040F71F91EFEDC0B0082963D /* TaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
-		041C30691F7A9448005B817F /* TaskTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTimerViewController.swift; sourceTree = "<group>"; };
-		041C306B1F7A9844005B817F /* TaskViewController+UIViewControllerTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskViewController+UIViewControllerTransitioningDelegate.swift"; sourceTree = "<group>"; };
-		045A40511EFE45E400C34141 /* dangerous-room.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dangerous-room.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		045A40541EFE45E400C34141 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		045A405B1EFE45E400C34141 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		045A405D1EFE45E400C34141 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		045A40601EFE45E400C34141 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		045A40621EFE45E400C34141 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		045A40671EFE45E500C34141 /* dangerous-roomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dangerous-roomTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		045A406B1EFE45E500C34141 /* Dangerous_RoomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dangerous_RoomTests.swift; sourceTree = "<group>"; };
-		045A406D1EFE45E500C34141 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		045A40721EFE45E500C34141 /* dangerous-roomUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dangerous-roomUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		045A40761EFE45E500C34141 /* Dangerous_RoomUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dangerous_RoomUITests.swift; sourceTree = "<group>"; };
-		045A40781EFE45E500C34141 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		049907AB1FA515BE005BA2E9 /* AppDelegate+MeteorCoreDataCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+MeteorCoreDataCollectionDelegate.swift"; sourceTree = "<group>"; };
-		04ABAA3A1FA0CD0F0011556A /* PhonesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhonesTableViewController.swift; sourceTree = "<group>"; };
-		0CD12C56236E658E604946F1 /* Pods_dangerous_roomUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dangerous_roomUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4EEC0A4D59785ED60BFC3301 /* Pods-dangerous-roomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-roomTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-roomTests/Pods-dangerous-roomTests.release.xcconfig"; sourceTree = "<group>"; };
-		615AF4F91F50E4B800CABA46 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
-		61D3003D1F873D7F00305487 /* MeteorCoreDataCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorCoreDataCollection.swift; sourceTree = "<group>"; };
-		61D3003E1F873D7F00305487 /* MeteorCoreDataTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorCoreDataTableViewController.swift; sourceTree = "<group>"; };
-		61D3003F1F873D7F00305487 /* MeteorCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorCoreData.swift; sourceTree = "<group>"; };
-		61D300401F873D7F00305487 /* MeteorCollectionChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorCollectionChange.swift; sourceTree = "<group>"; };
-		61D300411F873D7F00305487 /* CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtensions.swift; sourceTree = "<group>"; };
-		61D300421F873D7F00305487 /* MeteorCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorCoreDataStack.swift; sourceTree = "<group>"; };
-		61D300441F873F3D00305487 /* DangerousRoomModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DangerousRoomModel.xcdatamodel; sourceTree = "<group>"; };
-		61F89F641F8AE486006193A4 /* TaskTimerViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTimerViewControllerExtensions.swift; sourceTree = "<group>"; };
-		6A3A65E8096110CD996DF87E /* Pods-dangerous-roomUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-roomUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-roomUITests/Pods-dangerous-roomUITests.release.xcconfig"; sourceTree = "<group>"; };
-		967B27EE3F05504291098304 /* Pods-dangerous-room.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-room.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-room/Pods-dangerous-room.debug.xcconfig"; sourceTree = "<group>"; };
-		C13C96E9D61FEBBA606B5CF2 /* Pods_dangerous_roomTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dangerous_roomTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2BE9ADA5F67DFA15734C496 /* Pods-dangerous-room.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-room.release.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-room/Pods-dangerous-room.release.xcconfig"; sourceTree = "<group>"; };
-		CD90A695983E6624FDC9418C /* Pods-dangerous-roomUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-roomUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-roomUITests/Pods-dangerous-roomUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		E4A45439B00C95A5769CE570 /* Pods-dangerous-roomTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-roomTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-roomTests/Pods-dangerous-roomTests.debug.xcconfig"; sourceTree = "<group>"; };
+01EBBB39A794A706028E8D83 /* Pods_dangerous_room.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dangerous_room.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+040F71F51EFED1010082963D /* TasksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
+040F71F71EFED2870082963D /* TaskEditTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskEditTableViewController.swift; sourceTree = "<group>"; };
+040F71F91EFEDC0B0082963D /* TaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
+041C30691F7A9448005B817F /* TaskTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTimerViewController.swift; sourceTree = "<group>"; };
+041C306B1F7A9844005B817F /* TaskViewController+UIViewControllerTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskViewController+UIViewControllerTransitioningDelegate.swift"; sourceTree = "<group>"; };
+045A40511EFE45E400C34141 /* dangerous-room.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dangerous-room.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+045A40541EFE45E400C34141 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+045A405B1EFE45E400C34141 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+045A405D1EFE45E400C34141 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+045A40601EFE45E400C34141 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+045A40621EFE45E400C34141 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+045A40671EFE45E500C34141 /* dangerous-roomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dangerous-roomTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+045A406B1EFE45E500C34141 /* Dangerous_RoomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dangerous_RoomTests.swift; sourceTree = "<group>"; };
+045A406D1EFE45E500C34141 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+045A40721EFE45E500C34141 /* dangerous-roomUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dangerous-roomUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+045A40761EFE45E500C34141 /* Dangerous_RoomUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dangerous_RoomUITests.swift; sourceTree = "<group>"; };
+045A40781EFE45E500C34141 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+049D456E1F98EDAA009365D4 /* ContextObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextObserver.swift; sourceTree = "<group>"; };
+049D456F1F98EDAB009365D4 /* Handler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handler.swift; sourceTree = "<group>"; };
+049D45701F98EDAB009365D4 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+049907AB1FA515BE005BA2E9 /* AppDelegate+MeteorCoreDataCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+MeteorCoreDataCollectionDelegate.swift"; sourceTree = "<group>"; };
+04ABAA3A1FA0CD0F0011556A /* PhonesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhonesTableViewController.swift; sourceTree = "<group>"; };
+0CD12C56236E658E604946F1 /* Pods_dangerous_roomUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dangerous_roomUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+4EEC0A4D59785ED60BFC3301 /* Pods-dangerous-roomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-roomTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-roomTests/Pods-dangerous-roomTests.release.xcconfig"; sourceTree = "<group>"; };
+615AF4F91F50E4B800CABA46 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+61D3003D1F873D7F00305487 /* MeteorCoreDataCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorCoreDataCollection.swift; sourceTree = "<group>"; };
+61D3003E1F873D7F00305487 /* MeteorCoreDataTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorCoreDataTableViewController.swift; sourceTree = "<group>"; };
+61D3003F1F873D7F00305487 /* MeteorCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorCoreData.swift; sourceTree = "<group>"; };
+61D300401F873D7F00305487 /* MeteorCollectionChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorCollectionChange.swift; sourceTree = "<group>"; };
+61D300411F873D7F00305487 /* CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtensions.swift; sourceTree = "<group>"; };
+61D300421F873D7F00305487 /* MeteorCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorCoreDataStack.swift; sourceTree = "<group>"; };
+61D300441F873F3D00305487 /* DangerousRoomModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DangerousRoomModel.xcdatamodel; sourceTree = "<group>"; };
+61F89F641F8AE486006193A4 /* TaskTimerViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTimerViewControllerExtensions.swift; sourceTree = "<group>"; };
+6A3A65E8096110CD996DF87E /* Pods-dangerous-roomUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-roomUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-roomUITests/Pods-dangerous-roomUITests.release.xcconfig"; sourceTree = "<group>"; };
+967B27EE3F05504291098304 /* Pods-dangerous-room.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-room.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-room/Pods-dangerous-room.debug.xcconfig"; sourceTree = "<group>"; };
+C13C96E9D61FEBBA606B5CF2 /* Pods_dangerous_roomTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dangerous_roomTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+C2BE9ADA5F67DFA15734C496 /* Pods-dangerous-room.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-room.release.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-room/Pods-dangerous-room.release.xcconfig"; sourceTree = "<group>"; };
+CD90A695983E6624FDC9418C /* Pods-dangerous-roomUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-roomUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-roomUITests/Pods-dangerous-roomUITests.debug.xcconfig"; sourceTree = "<group>"; };
+E4A45439B00C95A5769CE570 /* Pods-dangerous-roomTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-roomTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-roomTests/Pods-dangerous-roomTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		045A404E1EFE45E400C34141 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				87864603377026796B71AE09 /* Pods_dangerous_room.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		045A40641EFE45E500C34141 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7988C18336AB22E47296E67E /* Pods_dangerous_roomTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		045A406F1EFE45E500C34141 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DEE26D90A6F44BA51E3BABAE /* Pods_dangerous_roomUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
+045A404E1EFE45E400C34141 /* Frameworks */ = {
+isa = PBXFrameworksBuildPhase;
+buildActionMask = 2147483647;
+files = (
+87864603377026796B71AE09 /* Pods_dangerous_room.framework in Frameworks */,
+);
+runOnlyForDeploymentPostprocessing = 0;
+};
+045A40641EFE45E500C34141 /* Frameworks */ = {
+isa = PBXFrameworksBuildPhase;
+buildActionMask = 2147483647;
+files = (
+7988C18336AB22E47296E67E /* Pods_dangerous_roomTests.framework in Frameworks */,
+);
+runOnlyForDeploymentPostprocessing = 0;
+};
+045A406F1EFE45E500C34141 /* Frameworks */ = {
+isa = PBXFrameworksBuildPhase;
+buildActionMask = 2147483647;
+files = (
+DEE26D90A6F44BA51E3BABAE /* Pods_dangerous_roomUITests.framework in Frameworks */,
+);
+runOnlyForDeploymentPostprocessing = 0;
+};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		045A40481EFE45E400C34141 = {
-			isa = PBXGroup;
-			children = (
-				045A40531EFE45E400C34141 /* dangerous-room */,
-				045A406A1EFE45E500C34141 /* dangerous-roomTests */,
-				045A40751EFE45E500C34141 /* dangerous-roomUITests */,
-				045A40521EFE45E400C34141 /* Products */,
-				48B1ADBC207F813F6F914DB5 /* Pods */,
-				64ACD5DF0C06132CEF3627AF /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		045A40521EFE45E400C34141 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				045A40511EFE45E400C34141 /* dangerous-room.app */,
-				045A40671EFE45E500C34141 /* dangerous-roomTests.xctest */,
-				045A40721EFE45E500C34141 /* dangerous-roomUITests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		045A40531EFE45E400C34141 /* dangerous-room */ = {
-			isa = PBXGroup;
-			children = (
-				61D300361F873D2600305487 /* Meteor */,
-				61AC0BC51F44F29500AE0924 /* Tasks */,
-				048A08CC1F98F89F0022664C /* Settings */,
-				045A40541EFE45E400C34141 /* AppDelegate.swift */,
-				049907AB1FA515BE005BA2E9 /* AppDelegate+MeteorCoreDataCollectionDelegate.swift */,
-				045A405A1EFE45E400C34141 /* Main.storyboard */,
-				045A405D1EFE45E400C34141 /* Assets.xcassets */,
-				045A405F1EFE45E400C34141 /* LaunchScreen.storyboard */,
-				045A40621EFE45E400C34141 /* Info.plist */,
-				615AF4F91F50E4B800CABA46 /* Timer.swift */,
-				61D300431F873F3D00305487 /* MeteorCoreData.xcdatamodeld */,
-			);
-			path = "dangerous-room";
-			sourceTree = "<group>";
-		};
-		045A406A1EFE45E500C34141 /* dangerous-roomTests */ = {
-			isa = PBXGroup;
-			children = (
-				045A406B1EFE45E500C34141 /* Dangerous_RoomTests.swift */,
-				045A406D1EFE45E500C34141 /* Info.plist */,
-			);
-			path = "dangerous-roomTests";
-			sourceTree = "<group>";
-		};
-		045A40751EFE45E500C34141 /* dangerous-roomUITests */ = {
-			isa = PBXGroup;
-			children = (
-				045A40761EFE45E500C34141 /* Dangerous_RoomUITests.swift */,
-				045A40781EFE45E500C34141 /* Info.plist */,
-			);
-			path = "dangerous-roomUITests";
-			sourceTree = "<group>";
-		};
-		048A08CC1F98F89F0022664C /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				04ABAA3A1FA0CD0F0011556A /* PhonesTableViewController.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		48B1ADBC207F813F6F914DB5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				967B27EE3F05504291098304 /* Pods-dangerous-room.debug.xcconfig */,
-				C2BE9ADA5F67DFA15734C496 /* Pods-dangerous-room.release.xcconfig */,
-				E4A45439B00C95A5769CE570 /* Pods-dangerous-roomTests.debug.xcconfig */,
-				4EEC0A4D59785ED60BFC3301 /* Pods-dangerous-roomTests.release.xcconfig */,
-				CD90A695983E6624FDC9418C /* Pods-dangerous-roomUITests.debug.xcconfig */,
-				6A3A65E8096110CD996DF87E /* Pods-dangerous-roomUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		61AC0BC51F44F29500AE0924 /* Tasks */ = {
-			isa = PBXGroup;
-			children = (
-				040F71F91EFEDC0B0082963D /* TaskViewController.swift */,
-				041C306B1F7A9844005B817F /* TaskViewController+UIViewControllerTransitioningDelegate.swift */,
-				040F71F71EFED2870082963D /* TaskEditTableViewController.swift */,
-				040F71F51EFED1010082963D /* TasksTableViewController.swift */,
-				041C30691F7A9448005B817F /* TaskTimerViewController.swift */,
-				61F89F641F8AE486006193A4 /* TaskTimerViewControllerExtensions.swift */,
-			);
-			path = Tasks;
-			sourceTree = "<group>";
-		};
-		61D300361F873D2600305487 /* Meteor */ = {
-			isa = PBXGroup;
-			children = (
-				61D300411F873D7F00305487 /* CoreDataExtensions.swift */,
-				61D300401F873D7F00305487 /* MeteorCollectionChange.swift */,
-				61D3003F1F873D7F00305487 /* MeteorCoreData.swift */,
-				61D3003D1F873D7F00305487 /* MeteorCoreDataCollection.swift */,
-				61D300421F873D7F00305487 /* MeteorCoreDataStack.swift */,
-				61D3003E1F873D7F00305487 /* MeteorCoreDataTableViewController.swift */,
-			);
-			path = Meteor;
-			sourceTree = "<group>";
-		};
-		64ACD5DF0C06132CEF3627AF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				01EBBB39A794A706028E8D83 /* Pods_dangerous_room.framework */,
-				C13C96E9D61FEBBA606B5CF2 /* Pods_dangerous_roomTests.framework */,
-				0CD12C56236E658E604946F1 /* Pods_dangerous_roomUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
+045A40481EFE45E400C34141 = {
+isa = PBXGroup;
+children = (
+045A40531EFE45E400C34141 /* dangerous-room */,
+045A406A1EFE45E500C34141 /* dangerous-roomTests */,
+045A40751EFE45E500C34141 /* dangerous-roomUITests */,
+045A40521EFE45E400C34141 /* Products */,
+48B1ADBC207F813F6F914DB5 /* Pods */,
+64ACD5DF0C06132CEF3627AF /* Frameworks */,
+);
+sourceTree = "<group>";
+};
+045A40521EFE45E400C34141 /* Products */ = {
+isa = PBXGroup;
+children = (
+045A40511EFE45E400C34141 /* dangerous-room.app */,
+045A40671EFE45E500C34141 /* dangerous-roomTests.xctest */,
+045A40721EFE45E500C34141 /* dangerous-roomUITests.xctest */,
+);
+name = Products;
+sourceTree = "<group>";
+};
+045A40531EFE45E400C34141 /* dangerous-room */ = {
+isa = PBXGroup;
+children = (
+04DC4DE71F8B753400C5C830 /* ContextObserver */,
+61D300361F873D2600305487 /* Meteor */,
+61AC0BC51F44F29500AE0924 /* Tasks */,
+048A08CC1F98F89F0022664C /* Settings */,
+045A40541EFE45E400C34141 /* AppDelegate.swift */,
+049907AB1FA515BE005BA2E9 /* AppDelegate+MeteorCoreDataCollectionDelegate.swift */,
+045A405A1EFE45E400C34141 /* Main.storyboard */,
+045A405D1EFE45E400C34141 /* Assets.xcassets */,
+045A405F1EFE45E400C34141 /* LaunchScreen.storyboard */,
+045A40621EFE45E400C34141 /* Info.plist */,
+615AF4F91F50E4B800CABA46 /* Timer.swift */,
+61D300431F873F3D00305487 /* MeteorCoreData.xcdatamodeld */,
+);
+path = "dangerous-room";
+sourceTree = "<group>";
+};
+045A406A1EFE45E500C34141 /* dangerous-roomTests */ = {
+isa = PBXGroup;
+children = (
+045A406B1EFE45E500C34141 /* Dangerous_RoomTests.swift */,
+045A406D1EFE45E500C34141 /* Info.plist */,
+);
+path = "dangerous-roomTests";
+sourceTree = "<group>";
+};
+045A40751EFE45E500C34141 /* dangerous-roomUITests */ = {
+isa = PBXGroup;
+children = (
+045A40761EFE45E500C34141 /* Dangerous_RoomUITests.swift */,
+045A40781EFE45E500C34141 /* Info.plist */,
+);
+path = "dangerous-roomUITests";
+sourceTree = "<group>";
+};
+048A08CC1F98F89F0022664C /* Settings */ = {
+isa = PBXGroup;
+children = (
+04ABAA3A1FA0CD0F0011556A /* PhonesTableViewController.swift */,
+);
+path = Settings;
+sourceTree = "<group>";
+};
+04DC4DE71F8B753400C5C830 /* ContextObserver */ = {
+isa = PBXGroup;
+children = (
+049D456E1F98EDAA009365D4 /* ContextObserver.swift */,
+049D456F1F98EDAB009365D4 /* Handler.swift */,
+049D45701F98EDAB009365D4 /* Observable.swift */,
+);
+path = ContextObserver;
+sourceTree = "<group>";
+};
+48B1ADBC207F813F6F914DB5 /* Pods */ = {
+isa = PBXGroup;
+children = (
+967B27EE3F05504291098304 /* Pods-dangerous-room.debug.xcconfig */,
+C2BE9ADA5F67DFA15734C496 /* Pods-dangerous-room.release.xcconfig */,
+E4A45439B00C95A5769CE570 /* Pods-dangerous-roomTests.debug.xcconfig */,
+4EEC0A4D59785ED60BFC3301 /* Pods-dangerous-roomTests.release.xcconfig */,
+CD90A695983E6624FDC9418C /* Pods-dangerous-roomUITests.debug.xcconfig */,
+6A3A65E8096110CD996DF87E /* Pods-dangerous-roomUITests.release.xcconfig */,
+);
+name = Pods;
+sourceTree = "<group>";
+};
+61AC0BC51F44F29500AE0924 /* Tasks */ = {
+isa = PBXGroup;
+children = (
+040F71F91EFEDC0B0082963D /* TaskViewController.swift */,
+041C306B1F7A9844005B817F /* TaskViewController+UIViewControllerTransitioningDelegate.swift */,
+040F71F71EFED2870082963D /* TaskEditTableViewController.swift */,
+040F71F51EFED1010082963D /* TasksTableViewController.swift */,
+041C30691F7A9448005B817F /* TaskTimerViewController.swift */,
+61F89F641F8AE486006193A4 /* TaskTimerViewControllerExtensions.swift */,
+);
+path = Tasks;
+sourceTree = "<group>";
+};
+61D300361F873D2600305487 /* Meteor */ = {
+isa = PBXGroup;
+children = (
+61D300411F873D7F00305487 /* CoreDataExtensions.swift */,
+61D300401F873D7F00305487 /* MeteorCollectionChange.swift */,
+61D3003F1F873D7F00305487 /* MeteorCoreData.swift */,
+61D3003D1F873D7F00305487 /* MeteorCoreDataCollection.swift */,
+61D300421F873D7F00305487 /* MeteorCoreDataStack.swift */,
+61D3003E1F873D7F00305487 /* MeteorCoreDataTableViewController.swift */,
+);
+path = Meteor;
+sourceTree = "<group>";
+};
+64ACD5DF0C06132CEF3627AF /* Frameworks */ = {
+isa = PBXGroup;
+children = (
+01EBBB39A794A706028E8D83 /* Pods_dangerous_room.framework */,
+C13C96E9D61FEBBA606B5CF2 /* Pods_dangerous_roomTests.framework */,
+0CD12C56236E658E604946F1 /* Pods_dangerous_roomUITests.framework */,
+);
+name = Frameworks;
+sourceTree = "<group>";
+};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		045A40501EFE45E400C34141 /* dangerous-room */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 045A407B1EFE45E500C34141 /* Build configuration list for PBXNativeTarget "dangerous-room" */;
-			buildPhases = (
-				B7B28CB41F3C028700C89000 /* [CP] Check Pods Manifest.lock */,
-				045A404D1EFE45E400C34141 /* Sources */,
-				045A404E1EFE45E400C34141 /* Frameworks */,
-				045A404F1EFE45E400C34141 /* Resources */,
-				37C84E0031956DE922917096 /* [CP] Embed Pods Frameworks */,
-				23FF7DF24C2E3C25C40A08EF /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "dangerous-room";
-			productName = "Dangerous Room";
-			productReference = 045A40511EFE45E400C34141 /* dangerous-room.app */;
-			productType = "com.apple.product-type.application";
-		};
-		045A40661EFE45E500C34141 /* dangerous-roomTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 045A407E1EFE45E500C34141 /* Build configuration list for PBXNativeTarget "dangerous-roomTests" */;
-			buildPhases = (
-				4E1EA9542C1213687D6A7FB4 /* [CP] Check Pods Manifest.lock */,
-				045A40631EFE45E500C34141 /* Sources */,
-				045A40641EFE45E500C34141 /* Frameworks */,
-				045A40651EFE45E500C34141 /* Resources */,
-				837CF4868FD4635789A9A940 /* [CP] Embed Pods Frameworks */,
-				4F6BD67959C8B314685C508C /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				045A40691EFE45E500C34141 /* PBXTargetDependency */,
-			);
-			name = "dangerous-roomTests";
-			productName = "Dangerous RoomTests";
-			productReference = 045A40671EFE45E500C34141 /* dangerous-roomTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		045A40711EFE45E500C34141 /* dangerous-roomUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 045A40811EFE45E500C34141 /* Build configuration list for PBXNativeTarget "dangerous-roomUITests" */;
-			buildPhases = (
-				48A098952E39E47C62DCBDA6 /* [CP] Check Pods Manifest.lock */,
-				045A406E1EFE45E500C34141 /* Sources */,
-				045A406F1EFE45E500C34141 /* Frameworks */,
-				045A40701EFE45E500C34141 /* Resources */,
-				2BAF0836E6A95A87BE7528BD /* [CP] Embed Pods Frameworks */,
-				31E1DA495781920477C09616 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				045A40741EFE45E500C34141 /* PBXTargetDependency */,
-			);
-			name = "dangerous-roomUITests";
-			productName = "Dangerous RoomUITests";
-			productReference = 045A40721EFE45E500C34141 /* dangerous-roomUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
+045A40501EFE45E400C34141 /* dangerous-room */ = {
+isa = PBXNativeTarget;
+buildConfigurationList = 045A407B1EFE45E500C34141 /* Build configuration list for PBXNativeTarget "dangerous-room" */;
+buildPhases = (
+B7B28CB41F3C028700C89000 /* [CP] Check Pods Manifest.lock */,
+045A404D1EFE45E400C34141 /* Sources */,
+045A404E1EFE45E400C34141 /* Frameworks */,
+045A404F1EFE45E400C34141 /* Resources */,
+37C84E0031956DE922917096 /* [CP] Embed Pods Frameworks */,
+23FF7DF24C2E3C25C40A08EF /* [CP] Copy Pods Resources */,
+);
+buildRules = (
+);
+dependencies = (
+);
+name = "dangerous-room";
+productName = "Dangerous Room";
+productReference = 045A40511EFE45E400C34141 /* dangerous-room.app */;
+productType = "com.apple.product-type.application";
+};
+045A40661EFE45E500C34141 /* dangerous-roomTests */ = {
+isa = PBXNativeTarget;
+buildConfigurationList = 045A407E1EFE45E500C34141 /* Build configuration list for PBXNativeTarget "dangerous-roomTests" */;
+buildPhases = (
+4E1EA9542C1213687D6A7FB4 /* [CP] Check Pods Manifest.lock */,
+045A40631EFE45E500C34141 /* Sources */,
+045A40641EFE45E500C34141 /* Frameworks */,
+045A40651EFE45E500C34141 /* Resources */,
+837CF4868FD4635789A9A940 /* [CP] Embed Pods Frameworks */,
+4F6BD67959C8B314685C508C /* [CP] Copy Pods Resources */,
+);
+buildRules = (
+);
+dependencies = (
+045A40691EFE45E500C34141 /* PBXTargetDependency */,
+);
+name = "dangerous-roomTests";
+productName = "Dangerous RoomTests";
+productReference = 045A40671EFE45E500C34141 /* dangerous-roomTests.xctest */;
+productType = "com.apple.product-type.bundle.unit-test";
+};
+045A40711EFE45E500C34141 /* dangerous-roomUITests */ = {
+isa = PBXNativeTarget;
+buildConfigurationList = 045A40811EFE45E500C34141 /* Build configuration list for PBXNativeTarget "dangerous-roomUITests" */;
+buildPhases = (
+48A098952E39E47C62DCBDA6 /* [CP] Check Pods Manifest.lock */,
+045A406E1EFE45E500C34141 /* Sources */,
+045A406F1EFE45E500C34141 /* Frameworks */,
+045A40701EFE45E500C34141 /* Resources */,
+2BAF0836E6A95A87BE7528BD /* [CP] Embed Pods Frameworks */,
+31E1DA495781920477C09616 /* [CP] Copy Pods Resources */,
+);
+buildRules = (
+);
+dependencies = (
+045A40741EFE45E500C34141 /* PBXTargetDependency */,
+);
+name = "dangerous-roomUITests";
+productName = "Dangerous RoomUITests";
+productReference = 045A40721EFE45E500C34141 /* dangerous-roomUITests.xctest */;
+productType = "com.apple.product-type.bundle.ui-testing";
+};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		045A40491EFE45E400C34141 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0910;
-				ORGANIZATIONNAME = st.porter;
-				TargetAttributes = {
-					045A40501EFE45E400C34141 = {
-						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = WW49A8Y53S;
-						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
-					};
-					045A40661EFE45E500C34141 = {
-						CreatedOnToolsVersion = 8.3.3;
-						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 045A40501EFE45E400C34141;
-					};
-					045A40711EFE45E500C34141 = {
-						CreatedOnToolsVersion = 8.3.3;
-						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 045A40501EFE45E400C34141;
-					};
-				};
-			};
-			buildConfigurationList = 045A404C1EFE45E400C34141 /* Build configuration list for PBXProject "dangerous-room" */;
-			compatibilityVersion = "Xcode 6.3";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = 045A40481EFE45E400C34141;
-			productRefGroup = 045A40521EFE45E400C34141 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				045A40501EFE45E400C34141 /* dangerous-room */,
-				045A40661EFE45E500C34141 /* dangerous-roomTests */,
-				045A40711EFE45E500C34141 /* dangerous-roomUITests */,
-			);
-		};
+045A40491EFE45E400C34141 /* Project object */ = {
+isa = PBXProject;
+attributes = {
+LastSwiftUpdateCheck = 0830;
+LastUpgradeCheck = 0910;
+ORGANIZATIONNAME = st.porter;
+TargetAttributes = {
+045A40501EFE45E400C34141 = {
+CreatedOnToolsVersion = 8.3.3;
+DevelopmentTeam = WW49A8Y53S;
+LastSwiftMigration = 0900;
+ProvisioningStyle = Automatic;
+};
+045A40661EFE45E500C34141 = {
+CreatedOnToolsVersion = 8.3.3;
+LastSwiftMigration = 0900;
+ProvisioningStyle = Automatic;
+TestTargetID = 045A40501EFE45E400C34141;
+};
+045A40711EFE45E500C34141 = {
+CreatedOnToolsVersion = 8.3.3;
+LastSwiftMigration = 0900;
+ProvisioningStyle = Automatic;
+TestTargetID = 045A40501EFE45E400C34141;
+};
+};
+};
+buildConfigurationList = 045A404C1EFE45E400C34141 /* Build configuration list for PBXProject "dangerous-room" */;
+compatibilityVersion = "Xcode 6.3";
+developmentRegion = English;
+hasScannedForEncodings = 0;
+knownRegions = (
+en,
+Base,
+);
+mainGroup = 045A40481EFE45E400C34141;
+productRefGroup = 045A40521EFE45E400C34141 /* Products */;
+projectDirPath = "";
+projectRoot = "";
+targets = (
+045A40501EFE45E400C34141 /* dangerous-room */,
+045A40661EFE45E500C34141 /* dangerous-roomTests */,
+045A40711EFE45E500C34141 /* dangerous-roomUITests */,
+);
+};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		045A404F1EFE45E400C34141 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				045A40611EFE45E400C34141 /* LaunchScreen.storyboard in Resources */,
-				045A405E1EFE45E400C34141 /* Assets.xcassets in Resources */,
-				045A405C1EFE45E400C34141 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		045A40651EFE45E500C34141 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		045A40701EFE45E500C34141 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
+045A404F1EFE45E400C34141 /* Resources */ = {
+isa = PBXResourcesBuildPhase;
+buildActionMask = 2147483647;
+files = (
+045A40611EFE45E400C34141 /* LaunchScreen.storyboard in Resources */,
+045A405E1EFE45E400C34141 /* Assets.xcassets in Resources */,
+045A405C1EFE45E400C34141 /* Main.storyboard in Resources */,
+);
+runOnlyForDeploymentPostprocessing = 0;
+};
+045A40651EFE45E500C34141 /* Resources */ = {
+isa = PBXResourcesBuildPhase;
+buildActionMask = 2147483647;
+files = (
+);
+runOnlyForDeploymentPostprocessing = 0;
+};
+045A40701EFE45E500C34141 /* Resources */ = {
+isa = PBXResourcesBuildPhase;
+buildActionMask = 2147483647;
+files = (
+);
+runOnlyForDeploymentPostprocessing = 0;
+};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		23FF7DF24C2E3C25C40A08EF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-room/Pods-dangerous-room-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2BAF0836E6A95A87BE7528BD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-roomUITests/Pods-dangerous-roomUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		31E1DA495781920477C09616 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-roomUITests/Pods-dangerous-roomUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		37C84E0031956DE922917096 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-room/Pods-dangerous-room-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftDDP/SwiftDDP.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDDP.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-room/Pods-dangerous-room-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		48A098952E39E47C62DCBDA6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-dangerous-roomUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4E1EA9542C1213687D6A7FB4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-dangerous-roomTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4F6BD67959C8B314685C508C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-roomTests/Pods-dangerous-roomTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		837CF4868FD4635789A9A940 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-roomTests/Pods-dangerous-roomTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B7B28CB41F3C028700C89000 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-dangerous-room-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
+23FF7DF24C2E3C25C40A08EF /* [CP] Copy Pods Resources */ = {
+isa = PBXShellScriptBuildPhase;
+buildActionMask = 2147483647;
+files = (
+);
+inputPaths = (
+);
+name = "[CP] Copy Pods Resources";
+outputPaths = (
+);
+runOnlyForDeploymentPostprocessing = 0;
+shellPath = /bin/sh;
+shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-room/Pods-dangerous-room-resources.sh\"\n";
+showEnvVarsInLog = 0;
+};
+2BAF0836E6A95A87BE7528BD /* [CP] Embed Pods Frameworks */ = {
+isa = PBXShellScriptBuildPhase;
+buildActionMask = 2147483647;
+files = (
+);
+inputPaths = (
+);
+name = "[CP] Embed Pods Frameworks";
+outputPaths = (
+);
+runOnlyForDeploymentPostprocessing = 0;
+shellPath = /bin/sh;
+shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-roomUITests/Pods-dangerous-roomUITests-frameworks.sh\"\n";
+showEnvVarsInLog = 0;
+};
+31E1DA495781920477C09616 /* [CP] Copy Pods Resources */ = {
+isa = PBXShellScriptBuildPhase;
+buildActionMask = 2147483647;
+files = (
+);
+inputPaths = (
+);
+name = "[CP] Copy Pods Resources";
+outputPaths = (
+);
+runOnlyForDeploymentPostprocessing = 0;
+shellPath = /bin/sh;
+shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-roomUITests/Pods-dangerous-roomUITests-resources.sh\"\n";
+showEnvVarsInLog = 0;
+};
+37C84E0031956DE922917096 /* [CP] Embed Pods Frameworks */ = {
+isa = PBXShellScriptBuildPhase;
+buildActionMask = 2147483647;
+files = (
+);
+inputPaths = (
+"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-room/Pods-dangerous-room-frameworks.sh",
+"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+"${BUILT_PRODUCTS_DIR}/SwiftDDP/SwiftDDP.framework",
+"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
+);
+name = "[CP] Embed Pods Frameworks";
+outputPaths = (
+"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDDP.framework",
+"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
+);
+runOnlyForDeploymentPostprocessing = 0;
+shellPath = /bin/sh;
+shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-room/Pods-dangerous-room-frameworks.sh\"\n";
+showEnvVarsInLog = 0;
+};
+48A098952E39E47C62DCBDA6 /* [CP] Check Pods Manifest.lock */ = {
+isa = PBXShellScriptBuildPhase;
+buildActionMask = 2147483647;
+files = (
+);
+inputPaths = (
+"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+"${PODS_ROOT}/Manifest.lock",
+);
+name = "[CP] Check Pods Manifest.lock";
+outputPaths = (
+"$(DERIVED_FILE_DIR)/Pods-dangerous-roomUITests-checkManifestLockResult.txt",
+);
+runOnlyForDeploymentPostprocessing = 0;
+shellPath = /bin/sh;
+shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+showEnvVarsInLog = 0;
+};
+4E1EA9542C1213687D6A7FB4 /* [CP] Check Pods Manifest.lock */ = {
+isa = PBXShellScriptBuildPhase;
+buildActionMask = 2147483647;
+files = (
+);
+inputPaths = (
+"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+"${PODS_ROOT}/Manifest.lock",
+);
+name = "[CP] Check Pods Manifest.lock";
+outputPaths = (
+"$(DERIVED_FILE_DIR)/Pods-dangerous-roomTests-checkManifestLockResult.txt",
+);
+runOnlyForDeploymentPostprocessing = 0;
+shellPath = /bin/sh;
+shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+showEnvVarsInLog = 0;
+};
+4F6BD67959C8B314685C508C /* [CP] Copy Pods Resources */ = {
+isa = PBXShellScriptBuildPhase;
+buildActionMask = 2147483647;
+files = (
+);
+inputPaths = (
+);
+name = "[CP] Copy Pods Resources";
+outputPaths = (
+);
+runOnlyForDeploymentPostprocessing = 0;
+shellPath = /bin/sh;
+shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-roomTests/Pods-dangerous-roomTests-resources.sh\"\n";
+showEnvVarsInLog = 0;
+};
+837CF4868FD4635789A9A940 /* [CP] Embed Pods Frameworks */ = {
+isa = PBXShellScriptBuildPhase;
+buildActionMask = 2147483647;
+files = (
+);
+inputPaths = (
+);
+name = "[CP] Embed Pods Frameworks";
+outputPaths = (
+);
+runOnlyForDeploymentPostprocessing = 0;
+shellPath = /bin/sh;
+shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dangerous-roomTests/Pods-dangerous-roomTests-frameworks.sh\"\n";
+showEnvVarsInLog = 0;
+};
+B7B28CB41F3C028700C89000 /* [CP] Check Pods Manifest.lock */ = {
+isa = PBXShellScriptBuildPhase;
+buildActionMask = 2147483647;
+files = (
+);
+inputPaths = (
+"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+"${PODS_ROOT}/Manifest.lock",
+);
+name = "[CP] Check Pods Manifest.lock";
+outputPaths = (
+"$(DERIVED_FILE_DIR)/Pods-dangerous-room-checkManifestLockResult.txt",
+);
+runOnlyForDeploymentPostprocessing = 0;
+shellPath = /bin/sh;
+shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+showEnvVarsInLog = 0;
+};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		045A404D1EFE45E400C34141 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				61D3004A1F873FDA00305487 /* MeteorCoreDataStack.swift in Sources */,
-				61D300471F873FDA00305487 /* MeteorCollectionChange.swift in Sources */,
-				61D300461F873FDA00305487 /* CoreDataExtensions.swift in Sources */,
-				61D300451F873F3D00305487 /* MeteorCoreData.xcdatamodeld in Sources */,
-				040F71F61EFED1010082963D /* TasksTableViewController.swift in Sources */,
-				61D300481F873FDA00305487 /* MeteorCoreData.swift in Sources */,
-				61D300491F873FDA00305487 /* MeteorCoreDataCollection.swift in Sources */,
-				61D3004B1F873FDA00305487 /* MeteorCoreDataTableViewController.swift in Sources */,
-				049907AC1FA515BE005BA2E9 /* AppDelegate+MeteorCoreDataCollectionDelegate.swift in Sources */,
-				615AF4FA1F50E4B800CABA46 /* Timer.swift in Sources */,
-				041C306A1F7A9448005B817F /* TaskTimerViewController.swift in Sources */,
-				040F71FA1EFEDC0B0082963D /* TaskViewController.swift in Sources */,
-				045A40551EFE45E400C34141 /* AppDelegate.swift in Sources */,
-				61F89F651F8AE486006193A4 /* TaskTimerViewControllerExtensions.swift in Sources */,
-				041C306C1F7A9844005B817F /* TaskViewController+UIViewControllerTransitioningDelegate.swift in Sources */,
-				04ABAA3B1FA0CD0F0011556A /* PhonesTableViewController.swift in Sources */,
-				040F71F81EFED2870082963D /* TaskEditTableViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		045A40631EFE45E500C34141 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				045A406C1EFE45E500C34141 /* Dangerous_RoomTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		045A406E1EFE45E500C34141 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				045A40771EFE45E500C34141 /* Dangerous_RoomUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
+045A404D1EFE45E400C34141 /* Sources */ = {
+isa = PBXSourcesBuildPhase;
+buildActionMask = 2147483647;
+files = (
+049D45721F98EDB3009365D4 /* Handler.swift in Sources */,
+61D3004A1F873FDA00305487 /* MeteorCoreDataStack.swift in Sources */,
+61D300471F873FDA00305487 /* MeteorCollectionChange.swift in Sources */,
+61D300461F873FDA00305487 /* CoreDataExtensions.swift in Sources */,
+049D45731F98EDB6009365D4 /* Observable.swift in Sources */,
+61D300451F873F3D00305487 /* MeteorCoreData.xcdatamodeld in Sources */,
+040F71F61EFED1010082963D /* TasksTableViewController.swift in Sources */,
+61D300481F873FDA00305487 /* MeteorCoreData.swift in Sources */,
+61D300491F873FDA00305487 /* MeteorCoreDataCollection.swift in Sources */,
+61D3004B1F873FDA00305487 /* MeteorCoreDataTableViewController.swift in Sources */,
+049907AC1FA515BE005BA2E9 /* AppDelegate+MeteorCoreDataCollectionDelegate.swift in Sources */,
+615AF4FA1F50E4B800CABA46 /* Timer.swift in Sources */,
+041C306A1F7A9448005B817F /* TaskTimerViewController.swift in Sources */,
+040F71FA1EFEDC0B0082963D /* TaskViewController.swift in Sources */,
+045A40551EFE45E400C34141 /* AppDelegate.swift in Sources */,
+61F89F651F8AE486006193A4 /* TaskTimerViewControllerExtensions.swift in Sources */,
+049D45711F98EDAF009365D4 /* ContextObserver.swift in Sources */,
+041C306C1F7A9844005B817F /* TaskViewControllerTransitionExtension.swift in Sources */,
+041C306C1F7A9844005B817F /* TaskViewController+UIViewControllerTransitioningDelegate.swift in Sources */,
+04ABAA3B1FA0CD0F0011556A /* PhonesTableViewController.swift in Sources */,
+040F71F81EFED2870082963D /* TaskEditTableViewController.swift in Sources */,
+);
+runOnlyForDeploymentPostprocessing = 0;
+};
+045A40631EFE45E500C34141 /* Sources */ = {
+isa = PBXSourcesBuildPhase;
+buildActionMask = 2147483647;
+files = (
+045A406C1EFE45E500C34141 /* Dangerous_RoomTests.swift in Sources */,
+);
+runOnlyForDeploymentPostprocessing = 0;
+};
+045A406E1EFE45E500C34141 /* Sources */ = {
+isa = PBXSourcesBuildPhase;
+buildActionMask = 2147483647;
+files = (
+045A40771EFE45E500C34141 /* Dangerous_RoomUITests.swift in Sources */,
+);
+runOnlyForDeploymentPostprocessing = 0;
+};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		045A40691EFE45E500C34141 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 045A40501EFE45E400C34141 /* dangerous-room */;
-			targetProxy = 045A40681EFE45E500C34141 /* PBXContainerItemProxy */;
-		};
-		045A40741EFE45E500C34141 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 045A40501EFE45E400C34141 /* dangerous-room */;
-			targetProxy = 045A40731EFE45E500C34141 /* PBXContainerItemProxy */;
-		};
+045A40691EFE45E500C34141 /* PBXTargetDependency */ = {
+isa = PBXTargetDependency;
+target = 045A40501EFE45E400C34141 /* dangerous-room */;
+targetProxy = 045A40681EFE45E500C34141 /* PBXContainerItemProxy */;
+};
+045A40741EFE45E500C34141 /* PBXTargetDependency */ = {
+isa = PBXTargetDependency;
+target = 045A40501EFE45E400C34141 /* dangerous-room */;
+targetProxy = 045A40731EFE45E500C34141 /* PBXContainerItemProxy */;
+};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		045A405A1EFE45E400C34141 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				045A405B1EFE45E400C34141 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		045A405F1EFE45E400C34141 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				045A40601EFE45E400C34141 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
+045A405A1EFE45E400C34141 /* Main.storyboard */ = {
+isa = PBXVariantGroup;
+children = (
+045A405B1EFE45E400C34141 /* Base */,
+);
+name = Main.storyboard;
+sourceTree = "<group>";
+};
+045A405F1EFE45E400C34141 /* LaunchScreen.storyboard */ = {
+isa = PBXVariantGroup;
+children = (
+045A40601EFE45E400C34141 /* Base */,
+);
+name = LaunchScreen.storyboard;
+sourceTree = "<group>";
+};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		045A40791EFE45E500C34141 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		045A407A1EFE45E500C34141 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		045A407C1EFE45E500C34141 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 967B27EE3F05504291098304 /* Pods-dangerous-room.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = WW49A8Y53S;
-				INFOPLIST_FILE = "dangerous-room/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "st.porter.dangerous-room";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		045A407D1EFE45E500C34141 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2BE9ADA5F67DFA15734C496 /* Pods-dangerous-room.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = WW49A8Y53S;
-				INFOPLIST_FILE = "dangerous-room/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "st.porter.dangerous-room";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		045A407F1EFE45E500C34141 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E4A45439B00C95A5769CE570 /* Pods-dangerous-roomTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "dangerous-roomTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ru.x34.Dangerous-RoomTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dangerous-room.app/dangerous-room";
-			};
-			name = Debug;
-		};
-		045A40801EFE45E500C34141 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4EEC0A4D59785ED60BFC3301 /* Pods-dangerous-roomTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "dangerous-roomTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ru.x34.Dangerous-RoomTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dangerous-room.app/dangerous-room";
-			};
-			name = Release;
-		};
-		045A40821EFE45E500C34141 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CD90A695983E6624FDC9418C /* Pods-dangerous-roomUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = "dangerous-roomUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ru.x34.Dangerous-RoomUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = "Dangerous Room";
-			};
-			name = Debug;
-		};
-		045A40831EFE45E500C34141 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A3A65E8096110CD996DF87E /* Pods-dangerous-roomUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = "dangerous-roomUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ru.x34.Dangerous-RoomUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = "Dangerous Room";
-			};
-			name = Release;
-		};
+045A40791EFE45E500C34141 /* Debug */ = {
+isa = XCBuildConfiguration;
+buildSettings = {
+ALWAYS_SEARCH_USER_PATHS = NO;
+CLANG_ANALYZER_NONNULL = YES;
+CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+CLANG_CXX_LIBRARY = "libc++";
+CLANG_ENABLE_MODULES = YES;
+CLANG_ENABLE_OBJC_ARC = YES;
+CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+CLANG_WARN_BOOL_CONVERSION = YES;
+CLANG_WARN_COMMA = YES;
+CLANG_WARN_CONSTANT_CONVERSION = YES;
+CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+CLANG_WARN_EMPTY_BODY = YES;
+CLANG_WARN_ENUM_CONVERSION = YES;
+CLANG_WARN_INFINITE_RECURSION = YES;
+CLANG_WARN_INT_CONVERSION = YES;
+CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+CLANG_WARN_STRICT_PROTOTYPES = YES;
+CLANG_WARN_SUSPICIOUS_MOVE = YES;
+CLANG_WARN_UNREACHABLE_CODE = YES;
+CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+COPY_PHASE_STRIP = NO;
+DEBUG_INFORMATION_FORMAT = dwarf;
+ENABLE_STRICT_OBJC_MSGSEND = YES;
+ENABLE_TESTABILITY = YES;
+GCC_C_LANGUAGE_STANDARD = gnu99;
+GCC_DYNAMIC_NO_PIC = NO;
+GCC_NO_COMMON_BLOCKS = YES;
+GCC_OPTIMIZATION_LEVEL = 0;
+GCC_PREPROCESSOR_DEFINITIONS = (
+"DEBUG=1",
+"$(inherited)",
+);
+GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+GCC_WARN_UNDECLARED_SELECTOR = YES;
+GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+GCC_WARN_UNUSED_FUNCTION = YES;
+GCC_WARN_UNUSED_VARIABLE = YES;
+IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+MTL_ENABLE_DEBUG_INFO = YES;
+ONLY_ACTIVE_ARCH = YES;
+SDKROOT = iphoneos;
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+TARGETED_DEVICE_FAMILY = "1,2";
+};
+name = Debug;
+};
+045A407A1EFE45E500C34141 /* Release */ = {
+isa = XCBuildConfiguration;
+buildSettings = {
+ALWAYS_SEARCH_USER_PATHS = NO;
+CLANG_ANALYZER_NONNULL = YES;
+CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+CLANG_CXX_LIBRARY = "libc++";
+CLANG_ENABLE_MODULES = YES;
+CLANG_ENABLE_OBJC_ARC = YES;
+CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+CLANG_WARN_BOOL_CONVERSION = YES;
+CLANG_WARN_COMMA = YES;
+CLANG_WARN_CONSTANT_CONVERSION = YES;
+CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+CLANG_WARN_EMPTY_BODY = YES;
+CLANG_WARN_ENUM_CONVERSION = YES;
+CLANG_WARN_INFINITE_RECURSION = YES;
+CLANG_WARN_INT_CONVERSION = YES;
+CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+CLANG_WARN_STRICT_PROTOTYPES = YES;
+CLANG_WARN_SUSPICIOUS_MOVE = YES;
+CLANG_WARN_UNREACHABLE_CODE = YES;
+CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+COPY_PHASE_STRIP = NO;
+DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+ENABLE_NS_ASSERTIONS = NO;
+ENABLE_STRICT_OBJC_MSGSEND = YES;
+GCC_C_LANGUAGE_STANDARD = gnu99;
+GCC_NO_COMMON_BLOCKS = YES;
+GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+GCC_WARN_UNDECLARED_SELECTOR = YES;
+GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+GCC_WARN_UNUSED_FUNCTION = YES;
+GCC_WARN_UNUSED_VARIABLE = YES;
+IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+MTL_ENABLE_DEBUG_INFO = NO;
+SDKROOT = iphoneos;
+SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+TARGETED_DEVICE_FAMILY = "1,2";
+VALIDATE_PRODUCT = YES;
+};
+name = Release;
+};
+045A407C1EFE45E500C34141 /* Debug */ = {
+isa = XCBuildConfiguration;
+baseConfigurationReference = 967B27EE3F05504291098304 /* Pods-dangerous-room.debug.xcconfig */;
+buildSettings = {
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+DEVELOPMENT_TEAM = 4JGC49HX97;
+INFOPLIST_FILE = "dangerous-room/Info.plist";
+IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+PRODUCT_BUNDLE_IDENTIFIER = "st.porter.dangerous-room";
+PRODUCT_NAME = "$(TARGET_NAME)";
+SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+SWIFT_VERSION = 4.0;
+TARGETED_DEVICE_FAMILY = 1;
+};
+name = Debug;
+};
+045A407D1EFE45E500C34141 /* Release */ = {
+isa = XCBuildConfiguration;
+baseConfigurationReference = C2BE9ADA5F67DFA15734C496 /* Pods-dangerous-room.release.xcconfig */;
+buildSettings = {
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+DEVELOPMENT_TEAM = 4JGC49HX97;
+INFOPLIST_FILE = "dangerous-room/Info.plist";
+IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+PRODUCT_BUNDLE_IDENTIFIER = "st.porter.dangerous-room";
+PRODUCT_NAME = "$(TARGET_NAME)";
+SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+SWIFT_VERSION = 4.0;
+TARGETED_DEVICE_FAMILY = 1;
+};
+name = Release;
+};
+045A407F1EFE45E500C34141 /* Debug */ = {
+isa = XCBuildConfiguration;
+baseConfigurationReference = E4A45439B00C95A5769CE570 /* Pods-dangerous-roomTests.debug.xcconfig */;
+buildSettings = {
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+BUNDLE_LOADER = "$(TEST_HOST)";
+INFOPLIST_FILE = "dangerous-roomTests/Info.plist";
+LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+PRODUCT_BUNDLE_IDENTIFIER = "ru.x34.Dangerous-RoomTests";
+PRODUCT_NAME = "$(TARGET_NAME)";
+SWIFT_SWIFT3_OBJC_INFERENCE = On;
+SWIFT_VERSION = 4.0;
+TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dangerous-room.app/dangerous-room";
+};
+name = Debug;
+};
+045A40801EFE45E500C34141 /* Release */ = {
+isa = XCBuildConfiguration;
+baseConfigurationReference = 4EEC0A4D59785ED60BFC3301 /* Pods-dangerous-roomTests.release.xcconfig */;
+buildSettings = {
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+BUNDLE_LOADER = "$(TEST_HOST)";
+INFOPLIST_FILE = "dangerous-roomTests/Info.plist";
+LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+PRODUCT_BUNDLE_IDENTIFIER = "ru.x34.Dangerous-RoomTests";
+PRODUCT_NAME = "$(TARGET_NAME)";
+SWIFT_SWIFT3_OBJC_INFERENCE = On;
+SWIFT_VERSION = 4.0;
+TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dangerous-room.app/dangerous-room";
+};
+name = Release;
+};
+045A40821EFE45E500C34141 /* Debug */ = {
+isa = XCBuildConfiguration;
+baseConfigurationReference = CD90A695983E6624FDC9418C /* Pods-dangerous-roomUITests.debug.xcconfig */;
+buildSettings = {
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+INFOPLIST_FILE = "dangerous-roomUITests/Info.plist";
+LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+PRODUCT_BUNDLE_IDENTIFIER = "ru.x34.Dangerous-RoomUITests";
+PRODUCT_NAME = "$(TARGET_NAME)";
+SWIFT_SWIFT3_OBJC_INFERENCE = On;
+SWIFT_VERSION = 4.0;
+TEST_TARGET_NAME = "Dangerous Room";
+};
+name = Debug;
+};
+045A40831EFE45E500C34141 /* Release */ = {
+isa = XCBuildConfiguration;
+baseConfigurationReference = 6A3A65E8096110CD996DF87E /* Pods-dangerous-roomUITests.release.xcconfig */;
+buildSettings = {
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+INFOPLIST_FILE = "dangerous-roomUITests/Info.plist";
+LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+PRODUCT_BUNDLE_IDENTIFIER = "ru.x34.Dangerous-RoomUITests";
+PRODUCT_NAME = "$(TARGET_NAME)";
+SWIFT_SWIFT3_OBJC_INFERENCE = On;
+SWIFT_VERSION = 4.0;
+TEST_TARGET_NAME = "Dangerous Room";
+};
+name = Release;
+};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		045A404C1EFE45E400C34141 /* Build configuration list for PBXProject "dangerous-room" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				045A40791EFE45E500C34141 /* Debug */,
-				045A407A1EFE45E500C34141 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		045A407B1EFE45E500C34141 /* Build configuration list for PBXNativeTarget "dangerous-room" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				045A407C1EFE45E500C34141 /* Debug */,
-				045A407D1EFE45E500C34141 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		045A407E1EFE45E500C34141 /* Build configuration list for PBXNativeTarget "dangerous-roomTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				045A407F1EFE45E500C34141 /* Debug */,
-				045A40801EFE45E500C34141 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		045A40811EFE45E500C34141 /* Build configuration list for PBXNativeTarget "dangerous-roomUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				045A40821EFE45E500C34141 /* Debug */,
-				045A40831EFE45E500C34141 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
+045A404C1EFE45E400C34141 /* Build configuration list for PBXProject "dangerous-room" */ = {
+isa = XCConfigurationList;
+buildConfigurations = (
+045A40791EFE45E500C34141 /* Debug */,
+045A407A1EFE45E500C34141 /* Release */,
+);
+defaultConfigurationIsVisible = 0;
+defaultConfigurationName = Release;
+};
+045A407B1EFE45E500C34141 /* Build configuration list for PBXNativeTarget "dangerous-room" */ = {
+isa = XCConfigurationList;
+buildConfigurations = (
+045A407C1EFE45E500C34141 /* Debug */,
+045A407D1EFE45E500C34141 /* Release */,
+);
+defaultConfigurationIsVisible = 0;
+defaultConfigurationName = Release;
+};
+045A407E1EFE45E500C34141 /* Build configuration list for PBXNativeTarget "dangerous-roomTests" */ = {
+isa = XCConfigurationList;
+buildConfigurations = (
+045A407F1EFE45E500C34141 /* Debug */,
+045A40801EFE45E500C34141 /* Release */,
+);
+defaultConfigurationIsVisible = 0;
+defaultConfigurationName = Release;
+};
+045A40811EFE45E500C34141 /* Build configuration list for PBXNativeTarget "dangerous-roomUITests" */ = {
+isa = XCConfigurationList;
+buildConfigurations = (
+045A40821EFE45E500C34141 /* Debug */,
+045A40831EFE45E500C34141 /* Release */,
+);
+defaultConfigurationIsVisible = 0;
+defaultConfigurationName = Release;
+};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		61D300431F873F3D00305487 /* MeteorCoreData.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				61D300441F873F3D00305487 /* DangerousRoomModel.xcdatamodel */,
-			);
-			currentVersion = 61D300441F873F3D00305487 /* DangerousRoomModel.xcdatamodel */;
-			path = MeteorCoreData.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
+61D300431F873F3D00305487 /* MeteorCoreData.xcdatamodeld */ = {
+isa = XCVersionGroup;
+children = (
+61D300441F873F3D00305487 /* DangerousRoomModel.xcdatamodel */,
+);
+currentVersion = 61D300441F873F3D00305487 /* DangerousRoomModel.xcdatamodel */;
+path = MeteorCoreData.xcdatamodeld;
+sourceTree = "<group>";
+versionGroupType = wrapper.xcdatamodel;
+};
 /* End XCVersionGroup section */
-	};
-	rootObject = 045A40491EFE45E400C34141 /* Project object */;
+};
+rootObject = 045A40491EFE45E400C34141 /* Project object */;
 }
+
