@@ -11,14 +11,15 @@
 		040F71F81EFED2870082963D /* TaskEditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F71F71EFED2870082963D /* TaskEditTableViewController.swift */; };
 		040F71FA1EFEDC0B0082963D /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F71F91EFEDC0B0082963D /* TaskViewController.swift */; };
 		041C306A1F7A9448005B817F /* TaskTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C30691F7A9448005B817F /* TaskTimerViewController.swift */; };
-		041C306C1F7A9844005B817F /* TaskViewControllerTransitionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C306B1F7A9844005B817F /* TaskViewControllerTransitionExtension.swift */; };
+		041C306C1F7A9844005B817F /* TaskViewController+UIViewControllerTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C306B1F7A9844005B817F /* TaskViewController+UIViewControllerTransitioningDelegate.swift */; };
 		045A40551EFE45E400C34141 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A40541EFE45E400C34141 /* AppDelegate.swift */; };
 		045A405C1EFE45E400C34141 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045A405A1EFE45E400C34141 /* Main.storyboard */; };
 		045A405E1EFE45E400C34141 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 045A405D1EFE45E400C34141 /* Assets.xcassets */; };
 		045A40611EFE45E400C34141 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045A405F1EFE45E400C34141 /* LaunchScreen.storyboard */; };
 		045A406C1EFE45E500C34141 /* Dangerous_RoomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A406B1EFE45E500C34141 /* Dangerous_RoomTests.swift */; };
 		045A40771EFE45E500C34141 /* Dangerous_RoomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A40761EFE45E500C34141 /* Dangerous_RoomUITests.swift */; };
-		048A08CB1F98F7C60022664C /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A08CA1F98F7C60022664C /* SettingsTableViewController.swift */; };
+		049907AC1FA515BE005BA2E9 /* AppDelegate+MeteorCoreDataCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049907AB1FA515BE005BA2E9 /* AppDelegate+MeteorCoreDataCollectionDelegate.swift */; };
+		04ABAA3B1FA0CD0F0011556A /* PhonesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ABAA3A1FA0CD0F0011556A /* PhonesTableViewController.swift */; };
 		615AF4FA1F50E4B800CABA46 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615AF4F91F50E4B800CABA46 /* Timer.swift */; };
 		61D300451F873F3D00305487 /* MeteorCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61D300431F873F3D00305487 /* MeteorCoreData.xcdatamodeld */; };
 		61D300461F873FDA00305487 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D300411F873D7F00305487 /* CoreDataExtensions.swift */; };
@@ -56,7 +57,7 @@
 		040F71F71EFED2870082963D /* TaskEditTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskEditTableViewController.swift; sourceTree = "<group>"; };
 		040F71F91EFEDC0B0082963D /* TaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		041C30691F7A9448005B817F /* TaskTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTimerViewController.swift; sourceTree = "<group>"; };
-		041C306B1F7A9844005B817F /* TaskViewControllerTransitionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewControllerTransitionExtension.swift; sourceTree = "<group>"; };
+		041C306B1F7A9844005B817F /* TaskViewController+UIViewControllerTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskViewController+UIViewControllerTransitioningDelegate.swift"; sourceTree = "<group>"; };
 		045A40511EFE45E400C34141 /* dangerous-room.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dangerous-room.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		045A40541EFE45E400C34141 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		045A405B1EFE45E400C34141 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,7 +70,8 @@
 		045A40721EFE45E500C34141 /* dangerous-roomUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dangerous-roomUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		045A40761EFE45E500C34141 /* Dangerous_RoomUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dangerous_RoomUITests.swift; sourceTree = "<group>"; };
 		045A40781EFE45E500C34141 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		048A08CA1F98F7C60022664C /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		049907AB1FA515BE005BA2E9 /* AppDelegate+MeteorCoreDataCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+MeteorCoreDataCollectionDelegate.swift"; sourceTree = "<group>"; };
+		04ABAA3A1FA0CD0F0011556A /* PhonesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhonesTableViewController.swift; sourceTree = "<group>"; };
 		0CD12C56236E658E604946F1 /* Pods_dangerous_roomUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dangerous_roomUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EEC0A4D59785ED60BFC3301 /* Pods-dangerous-roomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dangerous-roomTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dangerous-roomTests/Pods-dangerous-roomTests.release.xcconfig"; sourceTree = "<group>"; };
 		615AF4F91F50E4B800CABA46 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
@@ -142,10 +144,11 @@
 		045A40531EFE45E400C34141 /* dangerous-room */ = {
 			isa = PBXGroup;
 			children = (
-				048A08CC1F98F89F0022664C /* Settings */,
 				61D300361F873D2600305487 /* Meteor */,
 				61AC0BC51F44F29500AE0924 /* Tasks */,
+				048A08CC1F98F89F0022664C /* Settings */,
 				045A40541EFE45E400C34141 /* AppDelegate.swift */,
+				049907AB1FA515BE005BA2E9 /* AppDelegate+MeteorCoreDataCollectionDelegate.swift */,
 				045A405A1EFE45E400C34141 /* Main.storyboard */,
 				045A405D1EFE45E400C34141 /* Assets.xcassets */,
 				045A405F1EFE45E400C34141 /* LaunchScreen.storyboard */,
@@ -177,7 +180,7 @@
 		048A08CC1F98F89F0022664C /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				048A08CA1F98F7C60022664C /* SettingsTableViewController.swift */,
+				04ABAA3A1FA0CD0F0011556A /* PhonesTableViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -199,7 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				040F71F91EFEDC0B0082963D /* TaskViewController.swift */,
-				041C306B1F7A9844005B817F /* TaskViewControllerTransitionExtension.swift */,
+				041C306B1F7A9844005B817F /* TaskViewController+UIViewControllerTransitioningDelegate.swift */,
 				040F71F71EFED2870082963D /* TaskEditTableViewController.swift */,
 				040F71F51EFED1010082963D /* TasksTableViewController.swift */,
 				041C30691F7A9448005B817F /* TaskTimerViewController.swift */,
@@ -308,7 +311,7 @@
 				TargetAttributes = {
 					045A40501EFE45E400C34141 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 4JGC49HX97;
+						DevelopmentTeam = WW49A8Y53S;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -541,14 +544,15 @@
 				040F71F61EFED1010082963D /* TasksTableViewController.swift in Sources */,
 				61D300481F873FDA00305487 /* MeteorCoreData.swift in Sources */,
 				61D300491F873FDA00305487 /* MeteorCoreDataCollection.swift in Sources */,
-				048A08CB1F98F7C60022664C /* SettingsTableViewController.swift in Sources */,
 				61D3004B1F873FDA00305487 /* MeteorCoreDataTableViewController.swift in Sources */,
+				049907AC1FA515BE005BA2E9 /* AppDelegate+MeteorCoreDataCollectionDelegate.swift in Sources */,
 				615AF4FA1F50E4B800CABA46 /* Timer.swift in Sources */,
 				041C306A1F7A9448005B817F /* TaskTimerViewController.swift in Sources */,
 				040F71FA1EFEDC0B0082963D /* TaskViewController.swift in Sources */,
 				045A40551EFE45E400C34141 /* AppDelegate.swift in Sources */,
 				61F89F651F8AE486006193A4 /* TaskTimerViewControllerExtensions.swift in Sources */,
-				041C306C1F7A9844005B817F /* TaskViewControllerTransitionExtension.swift in Sources */,
+				041C306C1F7A9844005B817F /* TaskViewController+UIViewControllerTransitioningDelegate.swift in Sources */,
+				04ABAA3B1FA0CD0F0011556A /* PhonesTableViewController.swift in Sources */,
 				040F71F81EFED2870082963D /* TaskEditTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -716,7 +720,7 @@
 			baseConfigurationReference = 967B27EE3F05504291098304 /* Pods-dangerous-room.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4JGC49HX97;
+				DEVELOPMENT_TEAM = WW49A8Y53S;
 				INFOPLIST_FILE = "dangerous-room/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -733,7 +737,7 @@
 			baseConfigurationReference = C2BE9ADA5F67DFA15734C496 /* Pods-dangerous-room.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4JGC49HX97;
+				DEVELOPMENT_TEAM = WW49A8Y53S;
 				INFOPLIST_FILE = "dangerous-room/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

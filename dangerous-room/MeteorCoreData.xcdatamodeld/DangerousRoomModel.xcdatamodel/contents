@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13528" systemVersion="17B25c" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13241" systemVersion="" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Contacts" representedClassName="Contacts" syncable="YES" codeGenerationType="class">
         <attribute name="collection" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="priority" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="telephone" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Events" representedClassName="Events" syncable="YES" codeGenerationType="class">
@@ -16,7 +17,7 @@
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Contacts" positionX="-63" positionY="27" width="128" height="135"/>
         <element name="Events" positionX="-63" positionY="-18" width="128" height="135"/>
-        <element name="Contacts" positionX="-63" positionY="27" width="128" height="120"/>
     </elements>
 </model>
