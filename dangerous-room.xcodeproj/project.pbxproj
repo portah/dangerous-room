@@ -1,10 +1,10 @@
 // !$*UTF8*$!
 {
-archiveVersion = 1;
-classes = {
-};
-objectVersion = 47;
-objects = {
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
 
 /* Begin PBXBuildFile section */
 040F71F61EFED1010082963D /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F71F51EFED1010082963D /* TasksTableViewController.swift */; };
@@ -319,51 +319,51 @@ productType = "com.apple.product-type.bundle.ui-testing";
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-045A40491EFE45E400C34141 /* Project object */ = {
-isa = PBXProject;
-attributes = {
-LastSwiftUpdateCheck = 0830;
-LastUpgradeCheck = 0910;
-ORGANIZATIONNAME = st.porter;
-TargetAttributes = {
-045A40501EFE45E400C34141 = {
-CreatedOnToolsVersion = 8.3.3;
-DevelopmentTeam = WW49A8Y53S;
-LastSwiftMigration = 0900;
-ProvisioningStyle = Automatic;
-};
-045A40661EFE45E500C34141 = {
-CreatedOnToolsVersion = 8.3.3;
-LastSwiftMigration = 0900;
-ProvisioningStyle = Automatic;
-TestTargetID = 045A40501EFE45E400C34141;
-};
-045A40711EFE45E500C34141 = {
-CreatedOnToolsVersion = 8.3.3;
-LastSwiftMigration = 0900;
-ProvisioningStyle = Automatic;
-TestTargetID = 045A40501EFE45E400C34141;
-};
-};
-};
-buildConfigurationList = 045A404C1EFE45E400C34141 /* Build configuration list for PBXProject "dangerous-room" */;
-compatibilityVersion = "Xcode 6.3";
-developmentRegion = English;
-hasScannedForEncodings = 0;
-knownRegions = (
-en,
-Base,
-);
-mainGroup = 045A40481EFE45E400C34141;
-productRefGroup = 045A40521EFE45E400C34141 /* Products */;
-projectDirPath = "";
-projectRoot = "";
-targets = (
-045A40501EFE45E400C34141 /* dangerous-room */,
-045A40661EFE45E500C34141 /* dangerous-roomTests */,
-045A40711EFE45E500C34141 /* dangerous-roomUITests */,
-);
-};
+		045A40491EFE45E400C34141 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = st.porter;
+				TargetAttributes = {
+					045A40501EFE45E400C34141 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 4JGC49HX97;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+					045A40661EFE45E500C34141 = {
+						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 045A40501EFE45E400C34141;
+					};
+					045A40711EFE45E500C34141 = {
+						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 045A40501EFE45E400C34141;
+					};
+				};
+			};
+			buildConfigurationList = 045A404C1EFE45E400C34141 /* Build configuration list for PBXProject "dangerous-room" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 045A40481EFE45E400C34141;
+			productRefGroup = 045A40521EFE45E400C34141 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				045A40501EFE45E400C34141 /* dangerous-room */,
+				045A40661EFE45E500C34141 /* dangerous-roomTests */,
+				045A40711EFE45E500C34141 /* dangerous-roomUITests */,
+			);
+		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
