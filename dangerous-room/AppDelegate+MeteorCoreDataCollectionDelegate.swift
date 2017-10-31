@@ -45,7 +45,7 @@ extension AppDelegate: MeteorCoreDataCollectionDelegate {
                 object.setValue(EJSON.convertToNSDate(value as! [String : Any]), forKey: key )
             }
         } else
-            if !(key as AnyObject).isEqual("_id") {
+            if  !["_id","phoneID"].contains(key) {
                 object.setValue(value, forKey: key )
         }
     }

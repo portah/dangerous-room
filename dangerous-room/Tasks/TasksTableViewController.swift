@@ -17,6 +17,7 @@ protocol ConfigurationViewControllerDelegate {
 class TasksTableViewController: MeteorCoreDataTableViewController {
     
     var collection:MeteorCoreDataCollection = (UIApplication.shared.delegate as! AppDelegate).events
+    //notification delegate!
     var delegate: ConfigurationViewControllerDelegate?
         
     lazy var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
@@ -35,12 +36,10 @@ class TasksTableViewController: MeteorCoreDataTableViewController {
         
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         
-//        collection.delegate = self
-        
         do {
             try fetchedResultsController.performFetch()
         } catch let error as NSError {
-            print(error)
+            log.debug(error)
         }
         
 //        UNUserNotificationCenter.current()
@@ -76,7 +75,7 @@ class TasksTableViewController: MeteorCoreDataTableViewController {
         do {
             try fetchedResultsController.performFetch()
         } catch let error as NSError {
-            print(error)
+            log.debug(error)
         }
     }
     
@@ -107,8 +106,6 @@ class TasksTableViewController: MeteorCoreDataTableViewController {
         let eventItem = fetchedResultsController.object(at: indexPath) as! Events
         
         renderCell(cell, event: eventItem)
-        // log.debug("Event: -> \(String(describing: eventItem.date))")
-        
         return cell
     }
     
@@ -135,12 +132,11 @@ class TasksTableViewController: MeteorCoreDataTableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         // handle delete (by removing the data from your array and updating the tableview)
-        if (editingStyle == UITableViewCellEditingStyle.delete) {
+        if (editingStyle == .delete) {
             let object = fetchedResultsController.object(at: indexPath) as! NSManagedObject
             let id = object.value(forKey: "id") as! String
             log.debug("going to delete id: \(id)")
             self.collection.remove(withId: id)
-            //            Meteor.call("dangerous-room/events/delete", params: [id], callback: nil)
         }
     }
     
@@ -172,68 +168,5 @@ class TasksTableViewController: MeteorCoreDataTableViewController {
         print("Unwind Tasks")
     }
     
-    
-    // MARK: - Not used!!!
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
 }
-
-// MARK: Documents data
-
-
-//extension TasksTableViewController: MeteorCoreDataCollectionDelegate {
-//
-//    func document(willBeCreatedWith fields: NSDictionary?, forObject object: NSManagedObject) -> NSManagedObject {
-//        if let data = fields {
-//            for (key, value) in data {
-//                setObjValue(value, forKey: key as! String, forObject: object)
-//            }
-//        }
-//        return object
-//    }
-//
-//
-//    func document(willBeUpdatedWith fields: NSDictionary?, cleared: [String]?, forObject object: NSManagedObject) -> NSManagedObject {
-//        if let _ = fields {
-//            for (key, value ) in fields! {
-//                setObjValue(value, forKey: key as! String, forObject: object)
-//            }
-//        }
-//
-//        if let _ = cleared {
-//            for field in cleared! {
-//                object.setNilValueForKey(field)
-//            }
-//        }
-//        return object
-//    }
-//
-//    func setObjValue(_ value: Any?, forKey key: String, forObject object: NSManagedObject) {
-//        if (key as AnyObject).isEqual("date") {
-//            print("setObjValue:  value: \(String(describing: value))")
-//            print("setObjValue:    key: \(key)")
-//            print("setObjValue: object: \(object)")
-////            var tvalue = nil
-//            if value as? Date != nil {
-////                tvalue = EJSON.convertToEJSONDate(value as! Date)
-//                print("setObjValue: object.setValue convertToEJSONDate")
-//                object.setValue(EJSON.convertToEJSONDate(value as! Date), forKey: key )
-//            } else {
-//                print("setObjValue: object.setValue")
-//                object.setValue(EJSON.convertToNSDate(value as! [String : Any]), forKey: key )
-//            }
-//        } else
-//            if !(key as AnyObject).isEqual("_id") {
-//                object.setValue(value, forKey: key )
-//        }
-//    }
-//}
-//
 

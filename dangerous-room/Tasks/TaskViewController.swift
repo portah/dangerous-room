@@ -9,7 +9,7 @@
 import UIKit
 
 class TaskViewController: UIViewController {
-    var started = false
+//    var started = false
     
     @IBOutlet var playButton: UIButton!
     
@@ -66,12 +66,12 @@ class TaskViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.timer?.stop()
-        started = false
+//        started = false
     }
     
     // MARK: - Actions
     @IBAction func playStopAction(_ sender: Any) {
-        started = !started
+//        started = !started
     }
     
     
@@ -107,13 +107,6 @@ class TaskViewController: UIViewController {
     
     @IBAction func unwindToViewControllerTaskView(segue: UIStoryboardSegue) {
         print("Unwind View")
-//        self.updateUI()
-    }
-    
-    // MARK: - Unused
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
