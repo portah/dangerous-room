@@ -16,6 +16,7 @@ extension AppDelegate: MeteorCoreDataCollectionDelegate {
                 setObjValue(value, forKey: key as! String, forObject: object)
             }
         }
+        log.debug("appDelegate willBeCreatedWith: \(object), fields: \(String(describing: fields))")
         return object
     }
     
@@ -32,21 +33,15 @@ extension AppDelegate: MeteorCoreDataCollectionDelegate {
                 object.setNilValueForKey(field)
             }
         }
+        log.debug("appDelegate willBeUpdatedWith: \(object), fields: \(String(describing: fields))")
         return object
     }
     
     func setObjValue(_ value: Any?, forKey key: String, forObject object: NSManagedObject) {
         if (key as AnyObject).isEqual("date") {
-            print("setObjValue:  value: \(String(describing: value))")
-            print("setObjValue:    key: \(key)")
-            print("setObjValue: object: \(object)")
-            //            var tvalue = nil
             if value as? Date != nil {
-                //                tvalue = EJSON.convertToEJSONDate(value as! Date)
-                print("setObjValue: object.setValue convertToEJSONDate")
                 object.setValue(EJSON.convertToEJSONDate(value as! Date), forKey: key )
             } else {
-                print("setObjValue: object.setValue")
                 object.setValue(EJSON.convertToNSDate(value as! [String : Any]), forKey: key )
             }
         } else

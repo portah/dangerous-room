@@ -75,13 +75,12 @@ class TaskEditTableViewController: UITableViewController {
     func saveAction(_ sender: Any) {
         let description = taskDescriptionField.text ?? ""
         let update = ["event_description":description, "duration":Int32(self.duration), "date": EJSON.convertToEJSONDate(self.taskDate) ] as NSDictionary
-        print("saveAction",update)
         if(self.newTask) {
             self.collection.insert(fields: update)
         } else {        
             self.collection.update(id: (self.taskToEdit?.id)!, fields: update)
         }
-        //        self.navigationController?.dismiss(animated: true, completion: nil)
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
     
@@ -124,7 +123,7 @@ class TaskEditTableViewController: UITableViewController {
             timeFormatter.unitsStyle = .abbreviated
             timeFormatter.allowedUnits = [.hour, .minute]
             durationField.text = timeFormatter.string(from: sender.countDownDuration)
-
+            
             self.duration = sender.countDownDuration
             print("changeFieldValue \(self.duration)")
         default:
@@ -146,7 +145,7 @@ class TaskEditTableViewController: UITableViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        
         self.saveAction(sender!)
         
         if self.newTask {

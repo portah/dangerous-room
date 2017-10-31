@@ -126,19 +126,28 @@ public class MeteorCoreDataCollection: AbstractCollection {
     
     public func insert(fields:NSDictionary) {
         backgroundContext.perform() {
-            
+            let _fields = NSMutableDictionary()
             let object = self.newObject()
+            
             if let id = fields.object(forKey: "_id") {
                 object.setValue(id, forKey: "id")
             } else {
                 let id = self.client.getId()
+                _fields["_id"] = id
                 object.setValue(id, forKey: "id")
             }
             object.setValue(self.name, forKey: "collection")
-            _ = self.delegate?.document(willBeCreatedWith: fields, forObject: object)
-            try! self.managedObjectContext.save()
             
-            let result = self.client.insert(sync: self.name, document: [fields])
+            for (key, value) in fields {
+                _fields[key] = value
+            }
+
+            _ = self.delegate?.document(willBeCreatedWith: _fields, forObject: object)
+            try! self.managedObjectContext.save()
+
+            self.log.debug("MeteorCoreDataCollection insert fields: \(fields) into: \(self.name)")
+            
+            let result = self.client.insert(sync: self.name, document: [_fields])
             if result.error != nil {
                 self.managedObjectContext.delete(object)
                 try! self.managedObjectContext.save()
@@ -257,7 +266,7 @@ public class MeteorCoreDataCollection: AbstractCollection {
                     do {
                         try self.managedObjectContext.save()
                     } catch let error {
-                        self.log.error("\(error)")
+                        self.log.error("MeteorCoreDataCollection documentWasAdded: \(error)")
                     }
                 }
             } else {
