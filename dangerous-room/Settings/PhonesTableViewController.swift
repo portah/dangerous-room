@@ -22,9 +22,10 @@ class PhonesTableViewController: MeteorCoreDataTableViewController, CNContactPic
         let primarySortDescriptor = NSSortDescriptor(key: "priority", ascending: true)
         let secondarySortDescriptor = NSSortDescriptor(key: "lastName", ascending: true)
         fetchRequest.sortDescriptors = [primarySortDescriptor, secondarySortDescriptor]
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.collection.managedObjectContext,
-                                             sectionNameKeyPath: nil, cacheName: nil)
+        let frc = fetchedResultsControllerFor(fetchRequest: fetchRequest, managedObjectContext: self.collection.managedObjectContext)
+//            NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.collection.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         frc.delegate = self
+        
         return frc
     }()
     
@@ -113,6 +114,19 @@ class PhonesTableViewController: MeteorCoreDataTableViewController, CNContactPic
     
     // MARK: Actions
     @IBAction func addTapped(_ sender: Any) {
+        guard let section = fetchedResultsController.sections?.first else {
+            log.error("No sections in PhonesTableViewController.fetchedResultsController")
+            return
+        }
+
+        if section.numberOfObjects >= 3 {
+            let alert = UIAlertController(title: "Emergency contatacts", message: "Just three emergency contacts are allowed. Please remove someone first.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            log.error("3 contacts is enough!")
+            return
+        }
+
         contactPicker = CNContactPickerViewController()
         contactPicker?.displayedPropertyKeys = [CNContactFamilyNameKey, CNContactMiddleNameKey, CNContactGivenNameKey, CNContactPhoneNumbersKey]
         contactPicker?.predicateForEnablingContact = NSPredicate(format: "phoneNumbers.@count > 0", argumentArray: nil)
@@ -142,10 +156,10 @@ class PhonesTableViewController: MeteorCoreDataTableViewController, CNContactPic
         }
         
         if section.numberOfObjects >= 3 {
-            let alert = UIAlertController(title: "Emergency contatacts", message: "Just three emergency contacts are allowed. Please remove someone first.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            log.error("3 contacts is enough!")
+//            let alert = UIAlertController(title: "Emergency contatacts", message: "Just three emergency contacts are allowed. Please remove someone first.", preferredStyle: UIAlertControllerStyle.alert)
+//            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
+//            log.error("3 contacts is enough!")
             return
         }
         let uuid = (UIApplication.shared.delegate as! AppDelegate).uuid
