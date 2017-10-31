@@ -45,3 +45,25 @@ public class MeteorCoreDataTableViewController: UITableViewController, NSFetched
     }
     
 }
+
+extension MeteorCoreDataTableViewController {
+    func fetchedResultsControllerFor<T:NSManagedObject>(fetchRequest: NSFetchRequest<T>, managedObjectContext: NSManagedObjectContext) -> NSFetchedResultsController<T> {
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext,
+                                             sectionNameKeyPath: nil, cacheName: nil)
+
+        NotificationCenter.default.addObserver(forName: .NSManagedObjectContextObjectsDidChange, object: nil, queue: nil, using: { [weak self] notification in
+            log.debug("NSManagedObjectContextObjectsDidChange: \(String(describing: notification.userInfo?.keys))")
+            if (notification.userInfo?.keys.contains(NSInvalidatedAllObjectsKey))! {
+                do {
+                    try frc.performFetch()
+                    self?.tableView.reloadData()
+                }
+                catch let error {
+                    log.error(error.localizedDescription)
+                }
+            }
+        })
+
+        return frc
+    }
+}

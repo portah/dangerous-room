@@ -20,14 +20,15 @@ class TasksTableViewController: MeteorCoreDataTableViewController {
     //notification delegate!
     var delegate: ConfigurationViewControllerDelegate?
         
-    lazy var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Events")
+    lazy var fetchedResultsController: NSFetchedResultsController<Events> = {
+        let fetchRequest = NSFetchRequest<Events>(entityName: "Events")
         let primarySortDescriptor = NSSortDescriptor(key: "id", ascending: true)
         let secondarySortDescriptor = NSSortDescriptor(key: "date", ascending: false)
         fetchRequest.sortDescriptors = [secondarySortDescriptor, primarySortDescriptor]
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.collection.managedObjectContext,
-                                             sectionNameKeyPath: nil, cacheName: nil)
+        let frc = fetchedResultsControllerFor(fetchRequest: fetchRequest, managedObjectContext: self.collection.managedObjectContext)
+//            NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.collection.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         frc.delegate = self
+
         return frc
     }()
     
@@ -103,7 +104,7 @@ class TasksTableViewController: MeteorCoreDataTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TasksCell", for: indexPath)
-        let eventItem = fetchedResultsController.object(at: indexPath) as! Events
+        let eventItem = fetchedResultsController.object(at: indexPath)
         
         renderCell(cell, event: eventItem)
         return cell
@@ -133,7 +134,7 @@ class TasksTableViewController: MeteorCoreDataTableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         // handle delete (by removing the data from your array and updating the tableview)
         if (editingStyle == .delete) {
-            let object = fetchedResultsController.object(at: indexPath) as! NSManagedObject
+            let object = fetchedResultsController.object(at: indexPath)
             let id = object.value(forKey: "id") as! String
             log.debug("going to delete id: \(id)")
             self.collection.remove(withId: id)
@@ -155,7 +156,7 @@ class TasksTableViewController: MeteorCoreDataTableViewController {
                 if let destinationViewController = segue.destination as? TaskViewController {
                     if let cell = sender as? UITableViewCell,
                         let indexPath = tableView.indexPath(for: cell) {
-                        let event = fetchedResultsController.object(at: indexPath)  as! Events
+                        let event = fetchedResultsController.object(at: indexPath)
                         destinationViewController.taskToEdit = event
                     }
                 }

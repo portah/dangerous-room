@@ -31,7 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         let console = ConsoleDestination()  // log to Xcode Console
-        console.format = "$DHH:mm:ss$d $L $M"
+//        console.format = "$DHH:mm:ss$d $L $M"
+        console.format = "$DHH:mm:ss$d $L $N.$F:$l — $M"
         log.addDestination(console)
         
         let url = "ws://localhost:3000/websocket"
