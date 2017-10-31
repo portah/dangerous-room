@@ -102,7 +102,7 @@ class TaskTimerViewController: UIViewController {
         mainTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(proccessMainTick), userInfo: nil, repeats: true)
         aliveSetupTimer = Timer.scheduledTimer(timeInterval: betweenAliveTimeinterval, target: self, selector: #selector(setupAliveCountdown), userInfo: nil, repeats: false)
         
-        self.notifyServerAboutEvent(status: "start", for: (self.task?.id)!)
+        self.notifyServerAboutEvent(status: "start")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -118,7 +118,7 @@ class TaskTimerViewController: UIViewController {
     
     //MARK: Actions
     @IBAction func stopButtonTapped(_ sender: Any) {
-        self.notifyServerAboutEvent(status: "stop", for: (self.task?.id)!)
+        self.notifyServerAboutEvent(status: "stop")
         dismiss(animated: true, completion: nil)
     }
     
@@ -189,13 +189,13 @@ class TaskTimerViewController: UIViewController {
             if isAliveTimerStarted {
                 aliveTime = aliveTimeinterval
                 aliveTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(proccessAliveTick), userInfo: nil, repeats: true)
-                self.notifyServerAboutEvent(status: "active", for: (self.task?.id)!)
+                self.notifyServerAboutEvent(status: "active")
                 showAliveTimer()
             } else {
                 hideAliveTimer()
                 aliveTimer?.invalidate()
                 aliveSetupTimer = Timer.scheduledTimer(timeInterval: betweenAliveTimeinterval, target: self, selector: #selector(setupAliveCountdown), userInfo: nil, repeats: false)
-                self.notifyServerAboutEvent(status: "passive", for: (self.task?.id)!)
+                self.notifyServerAboutEvent(status: "passive")
             }
         }
     }
@@ -203,7 +203,10 @@ class TaskTimerViewController: UIViewController {
     @objc(proccessMainTick)
     func proccessMainTick() {
         if self.mainTime == 0 {
-            print("Main time is over")
+            log.debug("Main time is over")
+            self.notifyServerAboutEvent(status: "stop")
+            dismiss(animated: true, completion: nil)
+            return
         }
         
         self.mainTime -= 1
@@ -219,9 +222,9 @@ class TaskTimerViewController: UIViewController {
                 alarmInfoLabel.alpha = 1.0
                 alarmInfoLabel.text = "Game over, notification has been sent"
                 
-                self.notifyServerAboutEvent(status: "alarm", for: (self.task?.id)!)
+                self.notifyServerAboutEvent(status: "alarm")
                 alarmSent = true
-                print("Alarm! Alarm!")
+                log.debug("alarm! alarm!")
             }
             return
         }

@@ -74,23 +74,26 @@ class TaskEditTableViewController: UITableViewController {
     
     func saveAction(_ sender: Any) {
         let description = taskDescriptionField.text ?? ""
-        let update = ["event_description":description, "duration":Int32(self.duration), "date": EJSON.convertToEJSONDate(self.taskDate) ] as NSDictionary
-        print("saveAction",update)
+        let uuid = (UIApplication.shared.delegate as! AppDelegate).uuid
+        let update = ["event_description":description, "duration":Int32(self.duration), "date": EJSON.convertToEJSONDate(self.taskDate), "phoneID":uuid ] as NSDictionary
         if(self.newTask) {
             self.collection.insert(fields: update)
         } else {        
             self.collection.update(id: (self.taskToEdit?.id)!, fields: update)
         }
-        //        self.navigationController?.dismiss(animated: true, completion: nil)
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func deleteAction(_ sender: Any) {
+        self.collection.remove(withId: (self.taskToEdit?.id)!)
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
     
     // MARK: - Picker View Methods
     
     @objc func changeFieldValue(_ sender: UIDatePicker) {
         
         let gregorian = Calendar(identifier: .gregorian)
-        print("changeFieldValue")
         switch sender {
         case datePicker:
             let dateFormatter = DateFormatter()
@@ -124,9 +127,8 @@ class TaskEditTableViewController: UITableViewController {
             timeFormatter.unitsStyle = .abbreviated
             timeFormatter.allowedUnits = [.hour, .minute]
             durationField.text = timeFormatter.string(from: sender.countDownDuration)
-
+            
             self.duration = sender.countDownDuration
-            print("changeFieldValue \(self.duration)")
         default:
             break
         }
@@ -141,16 +143,12 @@ class TaskEditTableViewController: UITableViewController {
         }
     }
     
-    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
         self.saveAction(sender!)
-        
-        if self.newTask {
-        } else {
+        if !self.newTask {
             if let destinationController = segue.destination as? TaskViewController {
                 print("Are we going to? \(String(describing: destinationController))")
                 destinationController.taskToEdit?.event_description = taskDescriptionField.text ?? ""
@@ -158,11 +156,5 @@ class TaskEditTableViewController: UITableViewController {
                 destinationController.taskToEdit?.duration = Int32(self.duration)
             }
         }
-    }
-    
-    // MARK: - Unused
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
